@@ -2,6 +2,8 @@
 
 > A high-craft, interactive product design portfolio showcasing end-to-end UX/UI case studies, design systems, and digital product experiences across B2B SaaS, mobile apps, and e-commerce.
 
+🌐 **Live Demo:** [https://sonupatel.vercel.app](https://sonupatel.vercel.app) (Also mirrored at [sonu-patel.vercel.app](https://sonu-patel.vercel.app) and [soni-patel.vercel.app](https://soni-patel.vercel.app))
+
 ---
 
 ## 🌟 Overview
