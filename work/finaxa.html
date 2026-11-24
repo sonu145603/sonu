@@ -565,8 +565,8 @@
       <!-- 04 / DESIGN EVOLUTION (#process) -->
       <section id="process" class="scroll-mt-32 flex flex-col gap-6">
         <div class="flex flex-col gap-2">
-          <span class="text-[12px] font-bold uppercase tracking-wider text-[#9d9d9d]">04 / DESIGN EVOLUTION</span>
-          <h2 class="text-[26px] sm:text-[32px] font-bold tracking-tight text-[#0d0d0d]">
+          <span class="text-[12px] font-bold uppercase tracking-wider text-[#5e58c7]">04 / DESIGN EVOLUTION</span>
+          <h2 class="text-[28px] sm:text-[34px] font-bold tracking-tight text-[#0f172a] leading-tight">
             Establish the hierarchy before adding detail.
           </h2>
           <p class="text-[15px] sm:text-[16px] text-[#555555] leading-relaxed max-w-[880px]">
@@ -574,8 +574,73 @@
           </p>
         </div>
 
-        <div class="w-full rounded-[20px] overflow-hidden bg-[#e9e9eb] border border-black/5 p-4 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Evolution">
-          <img src="../assets/figma/finaxa_progression_sketch_to_ui.png" alt="Finaxa Sketch to UI Progression" class="w-full h-auto object-contain rounded-[14px]" />
+        <!-- Charles Honig Step-by-Step Evolution Animated Stage -->
+        <div class="design-evolution-stage relative w-full aspect-[1158/640] rounded-[24px] sm:rounded-[28px] overflow-hidden bg-[#e9eaec] border border-black/5 shadow-xs select-none cursor-pointer" style="container-type: inline-size; --su: calc(100cqw / 1158);" data-cursor-label="Click to Replay">
+          
+          <!-- Replay Button Overlay -->
+          <button type="button" class="evolution-replay-btn absolute top-[16px] right-[16px] z-30 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-black/10 text-[12px] font-semibold text-[#1a1a1a] hover:bg-black hover:text-white transition-all shadow-xs cursor-pointer" data-cursor-label="Replay">
+            <svg class="size-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            <span>Replay</span>
+          </button>
+
+          <!-- Card 1: Initial Sketch (z-index: 14) -->
+          <div class="evo-card evo-card-1 absolute overflow-hidden rounded-[14px] shadow-lg pointer-events-none" style="left: calc(var(--su) * 44); top: calc(var(--su) * 72); width: calc(var(--su) * 240); height: calc(var(--su) * 430); z-index: 14; will-change: transform, opacity;">
+            <img src="../assets/figma/finaxa_evolution_sketch.png" alt="Finaxa Initial Sketch" class="w-full h-full object-cover object-top block" />
+          </div>
+
+          <!-- Arrow 1 (z-index: 10) -->
+          <svg aria-hidden="true" width="29.711" height="8.66" viewBox="0 0 29.711 8.66025" fill="none" class="evo-arrow evo-arrow-1 absolute pointer-events-none text-black/70" style="left: calc(var(--su) * 306); top: calc(var(--su) * 280); width: calc(var(--su) * 32); height: calc(var(--su) * 10); z-index: 10; will-change: transform, opacity;">
+            <path d="M0.75 4.33013H22.961" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M29.711 4.33013L22.211 0V8.66025Z" fill="currentColor"></path>
+          </svg>
+
+          <!-- Card 2: 1st Wireframe (z-index: 13) -->
+          <div class="evo-card evo-card-2 absolute overflow-hidden rounded-[14px] shadow-lg pointer-events-none" style="left: calc(var(--su) * 360); top: calc(var(--su) * 72); width: calc(var(--su) * 174); height: calc(var(--su) * 430); z-index: 13; will-change: transform, opacity;">
+            <img src="../assets/figma/finaxa_evolution_wireframe1.png" alt="Finaxa 1st Wireframe" class="w-full h-full object-cover object-top block" />
+          </div>
+
+          <!-- Arrow 2 (z-index: 10) -->
+          <svg aria-hidden="true" width="29.711" height="8.66" viewBox="0 0 29.711 8.66025" fill="none" class="evo-arrow evo-arrow-2 absolute pointer-events-none text-black/70" style="left: calc(var(--su) * 556); top: calc(var(--su) * 280); width: calc(var(--su) * 32); height: calc(var(--su) * 10); z-index: 10; will-change: transform, opacity;">
+            <path d="M0.75 4.33013H22.961" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M29.711 4.33013L22.211 0V8.66025Z" fill="currentColor"></path>
+          </svg>
+
+          <!-- Card 3: 2nd Wireframe (z-index: 12) -->
+          <div class="evo-card evo-card-3 absolute overflow-hidden rounded-[14px] shadow-lg pointer-events-none" style="left: calc(var(--su) * 610); top: calc(var(--su) * 72); width: calc(var(--su) * 174); height: calc(var(--su) * 430); z-index: 12; will-change: transform, opacity;">
+            <img src="../assets/figma/finaxa_evolution_wireframe2.png" alt="Finaxa 2nd Wireframe" class="w-full h-full object-cover object-top block" />
+          </div>
+
+          <!-- Arrow 3 (z-index: 10) -->
+          <svg aria-hidden="true" width="29.711" height="8.66" viewBox="0 0 29.711 8.66025" fill="none" class="evo-arrow evo-arrow-3 absolute pointer-events-none text-black/70" style="left: calc(var(--su) * 806); top: calc(var(--su) * 280); width: calc(var(--su) * 32); height: calc(var(--su) * 10); z-index: 10; will-change: transform, opacity;">
+            <path d="M0.75 4.33013H22.961" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M29.711 4.33013L22.211 0V8.66025Z" fill="currentColor"></path>
+          </svg>
+
+          <!-- Card 4: Final Design (z-index: 11) -->
+          <div class="evo-card evo-card-4 absolute overflow-hidden rounded-[14px] shadow-2xl pointer-events-none" style="left: calc(var(--su) * 860); top: calc(var(--su) * 72); width: calc(var(--su) * 174); height: calc(var(--su) * 430); z-index: 11; will-change: transform, opacity;">
+            <img src="../assets/figma/finaxa_evolution_final.png" alt="Finaxa Final Design" class="w-full h-full object-cover object-top block" />
+          </div>
+
+          <!-- Label Chips -->
+          <div class="evo-pill evo-pill-1 absolute -translate-x-1/2 rounded-full px-[14px] py-[6px] bg-white border border-black/5 shadow-xs pointer-events-none whitespace-nowrap" style="left: calc(var(--su) * 164); top: calc(var(--su) * 540); z-index: 20; will-change: transform, opacity;">
+            <p class="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a] leading-none" style="font-size: calc(max(10px, var(--su) * 14));">Initial Sketch</p>
+          </div>
+
+          <div class="evo-pill evo-pill-2 absolute -translate-x-1/2 rounded-full px-[14px] py-[6px] bg-white border border-black/5 shadow-xs pointer-events-none whitespace-nowrap" style="left: calc(var(--su) * 447); top: calc(var(--su) * 540); z-index: 20; will-change: transform, opacity;">
+            <p class="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a] leading-none" style="font-size: calc(max(10px, var(--su) * 14));">1st Wireframe</p>
+          </div>
+
+          <div class="evo-pill evo-pill-3 absolute -translate-x-1/2 rounded-full px-[14px] py-[6px] bg-white border border-black/5 shadow-xs pointer-events-none whitespace-nowrap" style="left: calc(var(--su) * 697); top: calc(var(--su) * 540); z-index: 20; will-change: transform, opacity;">
+            <p class="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a] leading-none" style="font-size: calc(max(10px, var(--su) * 14));">2nd Wireframe</p>
+          </div>
+
+          <div class="evo-pill evo-pill-4 absolute -translate-x-1/2 rounded-full px-[14px] py-[6px] bg-[#dcfce7] border border-[#86efac] shadow-xs pointer-events-none whitespace-nowrap" style="left: calc(var(--su) * 947); top: calc(var(--su) * 540); z-index: 20; will-change: transform, opacity;">
+            <p class="text-[13px] sm:text-[14px] font-bold text-[#15803d] leading-none" style="font-size: calc(max(10px, var(--su) * 14));">Final Design</p>
+          </div>
+
         </div>
       </section>
 
@@ -906,6 +971,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof window.initFooterRunner === 'function') {
         window.initFooterRunner();
+      }
+      if (typeof window.initDesignEvolutionAnimation === 'function') {
+        window.initDesignEvolutionAnimation();
       }
 
       // 1. Charles Honig Hero Masked Text Reveal Animation

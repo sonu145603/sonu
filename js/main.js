@@ -581,6 +581,95 @@
   };
 
   /* ==========================================================================
+     9. STEP-BY-STEP DESIGN EVOLUTION ANIMATION (Charles Honig Pattern)
+     ========================================================================== */
+  const initDesignEvolutionAnimation = () => {
+    const stage = document.querySelector('.design-evolution-stage');
+    if (!stage || !window.gsap) return;
+
+    const card1 = stage.querySelector('.evo-card-1');
+    const card2 = stage.querySelector('.evo-card-2');
+    const card3 = stage.querySelector('.evo-card-3');
+    const card4 = stage.querySelector('.evo-card-4');
+
+    const arrow1 = stage.querySelector('.evo-arrow-1');
+    const arrow2 = stage.querySelector('.evo-arrow-2');
+    const arrow3 = stage.querySelector('.evo-arrow-3');
+
+    const pill1 = stage.querySelector('.evo-pill-1');
+    const pill2 = stage.querySelector('.evo-pill-2');
+    const pill3 = stage.querySelector('.evo-pill-3');
+    const pill4 = stage.querySelector('.evo-pill-4');
+
+    const replayBtn = stage.querySelector('.evolution-replay-btn');
+
+    let tl = null;
+
+    const playSequence = () => {
+      if (tl) tl.kill();
+
+      const w = stage.offsetWidth || 1158;
+      const su = w / 1158;
+      const off2 = (44 - 360) * su;
+      const off3 = (44 - 610) * su;
+      const off4 = (44 - 860) * su;
+
+      // Reset initial values
+      window.gsap.set(card1, { opacity: 0, scale: 0.82, x: 0 });
+      window.gsap.set(card2, { opacity: 0, scale: 0.82, x: off2 });
+      window.gsap.set(card3, { opacity: 0, scale: 0.82, x: off3 });
+      window.gsap.set(card4, { opacity: 0, scale: 0.82, x: off4 });
+
+      window.gsap.set([arrow1, arrow2, arrow3], { opacity: 0, scale: 0.4 });
+      window.gsap.set([pill1, pill2, pill3, pill4], { opacity: 0, y: 16, scale: 0.85 });
+
+      tl = window.gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // Step 1: Initial Sketch pops in
+      tl.to(card1, { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(1.3)' })
+        .to(pill1, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.25')
+
+      // Step 2: Arrow 1 pops, 1st Wireframe slides out from behind
+        .to(arrow1, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.8)' }, '+=0.08')
+        .to(card2, { opacity: 1, scale: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.15')
+        .to(pill2, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.25')
+
+      // Step 3: Arrow 2 pops, 2nd Wireframe slides out from behind
+        .to(arrow2, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.8)' }, '+=0.08')
+        .to(card3, { opacity: 1, scale: 1, x: 0, duration: 0.7, ease: 'power3.out' }, '-=0.15')
+        .to(pill3, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.25')
+
+      // Step 4: Arrow 3 pops, Final Design slides out from behind
+        .to(arrow3, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.8)' }, '+=0.08')
+        .to(card4, { opacity: 1, scale: 1, x: 0, duration: 0.75, ease: 'power3.out' }, '-=0.15')
+        .to(pill4, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'back.out(1.8)' }, '-=0.25');
+    };
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.create({
+        trigger: stage,
+        start: 'top 80%',
+        onEnter: () => playSequence(),
+        once: true
+      });
+    } else {
+      playSequence();
+    }
+
+    stage.addEventListener('click', () => {
+      playSequence();
+    });
+
+    if (replayBtn) {
+      replayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playSequence();
+      });
+    }
+  };
+  window.initDesignEvolutionAnimation = initDesignEvolutionAnimation;
+
+  /* ==========================================================================
      DOM READY INIT
      ========================================================================== */
   const start = () => {
@@ -591,11 +680,12 @@
     initRotatingVerb();
     initScrollReveals();
     initProjectCardClicks();
-      initFooterEmailCopy();
+    initFooterEmailCopy();
+    initDesignEvolutionAnimation();
     if (typeof window.initFooterRunner === "function") {
       window.initFooterRunner();
     }
-};
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);
