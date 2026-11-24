@@ -44,8 +44,17 @@
     <!-- 1. HEADER (Figma 22:23110) -->
     <header class="w-full sticky top-0 z-[200] bg-[#f5f5f6]/95 backdrop-blur-md transition-all duration-300 border-b border-black/5" id="site-header">
       <div class="bg-[#f5f5f6] content-stretch flex flex-col items-start py-[28px] relative size-full" data-node-id="22:23110" data-name="Header">
-      <div class="content-stretch flex items-center justify-between max-w-[1440px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:23111" data-name="Navigation - Primary">
-        <div class="content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="22:23112" data-name="Container">
+      <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-[84px] flex items-center justify-between relative shrink-0" data-node-id="22:23111" data-name="Navigation - Primary">
+        <!-- Mobile Menu Hamburger Button (Visible only on mobile/tablet) -->
+        <button type="button" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" class="lg:hidden flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/5 hover:bg-black/10 text-black text-[14px] font-bold transition-all cursor-pointer">
+          <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+        <div class="content-stretch hidden lg:flex gap-[20px] xl:gap-[34px] items-center relative shrink-0" data-node-id="22:23112" data-name="Container">
           <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23113" data-name="Button">
             <div class="bg-white border border-black border-solid content-stretch flex h-[18px] items-center justify-center overflow-clip px-[4px] py-[3px] relative rounded-[4px] shrink-0 w-[16px]" data-node-id="22:23114" data-name="Kbd">
               <p class="[word-break:break-word] font-lato font-bold leading-[10px] not-italic relative shrink-0 text-[10px] text-black text-center uppercase whitespace-nowrap" data-node-id="22:23115">
@@ -187,35 +196,58 @@
           </div>
         </div>
       </div>
-      <div class="absolute bg-[#b51b68] left-[1068.63px] overflow-clip rounded-[12px] size-[42px] top-[18px]" data-node-id="22:23169" data-name="Instagram">
+      <div class="hidden xl:block absolute bg-[#b51b68] left-[1068.63px] overflow-clip rounded-[12px] size-[42px] top-[18px]" data-node-id="22:23169" data-name="Instagram">
         <div class="absolute left-[9px] size-[24px] top-[9px]" data-node-id="22:23170" data-name="Instagram glyph">
           <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgInstagramGlyph.svg"></img>
         </div>
       </div>
     </div>
     </header>
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobile-nav-drawer" class="lg:hidden fixed top-[72px] inset-x-0 bg-[#f5f5f6]/98 backdrop-blur-2xl border-b border-black/10 px-6 py-6 flex flex-col gap-2 shadow-2xl transition-all duration-300 -translate-y-4 opacity-0 pointer-events-none z-[190]">
+      <a href="#home" class="mobile-nav-link text-[17px] font-bold text-black py-2.5 border-b border-black/5 flex items-center justify-between">
+        <span>Home</span>
+        <span class="text-xs font-semibold text-[#9d9d9d]">Top</span>
+      </a>
+      <a href="#work" class="mobile-nav-link text-[17px] font-bold text-black py-2.5 border-b border-black/5 flex items-center justify-between">
+        <span>Work</span>
+        <span class="text-xs font-semibold text-[#9d9d9d]">Projects</span>
+      </a>
+      <a href="#play" class="mobile-nav-link text-[17px] font-bold text-black py-2.5 border-b border-black/5 flex items-center justify-between">
+        <span>Play</span>
+        <span class="text-xs font-semibold text-[#9d9d9d]">Prototypes</span>
+      </a>
+      <a href="#about" class="mobile-nav-link text-[17px] font-bold text-black py-2.5 border-b border-black/5 flex items-center justify-between">
+        <span>About</span>
+        <span class="text-xs font-semibold text-[#9d9d9d]">Bio & Experience</span>
+      </a>
+      <a href="#contact" class="mobile-nav-link text-[17px] font-bold text-black py-2.5 flex items-center justify-between">
+        <span>Contact</span>
+        <span class="text-xs font-semibold text-[#9d9d9d]">Get in touch</span>
+      </a>
+    </div>
+
 
     <!-- 2. HERO SECTION (Figma 22:23176) -->
-    <section class="w-full max-w-[1440px] px-[84px] pt-[28px] pb-[80px] flex flex-col items-center" id="home">
+    <section class="w-full max-w-[1440px] px-4 sm:px-6 md:px-12 lg:px-[84px] pt-[28px] pb-12 sm:pb-16 lg:pb-[80px] flex flex-col items-center" id="home">
       <!-- Hero Intro: Heading, Subtitle & Live Status Indicators -->
       <div class="w-full mb-[44px]">
-        <div class="content-stretch flex items-end justify-between relative size-full" data-node-id="22:23177" data-name="Container">
+        <div class="content-stretch flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 relative size-full" data-node-id="22:23177" data-name="Container">
       <div class="content-stretch flex flex-col gap-[24px] items-start max-w-[686px] relative shrink-0" data-node-id="22:23178" data-name="Container">
         <div class="blur-[0px] content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:23179" data-name="Heading 1">
-          <p class="[word-break:break-word] font-lato font-normal leading-[0] not-italic relative shrink-0 text-[0px] text-balance text-black tracking-[-0.92px] w-[1252px]" data-node-id="22:23180">
-            <span class="leading-[55.199px] text-[45.999px]">I’m </span>
-            <span class="font-lato font-bold leading-[55.199px] text-[45.999px]">Soni patel</span>
-            <span class="leading-[55.199px] text-[45.999px]">, a product designer </span>
-            <span class="leading-[55.199px] text-[45.999px]">who turns complexity into simplicity.</span>
-          </p>
+          <h1 class="[word-break:break-word] font-lato font-normal not-italic relative shrink-0 text-balance text-black tracking-[-0.92px] w-full max-w-[1252px] text-[28px] sm:text-[38px] md:text-[46px] leading-[1.18]" data-node-id="22:23180">
+            <span>I’m </span>
+            <span class="font-bold">Sonu Patel</span>
+            <span>, a product designer who turns complexity into simplicity.</span>
+          </h1>
         </div>
-        <div class="blur-[0px] h-[68.445px] max-w-[569px] relative shrink-0 w-[569px]" data-node-id="22:23181" data-name="Paragraph">
-          <p class="[word-break:break-word] absolute font-lato font-normal leading-[33.6px] left-0 not-italic text-[#9d9d9d] text-[24px] top-[0.5px] w-[569px]" data-node-id="22:23182">
+        <div class="blur-[0px] max-w-[569px] relative shrink-0 w-full" data-node-id="22:23181" data-name="Paragraph">
+          <p class="[word-break:break-word] font-lato font-normal leading-relaxed text-[#9d9d9d] text-[16px] sm:text-[20px] md:text-[24px] w-full" data-node-id="22:23182">
             Designing intuitive digital experiences across SaaS, mobile apps, and websites.
           </p>
         </div>
       </div>
-      <div class="blur-[0px] content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="22:23183" data-name="Container">
+      <div class="blur-[0px] content-stretch flex flex-wrap gap-4 sm:gap-[34px] items-center relative shrink-0" data-node-id="22:23183" data-name="Container">
         <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="22:23184" data-name="Text">
           <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23185" data-name="Text">
             <div class="relative shrink-0 size-[22px]" data-node-id="22:23186" data-name="Icon">
@@ -474,8 +506,8 @@
       <!-- Project 1: Finaxa -->
       <div class="w-full reveal-section" data-cursor-label="Finaxa Case Study">
         <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:27909" data-name="Section">
-      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:27910" data-name="Finaxa — Portfolio Project">
-        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:27911" data-name="Container">
+      <div class="relative mx-auto flex w-full max-w-[1440px] items-start gap-8 lg:gap-[64px] flex-col lg:flex-row pt-12 sm:pt-16 lg:pt-[112px] pb-12 lg:pb-0 px-4 sm:px-6 md:px-12 lg:px-[84px] min-h-0 lg:h-[688.898px]" data-node-id="22:27910" data-name="Finaxa — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-6 lg:gap-[60px] items-start relative shrink-0 w-full lg:w-[360px]" data-node-id="22:27911" data-name="Container">
           <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:27912" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:27913" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:27914" data-name="Container">
@@ -493,7 +525,7 @@
                 </div>
               </div>
               <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:27920" data-name="Paragraph">
-                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:27921">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full max-w-[360px]" data-node-id="22:27921">
                   Finaxa brings everyday banking into one place. I designed web and mobile flows for checking balances, sending money, managing cards, and reviewing spending.
                 </p>
               </div>
@@ -542,9 +574,9 @@
             </div>
           </div>
         </div>
-        <div class="content-stretch flex flex-[571_0_0] items-start min-w-px pr-[44px] relative" data-node-id="22:27944" data-name="Container:margin">
-          <div class="blur-[0px] content-stretch flex items-start max-w-[571px] relative shrink-0 w-[571px]" data-node-id="22:27945" data-name="Container">
-            <div class="flex-[571_0_0] h-[576.898px] min-w-px relative" data-node-id="22:27946" data-name="Finaxa screen gallery">
+        <div class="gallery-scale-wrap w-full max-w-full overflow-hidden flex-1 min-w-0 flex items-center justify-center lg:justify-start" data-node-id="22:27944" data-name="Container:margin">
+          <div class="gallery-scaler relative max-w-[571px] w-full" style="height: 577px;">
+            <div class="gallery-scale-inner origin-top-left absolute top-0 left-0 w-[571px] h-[576.898px]" data-gallery-scale="571" data-name="Finaxa screen gallery">
               <div class="absolute gap-x-[25.08289909362793px] gap-y-[25.08289909362793px] grid grid-cols-[__272.96px_272.96px] grid-rows-[__275.91px_275.91px] h-[576.898px] left-0 top-0 w-[571px]" data-node-id="22:27947" data-name="Container">
                 <div class="bg-[#e8e8e8] col-[1/span_2] justify-self-stretch overflow-clip relative rounded-[10.328px] row-1 self-stretch shrink-0" data-node-id="22:27948" data-name="Container">
                   <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[256.727px] left-[234.59px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[50.16px] w-[303.938px]" data-node-id="22:27949" data-name="Container">
@@ -630,8 +662,8 @@
       <!-- Project 2: Pronex ArchAI -->
       <div class="w-full reveal-section" data-cursor-label="ArchAI Case Study">
         <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:27996" data-name="Section">
-      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:27997" data-name="Container">
-        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:27998" data-name="Container">
+      <div class="relative mx-auto flex w-full max-w-[1440px] items-start gap-8 lg:gap-[64px] flex-col lg:flex-row pt-12 sm:pt-16 lg:pt-[112px] pb-12 lg:pb-0 px-4 sm:px-6 md:px-12 lg:px-[84px] min-h-0 lg:h-[688.898px]" data-node-id="22:27997" data-name="Container">
+        <div class="blur-[0px] content-stretch flex flex-col gap-6 lg:gap-[60px] items-start relative shrink-0 w-full lg:w-[360px]" data-node-id="22:27998" data-name="Container">
           <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:27999" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28000" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28001" data-name="Container">
@@ -649,7 +681,7 @@
                 </div>
               </div>
               <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28007" data-name="Paragraph">
-                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28008">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full max-w-[360px]" data-node-id="22:28008">
                   Designed a centralized project management platform for an architecture firm, simplifying project tracking, document management, team collaboration, meetings, and payments. Created intuitive, role-based experiences for Admin, Staff, Client Leaders, and Client Viewers.
                 </p>
               </div>
@@ -701,10 +733,43 @@
               <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
             </div>
           </a>
+          <div class="blur-[0px] content-stretch flex flex-col items-start w-[272.938px] max-w-full mt-2" data-node-id="22:28051" data-name="Container">
+            <div class="content-stretch flex gap-[14px] items-center relative shrink-0 w-full" data-node-id="22:28052" data-name="Container">
+              <div class="bg-[#e8e8e8] content-stretch flex flex-col items-start px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28053" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[18px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28054">
+                  8 min read
+                </p>
+              </div>
+              <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28055" data-name="Button - Like this case study">
+                <div class="content-stretch flex items-start relative shrink-0 transform-3d" data-node-id="22:28056" data-name="Text">
+                  <div class="relative shrink-0 size-[18px]" data-node-id="22:28057" data-name="Icon">
+                    <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon1.svg">
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:28059" data-name="Text">
+                  <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black text-center whitespace-nowrap" data-node-id="22:28060">
+                    50
+                  </p>
+                </div>
+              </div>
+              <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28061" data-name="Text">
+                <div class="relative shrink-0 size-[18px]" data-node-id="22:28062" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon2.svg">
+                </div>
+                <div class="content-stretch flex h-[14px] items-start overflow-clip relative shrink-0 w-[35.711px]" data-node-id="22:28065" data-name="Text">
+                  <div class="content-stretch flex flex-col h-full items-start relative shrink-0" data-node-id="22:28066" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28067">
+                      3,362
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="content-stretch flex flex-[571_0_0] items-start min-w-px pr-[44px] relative" data-node-id="22:28031" data-name="Container:margin">
-          <div class="blur-[0px] content-stretch flex items-start max-w-[571px] relative shrink-0 w-[571px]" data-node-id="22:28032" data-name="Container">
-            <div class="flex-[571_0_0] h-[576.898px] min-w-px relative" data-node-id="22:28033" data-name="Link - View Microsoft Contracts case study">
+        <div class="gallery-scale-wrap w-full max-w-full overflow-hidden flex-1 min-w-0 flex items-center justify-center lg:justify-start" data-node-id="22:28031" data-name="Container:margin">
+          <div class="gallery-scaler relative max-w-[571px] w-full" style="height: 577px;">
+            <div class="gallery-scale-inner origin-top-left absolute top-0 left-0 w-[571px] h-[576.898px]" data-gallery-scale="571" data-name="Pronex ArchAI screen gallery">
               <div class="absolute gap-x-[25.08289909362793px] gap-y-[25.08289909362793px] grid grid-cols-[__272.96px_272.96px] grid-rows-[__275.91px_275.91px] h-[576.898px] left-0 top-0 w-[571px]" data-node-id="22:28034" data-name="Container">
                 <div class="bg-[#e8e8e8] col-[1/span_2] justify-self-stretch overflow-clip relative rounded-[10.328px] row-1 self-stretch shrink-0" data-node-id="22:28035" data-name="Container">
                   <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[225px] left-[442px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[94.16px] w-[90px]" data-node-id="22:28036" data-name="Container">
@@ -753,39 +818,6 @@
             </div>
           </div>
         </div>
-        <div class="absolute blur-[0px] content-stretch flex flex-col items-start left-[84px] top-[662.9px] w-[272.938px]" data-node-id="22:28051" data-name="Container">
-          <div class="content-stretch flex gap-[14px] items-center relative shrink-0 w-full" data-node-id="22:28052" data-name="Container">
-            <div class="bg-[#e8e8e8] content-stretch flex flex-col items-start px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28053" data-name="Text">
-              <p class="[word-break:break-word] font-lato font-normal leading-[18px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28054">
-                8 min read
-              </p>
-            </div>
-            <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28055" data-name="Button - Like this case study">
-              <div class="content-stretch flex items-start relative shrink-0 transform-3d" data-node-id="22:28056" data-name="Text">
-                <div class="relative shrink-0 size-[18px]" data-node-id="22:28057" data-name="Icon">
-                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon1.svg">
-                </div>
-              </div>
-              <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:28059" data-name="Text">
-                <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black text-center whitespace-nowrap" data-node-id="22:28060">
-                  50
-                </p>
-              </div>
-            </div>
-            <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28061" data-name="Text">
-              <div class="relative shrink-0 size-[18px]" data-node-id="22:28062" data-name="Icon">
-                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon2.svg">
-              </div>
-              <div class="content-stretch flex h-[14px] items-start overflow-clip relative shrink-0 w-[35.711px]" data-node-id="22:28065" data-name="Text">
-                <div class="content-stretch flex flex-col h-full items-start relative shrink-0" data-node-id="22:28066" data-name="Text">
-                  <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28067">
-                    3,362
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
       </div>
@@ -793,8 +825,8 @@
       <!-- Project 3: Settle -->
       <div class="w-full reveal-section" data-cursor-label="Settle Case Study">
         <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28068" data-name="Section">
-      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28069" data-name="Settle — Portfolio Project">
-        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:28070" data-name="Container">
+      <div class="relative mx-auto flex w-full max-w-[1440px] items-start gap-8 lg:gap-[64px] flex-col lg:flex-row pt-12 sm:pt-16 lg:pt-[112px] pb-12 lg:pb-0 px-4 sm:px-6 md:px-12 lg:px-[84px] min-h-0 lg:h-[688.898px]" data-node-id="22:28069" data-name="Settle — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-6 lg:gap-[60px] items-start relative shrink-0 w-full lg:w-[360px]" data-node-id="22:28070" data-name="Container">
           <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:28071" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28072" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28073" data-name="Container">
@@ -812,7 +844,7 @@
                 </div>
               </div>
               <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28079" data-name="Paragraph">
-                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28080">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full max-w-[360px]" data-node-id="22:28080">
                   Settle is a mobile wellness app that guides users from a personal check-in to a short breathing or grounding exercise. Suggested sessions, streaks, and exercise history help users build a regular practice.
                 </p>
               </div>
@@ -865,41 +897,45 @@
             </div>
           </a>
         </div>
-        <div class="content-stretch flex flex-[571_0_0] h-[576.898px] items-start min-w-px pr-[44px] relative" data-node-id="22:28103" data-name="Container:margin">
-          <div class="absolute h-[577px] left-0 overflow-clip rounded-[18px] top-0 w-[848px]" data-node-id="22:28133" data-name="Settle — App screens and Play Store artwork">
-            <div class="absolute bg-[#e9e7ea] h-[279px] left-0 overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28149" data-name="Play Store promo 1">
-              <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28150" data-name="Settle Play Store artwork 1">
-                <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-                  <img alt="" class="absolute h-[144.47%] left-[27.68%] max-w-none top-[-0.07%] w-[44.8%]" src="assets/figma/imgSettlePlayStoreArtwork1.png"></img>
-                </div>
-              </div>
-            </div>
-            <div class="absolute bg-[#e9e7ea] h-[279px] left-[432px] overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28151" data-name="Play Store promo 2">
-              <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28152" data-name="Settle Play Store artwork 2">
-                <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
-                  <img alt="" class="absolute h-[137.25%] left-[28.69%] max-w-none top-[-28.67%] w-[42.55%]" src="assets/figma/imgSettlePlayStoreArtwork2.png"></img>
-                </div>
-              </div>
-            </div>
-            <div class="absolute bg-[#e9e7ea] h-[278px] left-0 overflow-clip rounded-[16px] top-0 w-[848px]" data-node-id="22:28153" data-name="Settle app screens">
-              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[135px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28154" data-name="Check-in">
-                <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28155" data-name="Rectangle">
-                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
-                    <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-14.23%] w-[100.31%]" src="assets/figma/imgRectangle.png"></img>
+        <div class="gallery-scale-wrap w-full max-w-full overflow-hidden flex-1 min-w-0 flex items-center justify-center lg:justify-start" data-node-id="22:28103" data-name="Container:margin">
+          <div class="gallery-scaler relative max-w-[848px] w-full" style="height: 577px;">
+            <div class="gallery-scale-inner origin-top-left absolute top-0 left-0 w-[848px] h-[577px]" data-gallery-scale="848" data-name="Settle — App screens and Play Store artwork">
+              <div class="absolute h-[577px] left-0 overflow-clip rounded-[18px] top-0 w-[848px]" data-node-id="22:28133" data-name="Settle — App screens and Play Store artwork">
+                <div class="absolute bg-[#e9e7ea] h-[279px] left-0 overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28149" data-name="Play Store promo 1">
+                  <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28150" data-name="Settle Play Store artwork 1">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
+                      <img alt="" class="absolute h-[144.47%] left-[27.68%] max-w-none top-[-0.07%] w-[44.8%]" src="assets/figma/imgSettlePlayStoreArtwork1.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[506px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28156" data-name="Progress">
-                <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28157" data-name="Rectangle">
-                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
-                    <img alt="" class="absolute h-[149.54%] left-[-0.11%] max-w-none top-[-0.02%] w-full" src="assets/figma/imgRectangle1.png">
+                <div class="absolute bg-[#e9e7ea] h-[279px] left-[432px] overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28151" data-name="Play Store promo 2">
+                  <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28152" data-name="Settle Play Store artwork 2">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
+                      <img alt="" class="absolute h-[137.25%] left-[28.69%] max-w-none top-[-28.67%] w-[42.55%]" src="assets/figma/imgSettlePlayStoreArtwork2.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[326px] overflow-clip rounded-[18px] top-[22px] w-[196px]" data-node-id="22:28158" data-name="Guided breathwork">
-                <div class="absolute h-[404px] left-px rounded-[13px] top-[-63.84px] w-[186px]" data-node-id="22:28159" data-name="Rectangle">
-                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
-                    <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-0.04%] w-[100.31%]" src="assets/figma/imgRectangle2.png">
+                <div class="absolute bg-[#e9e7ea] h-[278px] left-0 overflow-clip rounded-[16px] top-0 w-[848px]" data-node-id="22:28153" data-name="Settle app screens">
+                  <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[135px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28154" data-name="Check-in">
+                    <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28155" data-name="Rectangle">
+                      <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                        <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-14.23%] w-[100.31%]" src="assets/figma/imgRectangle.png"></img>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[506px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28156" data-name="Progress">
+                    <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28157" data-name="Rectangle">
+                      <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                        <img alt="" class="absolute h-[149.54%] left-[-0.11%] max-w-none top-[-0.02%] w-full" src="assets/figma/imgRectangle1.png">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[326px] overflow-clip rounded-[18px] top-[22px] w-[196px]" data-node-id="22:28158" data-name="Guided breathwork">
+                    <div class="absolute h-[404px] left-px rounded-[13px] top-[-63.84px] w-[186px]" data-node-id="22:28159" data-name="Rectangle">
+                      <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                        <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-0.04%] w-[100.31%]" src="assets/figma/imgRectangle2.png">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -913,8 +949,8 @@
       <!-- Project 4: Clickio -->
       <div class="w-full reveal-section" data-cursor-label="Clickio Case Study">
         <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28177" data-name="Section">
-      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28178" data-name="Clickio — Portfolio Project">
-        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:28179" data-name="Container">
+      <div class="relative mx-auto flex w-full max-w-[1440px] items-start gap-8 lg:gap-[64px] flex-col lg:flex-row pt-12 sm:pt-16 lg:pt-[112px] pb-12 lg:pb-0 px-4 sm:px-6 md:px-12 lg:px-[84px] min-h-0 lg:h-[688.898px]" data-node-id="22:28178" data-name="Clickio — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-6 lg:gap-[60px] items-start relative shrink-0 w-full lg:w-[360px]" data-node-id="22:28179" data-name="Container">
           <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:28180" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28181" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28182" data-name="Container">
@@ -932,7 +968,7 @@
                 </div>
               </div>
               <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28188" data-name="Paragraph">
-                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28189">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full max-w-[360px]" data-node-id="22:28189">
                   Clickio helps SEO and marketing teams track brand visibility across Google and AI search. I designed the landing page and dashboard flows for comparing competitors, analyzing traffic, tracking keywords, and setting up alerts.
                 </p>
               </div>
@@ -983,8 +1019,9 @@
             </div>
           </div>
         </div>
-        <div class="content-stretch flex flex-[571_0_0] h-[576.898px] items-start min-w-px pr-[44px] relative" data-node-id="22:28212" data-name="Container:margin">
-          <div class="absolute h-[577px] left-0 overflow-clip top-0 w-[848px]" data-node-id="22:28232" data-name="Clickio — Selected project covers">
+        <div class="gallery-scale-wrap w-full max-w-full overflow-hidden flex-1 min-w-0 flex items-center justify-center lg:justify-start" data-node-id="22:28212" data-name="Container:margin">
+          <div class="gallery-scaler relative max-w-[848px] w-full" style="height: 577px;">
+            <div class="gallery-scale-inner origin-top-left absolute top-0 left-0 w-[848px] h-[577px]" data-gallery-scale="848" data-name="Clickio — Selected project covers">
             <div class="absolute h-[310px] left-0 rounded-[15px] top-0 w-[848px]" data-node-id="22:28233" data-name="Clickio — Desktop dashboard cover">
               <div aria-hidden class="absolute inset-0 pointer-events-none rounded-[15px]">
                 <div class="absolute bg-[#f2f3f5] inset-0 rounded-[15px]"></div>
@@ -1006,15 +1043,15 @@
 
     <!-- 4. LIVE WORK & EXPERIMENTS (Figma 22:30436) -->
     <section class="w-full flex flex-col items-center reveal-section" id="play">
-      <div class="content-stretch flex flex-col gap-[36px] items-start px-[84px] py-[80px] relative size-full" data-node-id="22:30436" data-name="Live work / Clear destinations and content">
-      <div class="content-stretch flex flex-col gap-[20px] items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30461" data-name="Design content and experiments">
-        <div class="[word-break:break-word] content-stretch flex font-lato font-semibold gap-[32px] items-center not-italic overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30462" data-name="Content heading and context">
-          <p class="h-full leading-[1.18] relative shrink-0 text-[#20242a] text-[26px] w-[850px]">Design notes & experiments</p>
-          <p class="leading-[1.5] relative shrink-0 text-[#486553] text-[12px] text-right w-[390px]" data-node-id="22:30466">
+      <div class="content-stretch flex flex-col gap-[36px] items-start px-4 sm:px-6 md:px-12 lg:px-[84px] py-12 lg:py-[80px] relative size-full w-full max-w-[1440px]" data-node-id="22:30436" data-name="Live work / Clear destinations and content">
+      <div class="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full max-w-[1272px]" data-node-id="22:30461" data-name="Design content and experiments">
+        <div class="[word-break:break-word] content-stretch flex flex-col sm:flex-row justify-between sm:items-center font-lato font-semibold gap-2 not-italic relative shrink-0 w-full max-w-[1272px]" data-node-id="22:30462" data-name="Content heading and context">
+          <p class="h-full leading-[1.18] relative shrink-0 text-[#20242a] text-[22px] sm:text-[26px] w-auto">Design notes & experiments</p>
+          <p class="leading-[1.5] relative shrink-0 text-[#486553] text-[12px] sm:text-right w-auto" data-node-id="22:30466">
             ON INSTAGRAM ↗
           </p>
         </div>
-        <div class="content-stretch flex gap-[20px] items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30467" data-name="Five design experiments">
+        <div class="content-stretch flex gap-[16px] sm:gap-[20px] items-start overflow-x-auto pb-4 relative shrink-0 w-full max-w-[1272px] scrollbar-none snap-x" data-node-id="22:30467" data-name="Five design experiments">
           <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[227px]" data-node-id="22:30468" data-name="Texture in Figma / Instagram">
             <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30469" data-name="Original reel artwork">
               <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30470" data-name="Reel cover">
@@ -1107,13 +1144,13 @@
           </div>
         </div>
       </div>
-      <div class="bg-[#dde3d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:30460" data-name="Section divider"></div>
+      <div class="bg-[#dde3d9] h-px relative shrink-0 w-full max-w-[1272px]" data-node-id="22:30460" data-name="Section divider"></div>
       <p class="[word-break:break-word] font-lato font-semibold leading-[1.5] min-w-full not-italic relative shrink-0 text-[#486553] text-[12px] w-[min-content]" data-node-id="22:30508">
         BEYOND THE CASE STUDIES
       </p>
-      <div class="content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30443" data-name="Live projects">
-        <div class="[word-break:break-word] content-stretch flex gap-[20px] items-start not-italic overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30447" data-name="Three live project destinations">
-          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30448" data-name="Woogyy">
+      <div class="content-stretch flex flex-col items-start relative shrink-0 w-full max-w-[1272px]" data-node-id="22:30443" data-name="Live projects">
+        <div class="[word-break:break-word] content-stretch grid grid-cols-1 md:grid-cols-3 gap-5 items-start not-italic relative shrink-0 w-full max-w-[1272px]" data-node-id="22:30447" data-name="Three live project destinations">
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-full" data-node-id="22:30448" data-name="Woogyy">
             <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30449">
               ANDROID APP
             </p>
@@ -1124,7 +1161,7 @@
               <p class="cursor-pointer leading-[24px]">View on Google Play ↗</p>
             </a>
           </div>
-          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30456" data-name="Gujfly">
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-full" data-node-id="22:30456" data-name="Gujfly">
             <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30457">
               UI/UX + DEVELOPMENT
             </p>
@@ -1135,7 +1172,7 @@
               <p class="cursor-pointer leading-[24px]">Visit website ↗</p>
             </a>
           </div>
-          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30452" data-name="Deluzex">
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-full" data-node-id="22:30452" data-name="Deluzex">
             <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30453">
               LIGHTING WEBSITE
             </p>
@@ -1154,36 +1191,22 @@
     <!-- 5. ABOUT / MY STORY / EXPERIENCE (Figma 22:28341) -->
     <section class="w-full flex flex-col items-center reveal-section" id="about">
       <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28341" data-name="Section">
-      <div class="content-stretch flex flex-col items-start max-w-[1440px] pt-[119.409px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28342" data-name="Container">
-        <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28343" data-name="Container">
-          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28344" data-name="Heading 2">
+      <div class="content-stretch flex flex-col items-start w-full max-w-[1440px] pt-12 sm:pt-16 lg:pt-[119.409px] px-4 sm:px-6 md:px-12 lg:px-[84px] relative shrink-0" data-node-id="22:28342" data-name="Container">
+        <div class="content-stretch flex flex-col lg:flex-row items-start gap-8 relative shrink-0 w-full max-w-[1272px]" data-node-id="22:28343" data-name="Container">
+          <div class="content-stretch flex flex-col h-auto items-start relative shrink-0 w-full lg:w-[286px]" data-node-id="22:28344" data-name="Heading 2">
             <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28345">
               My Story
             </p>
           </div>
-          <div class="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[436px]" data-node-id="22:28346" data-name="Container">
-            <div class="[word-break:break-word] font-lato font-normal h-[66px] leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full" data-node-id="22:28347" data-name="Paragraph">
-              <p class="absolute left-0 top-[0.5px] whitespace-nowrap" data-node-id="22:28348">I’m a </p>
-              <p class="[text-underline-position:from-font] absolute decoration-from-font decoration-solid left-[32.55px] top-[0.5px] underline whitespace-nowrap" data-node-id="22:28349">
-                self-taught product designer
-              </p>
-              <p class="absolute left-0 top-[22.75px] w-[436px]" data-node-id="22:28350">
-                based in Udaipur. I also create design content on Instagram, where I share what I’m learning with 3,600 followers.
-              </p>
+          <div class="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full lg:max-w-[480px]" data-node-id="22:28346" data-name="Container">
+            <div class="font-lato font-normal leading-[24px] text-[15px] sm:text-[16px] text-black w-full" data-node-id="22:28347">
+              <p>I’m a <span class="underline">self-taught product designer</span> based in Udaipur. I also create design content on Instagram, where I share what I’m learning with 3,600 followers.</p>
             </div>
-            <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28351" data-name="Paragraph">
-              <p class="[word-break:break-word] font-lato font-normal leading-[0] not-italic relative shrink-0 text-[14px] text-black w-[436px]" data-node-id="22:28352">
-                <span class="leading-[22px]">As a freelance designer, I’ve completed 10+ client projects, including 7+ on </span>
-                <a class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline" href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank">
-                  <span class="[text-underline-position:from-font] decoration-from-font decoration-solid underline" href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank">
-                    Upwork
-                  </span>
-                </a>
-                <span class="leading-[22px]">.</span>
-              </p>
+            <div class="font-lato font-normal leading-[24px] text-[15px] sm:text-[16px] text-black w-full" data-node-id="22:28351">
+              <p>As a freelance designer, I’ve completed 10+ client projects, including 7+ on <a class="underline hover:text-black font-semibold" href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank">Upwork</a>.</p>
             </div>
           </div>
-          <div class="content-stretch flex flex-[1_0_0] items-start justify-end min-w-px relative" data-node-id="22:28353" data-name="Container:align">
+          <div class="content-stretch flex items-start justify-start lg:justify-end min-w-px relative w-full sm:w-auto" data-node-id="22:28353" data-name="Container:align">
             <div class="bg-[#d9d9d9] h-[176px] overflow-clip relative rounded-[14px] shrink-0 w-[308px]" data-node-id="22:28354" data-name="Container">
               <div class="absolute h-[176px] left-0 top-0 w-[308px]" data-node-id="22:28355" data-name="Soni Patel — Portrait">
                 <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src="assets/figma/imgSoniPatelPortrait.png"></img>
@@ -1192,15 +1215,15 @@
           </div>
         </div>
         <div class="content-stretch flex flex-col items-start pt-[44px] relative shrink-0" data-node-id="22:28356" data-name="Container:margin">
-          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:28357" data-name="Container"></div>
+          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-full max-w-[1272px]" data-node-id="22:28357" data-name="Container"></div>
         </div>
-        <div class="content-stretch flex h-[128px] items-start pt-[44px] relative shrink-0 w-[1272px]" data-node-id="22:28358" data-name="Container">
-          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28359" data-name="Heading 3">
+        <div class="content-stretch flex flex-col lg:flex-row items-start gap-6 lg:gap-8 pt-8 lg:pt-[44px] relative shrink-0 w-full max-w-[1272px] h-auto" data-node-id="22:28358" data-name="Container">
+          <div class="content-stretch flex flex-col h-auto items-start relative shrink-0 w-full lg:w-[286px]" data-node-id="22:28359" data-name="Heading 3">
             <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28360">
               Experience
             </p>
           </div>
-          <div class="content-stretch flex flex-[986_0_0] items-start justify-between min-w-px relative" data-node-id="22:28361" data-name="Container">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full flex-1 relative" data-node-id="22:28361" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[175px]" data-node-id="22:28362" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28363" data-name="Container">
                 <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[59.805px]" data-node-id="22:28364" data-name="Paragraph">
@@ -1271,13 +1294,13 @@
           </div>
         </div>
         <div class="content-stretch flex flex-col items-start pt-[44px] relative shrink-0" data-node-id="22:28401" data-name="Container:margin">
-          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:28402" data-name="Container"></div>
+          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-full max-w-[1272px]" data-node-id="22:28402" data-name="Container"></div>
         </div>
-        <div class="content-stretch flex items-start pt-[44px] relative shrink-0 w-[1272px]" data-node-id="22:28403" data-name="Container">
-          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28404" data-name="Heading 3">
+        <div class="content-stretch flex flex-col lg:flex-row items-start gap-6 lg:gap-8 pt-8 lg:pt-[44px] relative shrink-0 w-full max-w-[1272px] h-auto" data-node-id="22:28403" data-name="Container">
+          <div class="content-stretch flex flex-col h-auto items-start relative shrink-0 w-full lg:w-[286px]" data-node-id="22:28404" data-name="Heading 3">
             <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28405">Education & Learning</p>
           </div>
-          <div class="content-stretch flex flex-[986_0_0] items-start justify-between min-w-px relative" data-node-id="22:28406" data-name="Container">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full flex-1 relative" data-node-id="22:28406" data-name="Container">
             <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[222px]" data-node-id="22:28407" data-name="Container">
               <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28408" data-name="Container">
                 <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28409" data-name="Paragraph">
@@ -1504,7 +1527,7 @@
             </p>
           </div>
           <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:30536" data-name="Container">
-            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30537" data-name="Button">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-full max-w-[376px]" data-node-id="22:30537" data-name="Button">
               <div class="relative shrink-0 size-[20px]" data-node-id="22:30538" data-name="Icon">
                 <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
               </div>
@@ -1514,7 +1537,7 @@
                 </p>
               </div>
             </div>
-            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30543" data-name="Button">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-full max-w-[376px]" data-node-id="22:30543" data-name="Button">
               <div class="relative shrink-0 size-[20px]" data-node-id="22:30544" data-name="Icon">
                 <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
               </div>
@@ -1524,7 +1547,7 @@
                 </p>
               </div>
             </div>
-            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30549" data-name="Button">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-full max-w-[376px]" data-node-id="22:30549" data-name="Button">
               <div class="relative shrink-0 size-[20px]" data-node-id="22:30550" data-name="Icon">
                 <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
               </div>
@@ -1534,7 +1557,7 @@
                 </p>
               </div>
             </div>
-            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30555" data-name="Button">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-full max-w-[376px]" data-node-id="22:30555" data-name="Button">
               <div class="relative shrink-0 size-[20px]" data-node-id="22:30556" data-name="Icon">
                 <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
               </div>
@@ -1544,7 +1567,7 @@
                 </p>
               </div>
             </div>
-            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30561" data-name="Button">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-full max-w-[376px]" data-node-id="22:30561" data-name="Button">
               <div class="relative shrink-0 size-[20px]" data-node-id="22:30562" data-name="Icon">
                 <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
               </div>
@@ -1558,7 +1581,7 @@
         </div>
       </div>
       <div class="content-stretch flex flex-col items-start pb-[24px] px-[24px] relative shrink-0 w-full" data-node-id="22:30567" data-name="Form">
-        <div class="bg-[#f5f5f6] content-stretch flex flex-col h-[99px] items-start justify-between min-h-[99px] p-[14px] relative rounded-[14px] shrink-0 w-[376px]" data-node-id="22:30568" data-name="Container">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col h-[99px] items-start justify-between min-h-[99px] p-[14px] relative rounded-[14px] shrink-0 w-full max-w-[376px]" data-node-id="22:30568" data-name="Container">
           <div class="content-stretch flex flex-col h-[22px] items-start max-h-[88px] overflow-clip relative shrink-0 w-full" data-node-id="22:30569" data-name="Text Area - Ask anything about Charles">
             <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[16px] w-full" data-node-id="22:30570">
               Ask anything about Charles...
@@ -1584,7 +1607,7 @@
             </div>
           </div>
         </div>
-        <div class="content-stretch flex flex-col h-[21px] items-center pt-[8px] relative shrink-0 w-[376px]" data-node-id="22:30590" data-name="Paragraph">
+        <div class="content-stretch flex flex-col h-[21px] items-center pt-[8px] relative shrink-0 w-full max-w-[376px]" data-node-id="22:30590" data-name="Paragraph">
           <p class="[word-break:break-word] font-lato font-normal leading-[normal] not-italic relative shrink-0 text-[#9d9d9d] text-[11px] text-center whitespace-nowrap" data-node-id="22:30591">
             AI can get things wrong. The case studies have the full story.
           </p>

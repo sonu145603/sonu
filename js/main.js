@@ -142,6 +142,31 @@
       });
     }
 
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+    if (mobileMenuToggle && mobileNavDrawer) {
+      mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = mobileNavDrawer.classList.toggle('menu-open');
+        mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileNavDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavDrawer.classList.remove('menu-open');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!mobileNavDrawer.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+          mobileNavDrawer.classList.remove('menu-open');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
       const activeEl = document.activeElement;
@@ -670,6 +695,36 @@
   window.initDesignEvolutionAnimation = initDesignEvolutionAnimation;
 
   /* ==========================================================================
+     RESPONSIVE PROJECT GALLERIES AUTO-SCALER
+     ========================================================================== */
+  const initGalleryScalers = () => {
+    const updateScales = () => {
+      document.querySelectorAll('[data-gallery-scale]').forEach(el => {
+        const targetW = parseFloat(el.getAttribute('data-gallery-scale')) || 571;
+        const parent = el.closest('.gallery-scale-wrap');
+        if (!parent) return;
+
+        const availableW = parent.clientWidth;
+        if (availableW <= 0) return;
+
+        const scale = Math.min(1, availableW / targetW);
+        el.style.transform = `scale(${scale})`;
+
+        const scaler = el.closest('.gallery-scaler');
+        if (scaler) {
+          scaler.style.height = `${el.offsetHeight * scale}px`;
+        }
+      });
+    };
+
+    window.addEventListener('resize', updateScales, { passive: true });
+    window.addEventListener('orientationchange', updateScales, { passive: true });
+    updateScales();
+    setTimeout(updateScales, 80);
+    setTimeout(updateScales, 400);
+  };
+
+  /* ==========================================================================
      DOM READY INIT
      ========================================================================== */
   const start = () => {
@@ -682,6 +737,7 @@
     initProjectCardClicks();
     initFooterEmailCopy();
     initDesignEvolutionAnimation();
+    initGalleryScalers();
     if (typeof window.initFooterRunner === "function") {
       window.initFooterRunner();
     }

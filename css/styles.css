@@ -527,3 +527,49 @@ h1, h2, h3, h4, h5, h6, p, a, button, span, div, input, textarea {
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* ==========================================================================
+   Mobile Navigation Drawer & Responsive Scaler Styles
+   ========================================================================== */
+#mobile-nav-drawer {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+#mobile-nav-drawer.menu-open {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Responsive Project Galleries Dynamic Scaler */
+.gallery-scale-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.gallery-scaler {
+  position: relative;
+  width: 100%;
+  transition: height 0.2s ease-out;
+}
+
+.gallery-scale-inner {
+  transform-origin: top left;
+  will-change: transform;
+}
+
+/* Global Mobile Overflow Prevention */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+@media (max-width: 768px) {
+  .hero-wall-container {
+    overflow-x: hidden;
+  }
+}
+
