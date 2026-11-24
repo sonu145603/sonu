@@ -738,8 +738,38 @@
           </p>
         </div>
 
-        <div class="w-full rounded-[20px] overflow-hidden bg-[#e9e9eb] border border-black/5 p-4 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Design System">
-          <img src="./assets/figma/finaxa_design_system.png" alt="Finaxa Design System Foundation" class="w-full h-auto object-contain rounded-[14px]" />
+        <!-- Scrollable Design System Showcase -->
+        <div class="w-full rounded-[24px] overflow-hidden bg-[#e9e9eb] border border-black/5 p-4 sm:p-6">
+          <div class="flex items-center justify-between mb-3 px-1">
+            <span class="text-[12px] font-medium text-[#777] flex items-center gap-1.5">
+              <svg class="size-4 shrink-0 text-[#888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8L22 12L18 16"/>
+                <path d="M6 8L2 12L6 16"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+              </svg>
+              <span>Scroll horizontally to view typography</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <button type="button" id="ds-scroll-prev" aria-label="Scroll left" class="size-8 rounded-full bg-white border border-black/10 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all shadow-xs cursor-pointer">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" id="ds-scroll-next" aria-label="Scroll right" class="size-8 rounded-full bg-white border border-black/10 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all shadow-xs cursor-pointer">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="design-system-track" class="w-full overflow-x-auto pb-2 flex gap-5 sm:gap-6 scroll-smooth snap-x snap-mandatory scrollbar-none select-none cursor-grab active:cursor-grabbing">
+            <!-- Card 1: Foundations & Colors -->
+            <div class="shrink-0 snap-start w-[88%] sm:w-[740px] md:w-[820px] rounded-[18px] overflow-hidden shadow-md bg-white border border-black/5 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Foundations">
+              <img src="./assets/figma/finaxa_foundations_card.png" alt="Finaxa Design System Foundations & Colors" class="w-full h-auto object-contain block" />
+            </div>
+
+            <!-- Card 2: Typography Hierarchy -->
+            <div class="shrink-0 snap-start w-[88%] sm:w-[680px] md:w-[760px] rounded-[18px] overflow-hidden shadow-md bg-white border border-black/5 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Typography">
+              <img src="./assets/figma/finaxa_typography_card.png" alt="Finaxa Typography Scale & Hanken Grotesk Hierarchy" class="w-full h-auto object-contain block" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1135,6 +1165,51 @@
               finaxaStatus.style.opacity = '0';
             }, 1200);
           }
+        });
+      }
+
+      // 6. Design System Horizontal Scroll Buttons & Drag
+      const dsTrack = document.getElementById('design-system-track');
+      const dsPrev = document.getElementById('ds-scroll-prev');
+      const dsNext = document.getElementById('ds-scroll-next');
+
+      if (dsTrack) {
+        if (dsPrev) {
+          dsPrev.addEventListener('click', () => {
+            dsTrack.scrollBy({ left: -450, behavior: 'smooth' });
+          });
+        }
+        if (dsNext) {
+          dsNext.addEventListener('click', () => {
+            dsTrack.scrollBy({ left: 450, behavior: 'smooth' });
+          });
+        }
+
+        // Mouse Drag to Scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        dsTrack.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - dsTrack.offsetLeft;
+          scrollLeft = dsTrack.scrollLeft;
+        });
+
+        dsTrack.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        dsTrack.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        dsTrack.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - dsTrack.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          dsTrack.scrollLeft = scrollLeft - walk;
         });
       }
     });
