@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#f5f5f6]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soni Patel — Product Designer</title>
+  <meta name="description" content="I’m Soni patel, a product designer who turns complexity into simplicity. Designing intuitive digital experiences across SaaS, mobile apps, and websites.">
+  
+  <!-- Exact Fonts from Figma: Lato & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Engine for Pixel-Perfect Figma Translation -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+            lato: ['Lato', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger for Charles Honig Animation Choreography -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#f5f5f6] text-black font-lato min-h-screen overflow-x-hidden antialiased">
+  <!-- Custom Cursor & Contextual Label (Charles Honig System) -->
+  <div class="custom-cursor" aria-hidden="true"></div>
+  <div class="cursor-label" aria-hidden="true"></div>
+
+  <!-- 1440px Centered Canvas Matching Figma Frame 22:23109 -->
+  <div class="w-full max-w-[1440px] mx-auto min-h-screen flex flex-col items-center relative" id="page-root">
+    
+    <!-- 1. HEADER (Figma 22:23110) -->
+    <header class="w-full sticky top-0 z-[200] bg-[#f5f5f6]/95 backdrop-blur-md transition-all duration-300 border-b border-black/5" id="site-header">
+      <div class="bg-[#f5f5f6] content-stretch flex flex-col items-start py-[28px] relative size-full" data-node-id="22:23110" data-name="Header">
+      <div class="content-stretch flex items-center justify-between max-w-[1440px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:23111" data-name="Navigation - Primary">
+        <div class="content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="22:23112" data-name="Container">
+          <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23113" data-name="Button">
+            <div class="bg-white border border-black border-solid content-stretch flex h-[18px] items-center justify-center overflow-clip px-[4px] py-[3px] relative rounded-[4px] shrink-0 w-[16px]" data-node-id="22:23114" data-name="Kbd">
+              <p class="[word-break:break-word] font-lato font-bold leading-[10px] not-italic relative shrink-0 text-[10px] text-black text-center uppercase whitespace-nowrap" data-node-id="22:23115">
+                h
+              </p>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23116" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23117">
+                Home
+              </p>
+            </div>
+          </div>
+          <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23118" data-name="Button">
+            <div class="bg-white border border-black border-solid content-stretch flex h-[18px] items-center justify-center overflow-clip px-[4px] py-[3px] relative rounded-[4px] shrink-0 w-[16px]" data-node-id="22:23119" data-name="Kbd">
+              <p class="[word-break:break-word] font-lato font-bold leading-[10px] not-italic relative shrink-0 text-[10px] text-black text-center uppercase whitespace-nowrap" data-node-id="22:23120">
+                w
+              </p>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23121" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23122">
+                Work
+              </p>
+            </div>
+          </div>
+          <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23123" data-name="Button">
+            <div class="bg-white border border-black border-solid content-stretch flex h-[18px] items-center justify-center overflow-clip px-[4px] py-[3px] relative rounded-[4px] shrink-0 w-[16px]" data-node-id="22:23124" data-name="Kbd">
+              <p class="[word-break:break-word] font-lato font-bold leading-[10px] not-italic relative shrink-0 text-[10px] text-black text-center uppercase whitespace-nowrap" data-node-id="22:23125">
+                p
+              </p>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23126" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23127">
+                Play
+              </p>
+            </div>
+          </div>
+          <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23128" data-name="Button">
+            <div class="bg-white border border-black border-solid content-stretch flex h-[18px] items-center justify-center overflow-clip px-[4px] py-[3px] relative rounded-[4px] shrink-0 w-[16px]" data-node-id="22:23129" data-name="Kbd">
+              <p class="[word-break:break-word] font-lato font-bold leading-[10px] not-italic relative shrink-0 text-[10px] text-black text-center uppercase whitespace-nowrap" data-node-id="22:23130">
+                a
+              </p>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23131" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23132">
+                About
+              </p>
+            </div>
+          </div>
+          <div class="bg-white border border-black border-solid h-[20px] overflow-clip relative rounded-[999px] shrink-0 w-[34px]" data-node-id="22:23133" data-name="Switch - Switch to dark mode">
+            <div class="absolute content-stretch flex flex-col items-start left-[2px] size-[12px] top-[3px]" data-node-id="22:23134" data-name="Text">
+              <div class="h-[12px] overflow-clip relative shrink-0 w-full" data-node-id="22:23135" data-name="Icon">
+                <div class="absolute inset-[33.33%]" data-node-id="22:23136" data-name="Vector">
+                  <div class="absolute inset-[-12.5%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector.svg"></img>
+                  </div>
+                </div>
+                <div class="absolute bottom-[83.33%] left-1/2 right-1/2 top-[8.33%]" data-node-id="22:23137" data-name="Vector">
+                  <div class="absolute inset-[-50%_-0.5px]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector1.svg">
+                  </div>
+                </div>
+                <div class="absolute bottom-[8.33%] left-1/2 right-1/2 top-[83.33%]" data-node-id="22:23138" data-name="Vector">
+                  <div class="absolute inset-[-50%_-0.5px]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector1.svg">
+                  </div>
+                </div>
+                <div class="absolute inset-[20.54%_73.58%_73.58%_20.54%]" data-node-id="22:23139" data-name="Vector">
+                  <div class="absolute inset-[-70.92%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector2.svg">
+                  </div>
+                </div>
+                <div class="absolute inset-[73.58%_20.54%_20.54%_73.58%]" data-node-id="22:23140" data-name="Vector">
+                  <div class="absolute inset-[-70.92%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector3.svg">
+                  </div>
+                </div>
+                <div class="absolute bottom-1/2 left-[8.33%] right-[83.33%] top-1/2" data-node-id="22:23141" data-name="Vector">
+                  <div class="absolute inset-[-0.5px_-50%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector4.svg">
+                  </div>
+                </div>
+                <div class="absolute bottom-1/2 left-[83.33%] right-[8.33%] top-1/2" data-node-id="22:23142" data-name="Vector">
+                  <div class="absolute inset-[-0.5px_-50%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector4.svg">
+                  </div>
+                </div>
+                <div class="absolute inset-[73.58%_73.58%_20.54%_20.54%]" data-node-id="22:23143" data-name="Vector">
+                  <div class="absolute inset-[-70.92%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector5.svg">
+                  </div>
+                </div>
+                <div class="absolute inset-[20.54%_20.54%_73.58%_73.58%]" data-node-id="22:23144" data-name="Vector">
+                  <div class="absolute inset-[-70.92%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector6.svg">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute bg-[#f5f5f6] border border-black border-solid left-[18px] rounded-[999px] size-[12px] top-[3px]" data-node-id="22:23145" data-name="Text"></div>
+          </div>
+        </div>
+        <div class="content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="22:23146" data-name="Container">
+          <div class="content-stretch flex gap-[8px] items-center relative rounded-[4px] shrink-0" data-node-id="22:23147" data-name="Button">
+            <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23148" data-name="Text">
+              <div class="overflow-clip relative shrink-0 size-[22px]" data-node-id="22:23149" data-name="Icon">
+                <div class="absolute inset-[8.33%]" data-node-id="22:23150" data-name="Vector">
+                  <div class="absolute inset-[-2.73%]">
+                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector7.svg">
+                  </div>
+                </div>
+                <div class="absolute contents inset-[10.6%]" data-node-id="22:23151" data-name="Clip path group">
+                  <div class="absolute inset-[29.16%_25.31%_16.43%_25.31%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-3.235px_-4.083px] mask-size-[17.334px_17.334px]" data-node-id="22:23154" style="mask-image: url('assets/figma/imgGroup.svg'); -webkit-mask-image: url('assets/figma/imgGroup.svg');" data-name="Group">
+                    <div class="absolute inset-[-4.18%_-4.6%]">
+                      <img alt="" class="block max-w-none size-full" src="assets/figma/imgGroup1.svg">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23157" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23158">
+                Contact
+              </p>
+            </div>
+          </div>
+          <div class="content-stretch flex flex-col h-[22px] items-start relative shrink-0 w-[107.375px]" data-node-id="22:23159" data-name="Button - Ask Charles, an AI guide to this portfolio:margin">
+            <div class="absolute bg-white border border-black border-solid content-stretch flex gap-[8px] h-[38px] items-center left-0 px-[16px] py-[8px] rounded-[26px] top-[-8px] w-[107.375px]" data-node-id="22:23160" data-name="Button - Ask Charles, an AI guide to this portfolio">
+              <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23161" data-name="Text">
+                <div class="relative shrink-0 size-[20px]" data-node-id="22:23162" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:23167" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black text-center whitespace-nowrap" data-node-id="22:23168">
+                  Ask AI
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bg-[#b51b68] left-[1068.63px] overflow-clip rounded-[12px] size-[42px] top-[18px]" data-node-id="22:23169" data-name="Instagram">
+        <div class="absolute left-[9px] size-[24px] top-[9px]" data-node-id="22:23170" data-name="Instagram glyph">
+          <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgInstagramGlyph.svg"></img>
+        </div>
+      </div>
+    </div>
+    </header>
+
+    <!-- 2. HERO SECTION (Figma 22:23176) -->
+    <section class="w-full max-w-[1440px] px-[84px] pt-[28px] pb-[80px] flex flex-col items-center" id="home">
+      <!-- Hero Intro: Heading, Subtitle & Live Status Indicators -->
+      <div class="w-full mb-[44px]">
+        <div class="content-stretch flex items-end justify-between relative size-full" data-node-id="22:23177" data-name="Container">
+      <div class="content-stretch flex flex-col gap-[24px] items-start max-w-[686px] relative shrink-0" data-node-id="22:23178" data-name="Container">
+        <div class="blur-[0px] content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:23179" data-name="Heading 1">
+          <p class="[word-break:break-word] font-lato font-normal leading-[0] not-italic relative shrink-0 text-[0px] text-balance text-black tracking-[-0.92px] w-[1252px]" data-node-id="22:23180">
+            <span class="leading-[55.199px] text-[45.999px]">I’m </span>
+            <span class="font-lato font-bold leading-[55.199px] text-[45.999px]">Soni patel</span>
+            <span class="leading-[55.199px] text-[45.999px]">, a product designer </span>
+            <span class="leading-[55.199px] text-[45.999px]">who turns complexity into simplicity.</span>
+          </p>
+        </div>
+        <div class="blur-[0px] h-[68.445px] max-w-[569px] relative shrink-0 w-[569px]" data-node-id="22:23181" data-name="Paragraph">
+          <p class="[word-break:break-word] absolute font-lato font-normal leading-[33.6px] left-0 not-italic text-[#9d9d9d] text-[24px] top-[0.5px] w-[569px]" data-node-id="22:23182">
+            Designing intuitive digital experiences across SaaS, mobile apps, and websites.
+          </p>
+        </div>
+      </div>
+      <div class="blur-[0px] content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="22:23183" data-name="Container">
+        <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="22:23184" data-name="Text">
+          <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23185" data-name="Text">
+            <div class="relative shrink-0 size-[22px]" data-node-id="22:23186" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+            </div>
+          </div>
+          <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:23189" data-name="Text">
+            <p class="[word-break:break-word] font-lato font-normal leading-[16px] not-italic relative shrink-0 text-[#9d9d9d] text-[16px] whitespace-nowrap" data-node-id="22:23190">
+              Udaipur, India
+            </p>
+          </div>
+        </div>
+        <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="22:23191" data-name="Text">
+          <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23192" data-name="Text">
+            <div class="relative shrink-0 size-[22px]" data-node-id="22:23193" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon1.svg">
+            </div>
+          </div>
+          <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:23196" data-name="Text">
+            <p class="[word-break:break-word] font-lato font-normal leading-[16px] not-italic relative shrink-0 text-[#9d9d9d] text-[16px] whitespace-nowrap" data-node-id="22:23197">
+              7:54 AM CT
+            </p>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-col h-[22px] items-start relative shrink-0 w-[126.563px]" data-node-id="22:23198" data-name="26 visitors on the site now:margin">
+          <div class="absolute content-stretch flex h-[28px] items-center left-0 top-[-3px] w-[126.563px]" data-node-id="22:23199" data-name="26 visitors on the site now">
+            <div class="content-stretch flex gap-[8px] items-center pr-[10px] relative shrink-0" data-node-id="22:23200" data-name="Text">
+              <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23201" data-name="Text">
+                <div class="relative shrink-0 size-[22px]" data-node-id="22:23202" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon2.svg">
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[16px] items-start relative shrink-0 w-[19px]" data-node-id="22:23208" data-name="Text:margin">
+                <div class="absolute content-stretch flex h-[20px] items-start left-0 overflow-clip py-[2px] top-[-2px] w-[19px]" data-node-id="22:23209" data-name="Text">
+                  <div class="content-stretch flex flex-col h-full items-start relative shrink-0" data-node-id="22:23210" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-normal leading-[16px] not-italic relative shrink-0 text-[#9d9d9d] text-[16px] whitespace-nowrap" data-node-id="22:23211">
+                      26
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-stretch flex items-start relative shrink-0" data-node-id="22:23212" data-name="Text">
+              <div class="relative shrink-0 size-[28px]" data-node-id="22:23213" data-name="Placeholder for Text"></div>
+              <div class="h-[28px] relative shrink-0 w-[20px]" data-node-id="22:23214" data-name="Placeholder for Text:margin"></div>
+              <div class="content-stretch flex flex-col h-[28px] items-start relative shrink-0 w-[20px]" data-node-id="22:23215" data-name="Text:margin">
+                <div class="absolute bg-[#f5f5f6] border-2 border-[#f5f5f6] border-solid content-stretch flex flex-col items-start left-[-8px] rounded-[999px] size-[28px] top-0" data-node-id="22:23216" data-name="Text">
+                  <div class="bg-[#9d9d9d] border border-[#9d9d9d] border-solid content-stretch flex flex-col h-[24px] items-start overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23217" data-name="Text">
+                    <div class="h-[22px] overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23218" data-name="Image">
+                      <div class="absolute contents inset-0" data-node-id="22:23219" data-name="Clip path group">
+                        <div class="absolute contents inset-0" data-node-id="22:23222" data-name="Group">
+                          <div class="absolute inset-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[22px_22px]" data-node-id="22:23223" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                            <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgVector1.svg">
+                          </div>
+                          <div class="absolute bottom-[24.55%] contents left-1/4 right-1/4 top-[33%]" data-node-id="22:23224" data-name="Group">
+                            <div class="absolute bottom-[60.25%] contents left-1/4 right-1/4 top-[39%]" data-node-id="22:23225" data-name="eyes-sleepy-fac012e3">
+                              <div class="absolute bottom-[60.25%] left-1/4 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-5.5px_-8.58px] mask-size-[22px_22px] right-1/4 top-[39%]" data-node-id="22:23226" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                                <div class="absolute inset-[-280.07%_-4.2%_-280%_-4.2%]">
+                                  <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector2.svg">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="absolute contents inset-[33%_47%_43%_46%]" data-node-id="22:23227" data-name="nose-slant-fac012e3">
+                              <div class="absolute inset-[33%_47%_43%_46%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-10.12px_-7.26px] mask-size-[22px_22px]" data-node-id="22:23228" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                                <div class="absolute inset-[-9.17%_-31.44%]">
+                                  <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector3.svg">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="absolute contents inset-[68.92%_33.92%_24.55%_36.87%]" data-node-id="22:23229" style="container-type: size;" data-name="mouth-frown-fac012e3">
+                              <div class="absolute flex inset-[68.92%_33.92%_24.55%_36.87%] items-center justify-center" data-node-id="22:23230" style="container-type: size;">
+                                <div class="flex-none h-[hypot(-1.25997cqw,53.5989cqh)] rotate-6 w-[hypot(98.74cqw,46.4011cqh)]">
+                                  <div class="mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-8.112px_-15.162px] mask-size-[22px_22px] relative size-full" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                                    <div class="absolute inset-[-65.33%_-7.93%_-65.34%_-7.93%]">
+                                      <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector4.svg">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bg-[#f5f5f6] border-2 border-[#f5f5f6] border-solid content-stretch flex flex-col items-start left-[20px] rounded-[999px] size-[28px] top-0" data-node-id="22:23231" data-name="Text">
+                <div class="bg-[#9d9d9d] border border-[#9d9d9d] border-solid content-stretch flex flex-col h-[24px] items-start overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23232" data-name="Text">
+                  <div class="h-[22px] overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23233" data-name="Image">
+                    <div class="absolute contents inset-0" data-node-id="22:23234" data-name="Clip path group">
+                      <div class="absolute contents inset-0" data-node-id="22:23237" data-name="Group">
+                        <div class="absolute inset-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[22px_22px]" data-node-id="22:23238" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                          <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgVector1.svg">
+                        </div>
+                        <div class="absolute bottom-[24.44%] contents left-[31%] right-1/4 top-[34%]" data-node-id="22:23239" data-name="Group">
+                          <div class="absolute bottom-[59.5%] contents left-[31%] right-1/4 top-[38%]" data-node-id="22:23240" data-name="eyes-winkRight-fdc0179c">
+                            <div class="absolute inset-[39%_68.99%_61%_31%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-6.82px_-8.58px] mask-size-[22px_22px]" data-node-id="22:23241" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-0.77px]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector5.svg">
+                              </div>
+                            </div>
+                            <div class="absolute bottom-[59.5%] left-[62%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-13.64px_-8.36px] mask-size-[22px_22px] right-1/4 top-[38%]" data-node-id="22:23242" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-84.01%_-16.15%_-84%_-16.16%]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector6.svg">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute contents inset-[34%_48%_39.83%_45.86%]" data-node-id="22:23243" data-name="nose-curve-fdc0179c">
+                            <div class="absolute inset-[34%_48%_39.83%_45.86%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-10.089px_-7.48px] mask-size-[22px_22px]" data-node-id="22:23244" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-8.41%_-35.83%_-8.41%_-35.81%]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector7.svg">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute contents inset-[69.02%_33.87%_24.44%_36.92%]" data-node-id="22:23245" style="container-type: size;" data-name="mouth-frown-fdc0179c">
+                            <div class="absolute flex inset-[69.02%_33.87%_24.44%_36.92%] items-center justify-center" data-node-id="22:23246" style="container-type: size;">
+                              <div class="-rotate-6 flex-none h-[hypot(1.25997cqw,53.5989cqh)] w-[hypot(98.74cqw,-46.4011cqh)]">
+                                <div class="mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-8.123px_-15.185px] mask-size-[22px_22px] relative size-full" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                                  <div class="absolute inset-[-65.33%_-7.93%_-65.34%_-7.93%]">
+                                    <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector8.svg">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bg-[#f5f5f6] border-2 border-[#f5f5f6] border-solid content-stretch flex flex-col items-start left-0 rounded-[999px] size-[28px] top-0" data-node-id="22:23247" data-name="Text">
+                <div class="bg-[#9d9d9d] border border-[#9d9d9d] border-solid content-stretch flex flex-col h-[24px] items-start overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23248" data-name="Text">
+                  <div class="h-[22px] overflow-clip relative rounded-[999px] shrink-0 w-full" data-node-id="22:23249" data-name="Image">
+                    <div class="absolute contents inset-0" data-node-id="22:23250" data-name="Clip path group">
+                      <div class="absolute contents inset-0" data-node-id="22:23253" data-name="Group">
+                        <div class="absolute inset-0 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-size-[22px_22px]" data-node-id="22:23254" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                          <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgVector1.svg">
+                        </div>
+                        <div class="absolute bottom-[24.73%] contents left-1/4 right-1/4 top-[33%]" data-node-id="22:23255" data-name="Group">
+                          <div class="absolute bottom-[60%] contents left-1/4 right-1/4 top-[37%]" data-node-id="22:23256" data-name="eyes-happy-916a7142">
+                            <div class="absolute bottom-[60%] left-1/4 mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-5.5px_-8.14px] mask-size-[22px_22px] right-1/4 top-[37%]" data-node-id="22:23257" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-70%_-4.2%]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector9.svg">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute contents inset-[33%_47%_43%_46.32%]" data-node-id="22:23258" data-name="nose-bow-916a7142">
+                            <div class="absolute inset-[33%_47%_43%_46.32%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-10.189px_-7.26px] mask-size-[22px_22px]" data-node-id="22:23259" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-9.17%_-32.92%_-9.17%_-32.93%]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector10.svg">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute contents inset-[66%_29%_24.73%_34%]" data-node-id="22:23260" data-name="mouth-pleased-916a7142">
+                            <div class="absolute inset-[66%_29%_24.73%_34%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[-7.48px_-14.52px] mask-size-[22px_22px]" data-node-id="22:23261" style="mask-image: url('assets/figma/imgVector.svg'); -webkit-mask-image: url('assets/figma/imgVector.svg');" data-name="Vector">
+                              <div class="absolute inset-[-24.82%_-6.22%]">
+                                <img alt="" class="block max-w-none size-full" src="assets/figma/imgVector11.svg">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- Hero Interactive Bento Wall (Charles Honig Reference Interaction) -->
+      <div class="hero-wall-container @container w-full max-w-[1272px] mx-auto px-4 sm:px-6 mt-[32px] md:mt-[44px]">
+<div data-cols="6" class="hero-wall grid aspect-[1272/408] grid-cols-6 grid-rows-2" style="gap:calc(24 * var(--u))">
+  <!-- Card 1: ArchAI Payments (span 2, col 1-2, row 1) -->
+  <div data-span="2" class="hero-tile-wrapper [will-change:transform]" style="grid-column:1 / span 2; grid-row:1;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_1_archai_payments.png" alt="ArchAI Payments" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 2: ArchAI Mobile (span 1, col 3, row 1) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:3 / span 1; grid-row:1;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_2_archai_mobile.png" alt="ArchAI Mobile Verification" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 3: Financial Dashboard (span 1, col 4, row 1) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:4 / span 1; grid-row:1;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_3_finance_dashboard.png" alt="Financial Charts Dashboard" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 4: Ellyra Web (span 2, col 5-6, row 1) -->
+  <div data-span="2" class="hero-tile-wrapper [will-change:transform]" style="grid-column:5 / span 2; grid-row:1;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_4_ellyra_web.png" alt="Ellyra Web Workspace" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 5: Dark Dashboard (span 1, col 1, row 2) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:1 / span 1; grid-row:2;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_5_dark_dashboard.png" alt="Project Dashboard" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 6: VIRTUPS Architecture (span 1, col 2, row 2) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:2 / span 1; grid-row:2;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_6_virtups_architecture.png" alt="VIRTUPS Architecture" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 7: Ellyra Mobile Wellness (span 2, col 3-4, row 2) -->
+  <div data-span="2" class="hero-tile-wrapper [will-change:transform]" style="grid-column:3 / span 2; grid-row:2;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_7_ellyra_wellness.png" alt="Ellyra Mobile Wellness" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 8: Homely Real Estate (span 1, col 5, row 2) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:5 / span 1; grid-row:2;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_8_homely_realestate.png" alt="Homely Real Estate" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+
+  <!-- Card 9: Keep in Touch Coach (span 1, col 6, row 2) -->
+  <div data-span="1" class="hero-tile-wrapper [will-change:transform]" style="grid-column:6 / span 1; grid-row:2;">
+    <div data-cursor-label="Drag me around" tabindex="-1" class="hero-tile relative size-full overflow-hidden cursor-grab will-change-transform rounded-[16px] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] bg-[#e9e9eb]" draggable="false" style="touch-action:none;transform:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none">
+      <img src="assets/hero/hero_card_9_keep_in_touch.png" alt="Keep in Touch Coach" draggable="false" class="pointer-events-none object-cover size-full rounded-[16px]" />
+      <div aria-hidden="true" class="shadow-card-inset pointer-events-none absolute inset-0 rounded-[inherit]"></div>
+    </div>
+  </div>
+</div>
+      </div>
+</section>
+
+    <!-- 3. SELECTED WORK / CASE STUDIES (Figma 22:27908) -->
+    <section class="w-full flex flex-col items-center" id="work">
+      <!-- Project 1: Finaxa -->
+      <div class="w-full reveal-section" data-cursor-label="Finaxa Case Study">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:27909" data-name="Section">
+      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:27910" data-name="Finaxa — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:27911" data-name="Container">
+          <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:27912" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:27913" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:27914" data-name="Container">
+                <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="22:27915" data-name="Container">
+                  <a href="work/finaxa.html" class="content-stretch flex flex-col items-start relative shrink-0 hover:opacity-75 transition-opacity" data-node-id="22:27916" data-name="Heading 2" data-cursor-label="View Finaxa">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:27917">
+                      Finaxa ↗
+                    </p>
+                  </a>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:27918" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[16.8px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:27919">
+                    A clearer way to manage everyday banking
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:27920" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:27921">
+                  Finaxa brings everyday banking into one place. I designed web and mobile flows for checking balances, sending money, managing cards, and reviewing spending.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="22:27922" data-name="Definition List">
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:27923" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:27924" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:27925">
+                    Platform
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:27926" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:27927">Web & mobile</p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:27928" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:27929" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:27930">
+                    Role
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:27931" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:27932">
+                    UI/UX Designer
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:27933" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:27934" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:27935">
+                    Scope
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:27936" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:27937">Banking flows & design system</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white border border-black border-solid content-stretch flex gap-[8px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0 w-[161.617px]" data-node-id="22:27938" data-name="Link">
+            <a class="[word-break:break-word] block font-lato font-bold leading-[0] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" href="work/finaxa.html" data-node-id="22:27939" target="_blank">
+              <p class="cursor-pointer leading-[14px]">View Case Study</p>
+            </a>
+            <div class="relative shrink-0 size-[20px]" data-node-id="22:27940" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-[571_0_0] items-start min-w-px pr-[44px] relative" data-node-id="22:27944" data-name="Container:margin">
+          <div class="blur-[0px] content-stretch flex items-start max-w-[571px] relative shrink-0 w-[571px]" data-node-id="22:27945" data-name="Container">
+            <div class="flex-[571_0_0] h-[576.898px] min-w-px relative" data-node-id="22:27946" data-name="Finaxa screen gallery">
+              <div class="absolute gap-x-[25.08289909362793px] gap-y-[25.08289909362793px] grid grid-cols-[__272.96px_272.96px] grid-rows-[__275.91px_275.91px] h-[576.898px] left-0 top-0 w-[571px]" data-node-id="22:27947" data-name="Container">
+                <div class="bg-[#e8e8e8] col-[1/span_2] justify-self-stretch overflow-clip relative rounded-[10.328px] row-1 self-stretch shrink-0" data-node-id="22:27948" data-name="Container">
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[256.727px] left-[234.59px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[50.16px] w-[303.938px]" data-node-id="22:27949" data-name="Container">
+                    <div class="absolute bg-[#d9d9d9] h-[261.148px] left-[4.9px] overflow-clip rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[4.9px] w-[292.133px]" data-node-id="22:27950" data-name="Container">
+                      <div class="absolute h-[261.148px] left-0 top-0 w-[292.133px]" data-node-id="22:27951" data-name="Finaxa — Desktop payee transfer">
+                        <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src="assets/figma/imgFinaxaDesktopPayeeTransfer.png"></img>
+                      </div>
+                    </div>
+                    <div class="absolute h-[254.727px] left-0 pointer-events-none rounded-tl-[10.328px] rounded-tr-[10.328px] top-0 w-[301.938px]" data-node-id="22:27952" data-name="Container">
+                      <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-tl-[10.328px] rounded-tr-[10.328px]"></div>
+                      <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_40px_0px_rgba(0,0,0,0.04)]"></div>
+                    </div>
+                  </div>
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[256.727px] left-[33.93px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[25.08px] w-[303.938px]" data-node-id="22:27953" data-name="Container">
+                    <div class="absolute bg-[#d9d9d9] h-[261.148px] left-[4.9px] overflow-clip rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[4.9px] w-[292.133px]" data-node-id="22:27954" data-name="Container">
+                      <div class="absolute h-[261.148px] left-0 top-0 w-[292.133px]" data-node-id="22:27955" data-name="Finaxa — Desktop transfer details">
+                        <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src="assets/figma/imgFinaxaDesktopTransferDetails.png"></img>
+                      </div>
+                    </div>
+                    <div class="absolute h-[254.727px] left-0 pointer-events-none rounded-tl-[10.328px] rounded-tr-[10.328px] top-0 w-[301.938px]" data-node-id="22:27956" data-name="Container">
+                      <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-tl-[10.328px] rounded-tr-[10.328px]"></div>
+                      <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_40px_0px_rgba(0,0,0,0.04)]"></div>
+                    </div>
+                  </div>
+                  <div class="absolute h-[275.906px] left-0 pointer-events-none rounded-[10.328px] top-0 w-[571px]" data-node-id="22:27957" data-name="Container">
+                    <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[10.328px]"></div>
+                    <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_20px_0px_rgba(0,0,0,0.04)]"></div>
+                  </div>
+                </div>
+                <div class="bg-[#e8e8e8] col-1 justify-self-stretch overflow-clip relative rounded-[10.328px] row-2 self-stretch shrink-0" data-node-id="22:27958" data-name="Container">
+                  <div class="absolute bg-[#eaf0f8] h-[275.914px] left-0 overflow-clip rounded-[16px] top-0 w-[272.961px]" data-node-id="22:27964" data-name="Finaxa — Compare savings in chat">
+                    <p class="[word-break:break-word] absolute font-lato font-bold leading-[normal] left-[18px] text-[#355473] text-[11px] top-[16px] w-[234px]" data-node-id="22:27965">
+                      AI ASSISTANT
+                    </p>
+                    <div class="[word-break:break-word] absolute font-lato font-bold leading-[0] left-[18px] text-[#202d44] text-[23px] top-[37px] w-[237px]" data-node-id="22:27966">
+                      <p class="leading-[normal] mb-0">Compare savings</p>
+                      <p class="leading-[normal]">accounts in chat</p>
+                    </div>
+                    <div class="absolute h-[135px] left-[16px] rounded-[8px] top-[105px] w-[241px]" data-node-id="22:27967" data-name="Actual Finaxa chat preview">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgActualFinaxaChatPreview.png"></img>
+                    </div>
+                    <p class="[word-break:break-word] absolute font-lato font-normal font-normal leading-[normal] left-[18px] text-[#42536b] text-[12px] top-[249px] w-[236px]" data-node-id="22:27968">
+                      Three options, side by side.
+                    </p>
+                  </div>
+                </div>
+                <div class="bg-[#e8e8e8] col-2 justify-self-stretch overflow-clip relative rounded-[10.328px] row-2 self-stretch shrink-0" data-node-id="22:27969" data-name="Container">
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[278.859px] left-[116.55px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[42.78px] w-[123.938px]" data-node-id="22:27970" data-name="Container">
+                    <div class="absolute bg-[#d9d9d9] h-[742.883px] left-[4.9px] overflow-clip rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[4.9px] w-[112.133px]" data-node-id="22:27971" data-name="Container">
+                      <div class="absolute h-[426.392px] left-0 top-0 w-[112.133px]" data-node-id="22:27972" data-name="Finaxa — Mobile Analytics">
+                        <img alt="" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/figma/imgFinaxaMobileAnalytics.png"></img>
+                      </div>
+                    </div>
+                    <div class="absolute h-[276.859px] left-0 pointer-events-none rounded-tl-[10.328px] rounded-tr-[10.328px] top-0 w-[121.938px]" data-node-id="22:27973" data-name="Container">
+                      <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-tl-[10.328px] rounded-tr-[10.328px]"></div>
+                      <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_40px_0px_rgba(0,0,0,0.04)]"></div>
+                    </div>
+                  </div>
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[278.859px] left-[32.45px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[25.08px] w-[123.938px]" data-node-id="22:27974" data-name="Container">
+                    <div class="absolute bg-[#d9d9d9] h-[705.266px] left-[4.9px] overflow-clip rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[4.9px] w-[112.133px]" data-node-id="22:27975" data-name="Container">
+                      <div class="absolute h-[968.943px] left-0 top-0 w-[112.133px]" data-node-id="22:27976" data-name="Finaxa — Mobile Home">
+                        <img alt="" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="assets/figma/imgFinaxaMobileHome.png"></img>
+                      </div>
+                    </div>
+                    <div class="absolute h-[276.859px] left-0 pointer-events-none rounded-tl-[10.328px] rounded-tr-[10.328px] top-0 w-[121.938px]" data-node-id="22:27977" data-name="Container">
+                      <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-tl-[10.328px] rounded-tr-[10.328px]"></div>
+                      <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_40px_0px_rgba(0,0,0,0.04)]"></div>
+                    </div>
+                  </div>
+                  <div class="absolute h-[275.914px] left-0 pointer-events-none rounded-[10.328px] top-0 w-[272.961px]" data-node-id="22:27978" data-name="Container">
+                    <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[10.328px]"></div>
+                    <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_20px_0px_rgba(0,0,0,0.04)]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- Project 2: Pronex ArchAI -->
+      <div class="w-full reveal-section" data-cursor-label="ArchAI Case Study">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:27996" data-name="Section">
+      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:27997" data-name="Container">
+        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:27998" data-name="Container">
+          <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:27999" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28000" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28001" data-name="Container">
+                <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="22:28002" data-name="Container">
+                  <a href="work/pronex-archai.html" class="content-stretch flex flex-col items-start relative shrink-0 hover:opacity-75 transition-opacity" data-node-id="22:28003" data-name="Heading 2" data-cursor-label="View ArchAI">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28004">
+                      Pronex Archai ↗
+                    </p>
+                  </a>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28005" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[16.8px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28006">
+                    Simplifying Architectural Project Management
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28007" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28008">
+                  Designed a centralized project management platform for an architecture firm, simplifying project tracking, document management, team collaboration, meetings, and payments. Created intuitive, role-based experiences for Admin, Staff, Client Leaders, and Client Viewers.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="22:28009" data-name="Definition List">
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28010" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28011" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28012">
+                    Years
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28013" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28014">
+                    2026
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28015" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28016" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28017">
+                    Role
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28018" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28019">
+                    UI/UX Designer
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28020" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28021" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28022">
+                    Scope
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28023" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28024">
+                    UX Research, UI Design, Design System
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="work/pronex-archai.html" class="bg-white border border-black border-solid content-stretch flex gap-[8px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0 w-[161.617px] hover:bg-black hover:text-white transition-all group" data-node-id="22:28025" data-name="Link" data-cursor-label="View ArchAI">
+            <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] group-hover:text-white text-black whitespace-nowrap" data-node-id="22:28026">
+              View Case Study
+            </p>
+            <div class="relative shrink-0 size-[20px]" data-node-id="22:28027" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+            </div>
+          </a>
+        </div>
+        <div class="content-stretch flex flex-[571_0_0] items-start min-w-px pr-[44px] relative" data-node-id="22:28031" data-name="Container:margin">
+          <div class="blur-[0px] content-stretch flex items-start max-w-[571px] relative shrink-0 w-[571px]" data-node-id="22:28032" data-name="Container">
+            <div class="flex-[571_0_0] h-[576.898px] min-w-px relative" data-node-id="22:28033" data-name="Link - View Microsoft Contracts case study">
+              <div class="absolute gap-x-[25.08289909362793px] gap-y-[25.08289909362793px] grid grid-cols-[__272.96px_272.96px] grid-rows-[__275.91px_275.91px] h-[576.898px] left-0 top-0 w-[571px]" data-node-id="22:28034" data-name="Container">
+                <div class="bg-[#e8e8e8] col-[1/span_2] justify-self-stretch overflow-clip relative rounded-[10.328px] row-1 self-stretch shrink-0" data-node-id="22:28035" data-name="Container">
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[225px] left-[442px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[94.16px] w-[90px]" data-node-id="22:28036" data-name="Container">
+                    <div class="absolute h-[174px] left-[2px] rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[5px] w-[82px]" data-node-id="22:28037" data-name="Container">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[7.377px] size-full" src="assets/figma/imgContainer.png"></img>
+                    </div>
+                  </div>
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[257px] left-[35px] overflow-clip rounded-tl-[10.328px] rounded-tr-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[38.16px] w-[395px]" data-node-id="22:28038" data-name="Container">
+                    <div class="absolute h-[223px] left-[7px] rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[7px] w-[380px]" data-node-id="22:28039" data-name="Container">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[7.377px] size-full" src="assets/figma/imgContainer1.png">
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-[#e8e8e8] col-1 justify-self-stretch overflow-clip relative rounded-[10.328px] row-2 self-stretch shrink-0" data-node-id="22:28040" data-name="Container">
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[123px] left-[32px] overflow-clip rounded-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[161.18px] w-[208px]" data-node-id="22:28041" data-name="Container">
+                    <div class="absolute h-[117px] left-[3.55px] rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[2.1px] w-[197px]" data-node-id="22:28042" data-name="Container">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[7.377px] size-full" src="assets/figma/imgContainer2.png">
+                    </div>
+                  </div>
+                  <div class="absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[123px] left-[32px] overflow-clip rounded-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[15.18px] w-[208px]" data-node-id="22:28043" data-name="Container">
+                    <div class="absolute h-[117px] left-[3.55px] rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[2.1px] w-[197px]" data-node-id="22:28044" data-name="Container">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[7.377px] size-full" src="assets/figma/imgContainer3.png">
+                    </div>
+                  </div>
+                  <div class="absolute h-[276px] left-0 pointer-events-none rounded-[10.328px] top-[0.18px] w-[27px]" data-node-id="22:28045" data-name="Container">
+                    <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[10.328px]"></div>
+                    <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_20px_0px_rgba(0,0,0,0.04)]"></div>
+                  </div>
+                </div>
+                <div class="bg-[#e8e8e8] col-2 justify-self-stretch overflow-clip relative rounded-[10.328px] row-2 self-stretch shrink-0" data-node-id="22:28046" data-name="Container">
+                  <div class="-translate-x-1/2 absolute backdrop-blur-[8px] bg-[rgba(255,255,255,0.5)] border border-solid border-white h-[226px] left-[calc(50%+0.48px)] overflow-clip rounded-[10.328px] shadow-[0px_10px_40px_0px_rgba(0,0,0,0.1)] top-[25.18px] w-[230px]" data-node-id="22:28047" data-name="Container">
+                    <div class="absolute h-[214px] left-[5px] rounded-[7.377px] shadow-[0px_0px_20px_0px_rgba(0,0,0,0.14)] top-[5px] w-[217px]" data-node-id="22:28048" data-name="Container">
+                      <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[7.377px] size-full" src="assets/figma/imgContainer4.png">
+                    </div>
+                    <div class="absolute h-[224px] left-0 pointer-events-none rounded-[10.328px] top-0 w-[229px]" data-node-id="22:28049" data-name="Container">
+                      <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[10.328px]"></div>
+                      <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_40px_0px_rgba(0,0,0,0.04)]"></div>
+                    </div>
+                  </div>
+                  <div class="absolute h-[276px] left-[-0.04px] pointer-events-none rounded-[10.328px] top-[0.18px] w-[273px]" data-node-id="22:28050" data-name="Container">
+                    <div aria-hidden class="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[10.328px]"></div>
+                    <div class="absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_20px_0px_rgba(0,0,0,0.04)]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute blur-[0px] content-stretch flex flex-col items-start left-[84px] top-[662.9px] w-[272.938px]" data-node-id="22:28051" data-name="Container">
+          <div class="content-stretch flex gap-[14px] items-center relative shrink-0 w-full" data-node-id="22:28052" data-name="Container">
+            <div class="bg-[#e8e8e8] content-stretch flex flex-col items-start px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28053" data-name="Text">
+              <p class="[word-break:break-word] font-lato font-normal leading-[18px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28054">
+                8 min read
+              </p>
+            </div>
+            <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28055" data-name="Button - Like this case study">
+              <div class="content-stretch flex items-start relative shrink-0 transform-3d" data-node-id="22:28056" data-name="Text">
+                <div class="relative shrink-0 size-[18px]" data-node-id="22:28057" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon1.svg">
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-center relative shrink-0" data-node-id="22:28059" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black text-center whitespace-nowrap" data-node-id="22:28060">
+                  50
+                </p>
+              </div>
+            </div>
+            <div class="bg-[#e8e8e8] content-stretch flex gap-[4px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0" data-node-id="22:28061" data-name="Text">
+              <div class="relative shrink-0 size-[18px]" data-node-id="22:28062" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon2.svg">
+              </div>
+              <div class="content-stretch flex h-[14px] items-start overflow-clip relative shrink-0 w-[35.711px]" data-node-id="22:28065" data-name="Text">
+                <div class="content-stretch flex flex-col h-full items-start relative shrink-0" data-node-id="22:28066" data-name="Text">
+                  <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28067">
+                    3,362
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- Project 3: Settle -->
+      <div class="w-full reveal-section" data-cursor-label="Settle Case Study">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28068" data-name="Section">
+      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28069" data-name="Settle — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:28070" data-name="Container">
+          <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:28071" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28072" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28073" data-name="Container">
+                <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="22:28074" data-name="Container">
+                  <a href="work/settle.html" class="content-stretch flex flex-col items-start relative shrink-0 hover:opacity-75 transition-opacity" data-node-id="22:28075" data-name="Heading 2" data-cursor-label="View Settle">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28076">
+                      Settle ↗
+                    </p>
+                  </a>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28077" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[16.8px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28078">
+                    A gentler way to build a daily reset habit
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28079" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28080">
+                  Settle is a mobile wellness app that guides users from a personal check-in to a short breathing or grounding exercise. Suggested sessions, streaks, and exercise history help users build a regular practice.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="22:28081" data-name="Definition List">
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28082" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28083" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28084">
+                    Platform
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28085" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28086">
+                    Mobile app
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28087" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28088" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28089">
+                    Role
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28090" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28091">
+                    UI/UX Designer
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28092" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28093" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28094">
+                    Scope
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28095" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28096">
+                    Onboarding, guided exercises, progress
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="work/settle.html" class="bg-white border border-black border-solid content-stretch flex gap-[8px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0 w-[161.617px] hover:bg-black hover:text-white transition-all group" data-node-id="22:28097" data-name="Link" data-cursor-label="View Settle">
+            <p class="[word-break:break-word] font-lato font-bold leading-[14px] not-italic relative shrink-0 text-[14px] group-hover:text-white text-black whitespace-nowrap" data-node-id="22:28098">
+              View Case Study
+            </p>
+            <div class="relative shrink-0 size-[20px]" data-node-id="22:28099" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+            </div>
+          </a>
+        </div>
+        <div class="content-stretch flex flex-[571_0_0] h-[576.898px] items-start min-w-px pr-[44px] relative" data-node-id="22:28103" data-name="Container:margin">
+          <div class="absolute h-[577px] left-0 overflow-clip rounded-[18px] top-0 w-[848px]" data-node-id="22:28133" data-name="Settle — App screens and Play Store artwork">
+            <div class="absolute bg-[#e9e7ea] h-[279px] left-0 overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28149" data-name="Play Store promo 1">
+              <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28150" data-name="Settle Play Store artwork 1">
+                <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
+                  <img alt="" class="absolute h-[144.47%] left-[27.68%] max-w-none top-[-0.07%] w-[44.8%]" src="assets/figma/imgSettlePlayStoreArtwork1.png"></img>
+                </div>
+              </div>
+            </div>
+            <div class="absolute bg-[#e9e7ea] h-[279px] left-[432px] overflow-clip rounded-[16px] top-[298px] w-[416px]" data-node-id="22:28151" data-name="Play Store promo 2">
+              <div class="absolute h-[279px] left-0 rounded-[10px] top-[0.16px] w-[416px]" data-node-id="22:28152" data-name="Settle Play Store artwork 2">
+                <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
+                  <img alt="" class="absolute h-[137.25%] left-[28.69%] max-w-none top-[-28.67%] w-[42.55%]" src="assets/figma/imgSettlePlayStoreArtwork2.png"></img>
+                </div>
+              </div>
+            </div>
+            <div class="absolute bg-[#e9e7ea] h-[278px] left-0 overflow-clip rounded-[16px] top-0 w-[848px]" data-node-id="22:28153" data-name="Settle app screens">
+              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[135px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28154" data-name="Check-in">
+                <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28155" data-name="Rectangle">
+                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                    <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-14.23%] w-[100.31%]" src="assets/figma/imgRectangle.png"></img>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[506px] overflow-clip rounded-[18px] top-[51.16px] w-[196px]" data-node-id="22:28156" data-name="Progress">
+                <div class="absolute h-[404px] left-px rounded-[13px] top-px w-[186px]" data-node-id="22:28157" data-name="Rectangle">
+                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                    <img alt="" class="absolute h-[149.54%] left-[-0.11%] max-w-none top-[-0.02%] w-full" src="assets/figma/imgRectangle1.png">
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bg-white border-4 border-solid border-white h-[424px] left-[326px] overflow-clip rounded-[18px] top-[22px] w-[196px]" data-node-id="22:28158" data-name="Guided breathwork">
+                <div class="absolute h-[404px] left-px rounded-[13px] top-[-63.84px] w-[186px]" data-node-id="22:28159" data-name="Rectangle">
+                  <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-[13px]">
+                    <img alt="" class="absolute h-full left-[-0.15%] max-w-none top-[-0.04%] w-[100.31%]" src="assets/figma/imgRectangle2.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- Project 4: Clickio -->
+      <div class="w-full reveal-section" data-cursor-label="Clickio Case Study">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28177" data-name="Section">
+      <div class="content-stretch flex gap-[64px] h-[688.898px] items-start max-w-[1440px] pt-[112px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28178" data-name="Clickio — Portfolio Project">
+        <div class="blur-[0px] content-stretch flex flex-col gap-[60px] items-start relative shrink-0 w-[360px]" data-node-id="22:28179" data-name="Container">
+          <div class="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full" data-node-id="22:28180" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-node-id="22:28181" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28182" data-name="Container">
+                <div class="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="22:28183" data-name="Container">
+                  <a href="work/clickio.html" class="content-stretch flex flex-col items-start relative shrink-0 hover:opacity-75 transition-opacity" data-node-id="22:28184" data-name="Heading 2" data-cursor-label="View Clickio">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28185">
+                      Clickio ↗
+                    </p>
+                  </a>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28186" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[16.8px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28187">
+                    See how your brand shows up in search
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28188" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[360px]" data-node-id="22:28189">
+                  Clickio helps SEO and marketing teams track brand visibility across Google and AI search. I designed the landing page and dashboard flows for comparing competitors, analyzing traffic, tracking keywords, and setting up alerts.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="22:28190" data-name="Definition List">
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28191" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28192" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28193">
+                    Platform
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28194" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28195">
+                    Desktop web
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28196" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28197" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28198">
+                    Role
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28199" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28200">
+                    UI/UX Designer
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28201" data-name="Container">
+                <div class="content-stretch flex flex-col h-[21px] items-start relative shrink-0 w-[85px]" data-node-id="22:28202" data-name="Definition Term">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28203">
+                    Scope
+                  </p>
+                </div>
+                <div class="content-stretch flex flex-col items-start relative self-stretch shrink-0" data-node-id="22:28204" data-name="Definition Description">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[21px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28205">Landing page, dashboard & design system</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white border border-black border-solid content-stretch flex gap-[8px] items-center px-[14px] py-[6px] relative rounded-[20px] shrink-0 w-[161.617px]" data-node-id="22:28206" data-name="Link">
+            <a class="[word-break:break-word] block font-lato font-bold leading-[0] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" href="work/clickio.html" data-node-id="22:28207" target="_blank">
+              <p class="cursor-pointer leading-[14px]">View Case Study</p>
+            </a>
+            <div class="relative shrink-0 size-[20px]" data-node-id="22:28208" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-[571_0_0] h-[576.898px] items-start min-w-px pr-[44px] relative" data-node-id="22:28212" data-name="Container:margin">
+          <div class="absolute h-[577px] left-0 overflow-clip top-0 w-[848px]" data-node-id="22:28232" data-name="Clickio — Selected project covers">
+            <div class="absolute h-[310px] left-0 rounded-[15px] top-0 w-[848px]" data-node-id="22:28233" data-name="Clickio — Desktop dashboard cover">
+              <div aria-hidden class="absolute inset-0 pointer-events-none rounded-[15px]">
+                <div class="absolute bg-[#f2f3f5] inset-0 rounded-[15px]"></div>
+                <img alt="" class="absolute max-w-none object-contain rounded-[15px] size-full" src="assets/figma/imgClickioDesktopDashboardCover.png"></img>
+              </div>
+            </div>
+            <div class="absolute h-[251px] left-0 rounded-[15px] top-[326px] w-[848px]" data-node-id="22:28234" data-name="Clickio — Landing page cover">
+              <div aria-hidden class="absolute inset-0 pointer-events-none rounded-[15px]">
+                <div class="absolute bg-[#f2f3f5] inset-0 rounded-[15px]"></div>
+                <img alt="" class="absolute max-w-none object-contain rounded-[15px] size-full" src="assets/figma/imgClickioLandingPageCover.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <!-- 4. LIVE WORK & EXPERIMENTS (Figma 22:30436) -->
+    <section class="w-full flex flex-col items-center reveal-section" id="play">
+      <div class="content-stretch flex flex-col gap-[36px] items-start px-[84px] py-[80px] relative size-full" data-node-id="22:30436" data-name="Live work / Clear destinations and content">
+      <div class="content-stretch flex flex-col gap-[20px] items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30461" data-name="Design content and experiments">
+        <div class="[word-break:break-word] content-stretch flex font-lato font-semibold gap-[32px] items-center not-italic overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30462" data-name="Content heading and context">
+          <p class="h-full leading-[1.18] relative shrink-0 text-[#20242a] text-[26px] w-[850px]">Design notes & experiments</p>
+          <p class="leading-[1.5] relative shrink-0 text-[#486553] text-[12px] text-right w-[390px]" data-node-id="22:30466">
+            ON INSTAGRAM ↗
+          </p>
+        </div>
+        <div class="content-stretch flex gap-[20px] items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30467" data-name="Five design experiments">
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[227px]" data-node-id="22:30468" data-name="Texture in Figma / Instagram">
+            <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30469" data-name="Original reel artwork">
+              <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30470" data-name="Reel cover">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgReelCover.png"></img>
+              </div>
+            </div>
+            <div class="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic overflow-clip p-[18px] relative shrink-0 w-[238.4px]" data-node-id="22:30471" data-name="Experiment details">
+              <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[10px] w-full" data-node-id="22:30472">
+                FIGMA TIP
+              </p>
+              <p class="font-lato font-semibold leading-[1.5] min-h-[54px] relative shrink-0 text-[#20242a] text-[18px] w-full" data-node-id="22:30473">
+                Texture in Figma
+              </p>
+              <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[14px] w-full" href="https://www.instagram.com/reel/DYgjDlSSnDx/?utm_source=ig_web_copy_link&lqvp=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==" data-node-id="22:30474" target="_blank">
+                <p class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline">Watch reel ↗</p>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[240px]" data-node-id="22:30475" data-name="Interaction exploration / Instagram">
+            <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30476" data-name="Original reel artwork">
+              <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30477" data-name="Reel cover">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgReelCover1.png">
+              </div>
+            </div>
+            <div class="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic overflow-clip p-[18px] relative shrink-0 w-[238.4px]" data-node-id="22:30478" data-name="Experiment details">
+              <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[10px] w-full" data-node-id="22:30479">
+                INTERACTION
+              </p>
+              <p class="font-lato font-semibold leading-[1.5] min-h-[54px] relative shrink-0 text-[#20242a] text-[18px] w-full" data-node-id="22:30480">
+                Interaction exploration
+              </p>
+              <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[14px] w-full" href="https://www.instagram.com/reel/DYwnxI_zeGA/?utm_source=ig_web_copy_link&fqnt=MzRlODBiNWFlZA==&avpt=MzRlODBiNWFlZA==" data-node-id="22:30481" target="_blank">
+                <p class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline">Watch reel ↗</p>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[239px]" data-node-id="22:30482" data-name="Clickio landing page / Instagram">
+            <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30483" data-name="Original reel artwork">
+              <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30484" data-name="Reel cover">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgReelCover2.png">
+              </div>
+            </div>
+            <div class="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic overflow-clip p-[18px] relative shrink-0 w-[238.4px]" data-node-id="22:30485" data-name="Experiment details">
+              <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[10px] w-full" data-node-id="22:30486">
+                WEB DESIGN
+              </p>
+              <p class="font-lato font-semibold leading-[1.5] min-h-[54px] relative shrink-0 text-[#20242a] text-[18px] w-full" data-node-id="22:30487">
+                Clickio landing page
+              </p>
+              <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[14px] w-full" href="https://www.instagram.com/reel/DZAeaftz0u4/?utm_source=ig_web_copy_link&cnvx=NTc4MTIwNjQ2YQ==" data-node-id="22:30488" target="_blank">
+                <p class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline">Watch reel ↗</p>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[239px]" data-node-id="22:30489" data-name="Dark-mode exploration / Instagram">
+            <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30490" data-name="Original reel artwork">
+              <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30491" data-name="Reel cover">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgReelCover3.png">
+              </div>
+            </div>
+            <div class="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic overflow-clip p-[18px] relative shrink-0 w-[238.4px]" data-node-id="22:30492" data-name="Experiment details">
+              <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[10px] w-full" data-node-id="22:30493">
+                WEB DESIGN
+              </p>
+              <p class="font-lato font-semibold leading-[1.5] min-h-[54px] relative shrink-0 text-[#20242a] text-[18px] w-full" data-node-id="22:30494">
+                Dark-mode exploration
+              </p>
+              <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[14px] w-full" href="https://www.instagram.com/reel/DZAeaftz0u4/?utm_source=ig_web_copy_link&cnvx=NTc4MTIwNjQ2YQ==" data-node-id="22:30495" target="_blank">
+                <p class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline">Watch reel ↗</p>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[14px] shrink-0 w-[240px]" data-node-id="22:30496" data-name="Product landing page / Instagram">
+            <div class="bg-[#111315] h-[224px] overflow-clip relative shrink-0 w-[238.4px]" data-node-id="22:30497" data-name="Original reel artwork">
+              <div class="absolute h-[200px] left-[12px] rounded-[8px] top-[12px] w-[214.4px]" data-node-id="22:30498" data-name="Reel cover">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none rounded-[8px] size-full" src="assets/figma/imgReelCover4.png">
+              </div>
+            </div>
+            <div class="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-start not-italic overflow-clip p-[18px] relative shrink-0 w-[238.4px]" data-node-id="22:30499" data-name="Experiment details">
+              <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[10px] w-full" data-node-id="22:30500">
+                WEB DESIGN
+              </p>
+              <p class="font-lato font-semibold leading-[1.5] min-h-[54px] relative shrink-0 text-[#20242a] text-[18px] w-full" data-node-id="22:30501">
+                Product landing page
+              </p>
+              <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[14px] w-full" href="https://www.instagram.com/reel/DZAeaftz0u4/?utm_source=ig_web_copy_link&cnvx=NTc4MTIwNjQ2YQ==" data-node-id="22:30502" target="_blank">
+                <p class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline">Watch reel ↗</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#dde3d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:30460" data-name="Section divider"></div>
+      <p class="[word-break:break-word] font-lato font-semibold leading-[1.5] min-w-full not-italic relative shrink-0 text-[#486553] text-[12px] w-[min-content]" data-node-id="22:30508">
+        BEYOND THE CASE STUDIES
+      </p>
+      <div class="content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30443" data-name="Live projects">
+        <div class="[word-break:break-word] content-stretch flex gap-[20px] items-start not-italic overflow-clip relative shrink-0 w-[1272px]" data-node-id="22:30447" data-name="Three live project destinations">
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30448" data-name="Woogyy">
+            <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30449">
+              ANDROID APP
+            </p>
+            <p class="font-lato font-semibold leading-[1.18] relative shrink-0 text-[#20242a] text-[28px] w-full" data-node-id="22:30450">
+              Woogyy
+            </p>
+            <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[15px] w-full" href="https://play.google.com/store/apps/details?id=com.woogyy&hl=en_IN" data-node-id="22:30451" target="_blank">
+              <p class="cursor-pointer leading-[24px]">View on Google Play ↗</p>
+            </a>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30456" data-name="Gujfly">
+            <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30457">
+              UI/UX + DEVELOPMENT
+            </p>
+            <p class="font-lato font-semibold leading-[1.18] relative shrink-0 text-[#20242a] text-[28px] w-full" data-node-id="22:30458">
+              Gujfly
+            </p>
+            <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[15px] w-full" href="https://gujfly.vercel.app/" data-node-id="22:30459" target="_blank">
+              <p class="cursor-pointer leading-[24px]">Visit website ↗</p>
+            </a>
+          </div>
+          <div class="bg-white border border-[#dde3d9] border-solid content-stretch flex flex-col gap-[12px] h-[148px] items-start overflow-clip p-[24px] relative rounded-[14px] shrink-0 w-[411px]" data-node-id="22:30452" data-name="Deluzex">
+            <p class="font-lato font-semibold leading-[1.5] relative shrink-0 text-[#486553] text-[11px] w-full" data-node-id="22:30453">
+              LIGHTING WEBSITE
+            </p>
+            <p class="font-lato font-semibold leading-[1.18] relative shrink-0 text-[#20242a] text-[28px] w-full" data-node-id="22:30454">
+              Deluzex
+            </p>
+            <a class="block font-lato font-medium leading-[0] relative shrink-0 text-[#486553] text-[15px] w-full" href="https://www.deluzexlighting.com/" data-node-id="22:30455" target="_blank">
+              <p class="cursor-pointer leading-[24px]">Visit website ↗</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- 5. ABOUT / MY STORY / EXPERIENCE (Figma 22:28341) -->
+    <section class="w-full flex flex-col items-center reveal-section" id="about">
+      <div class="bg-[#f5f5f6] content-stretch flex flex-col items-center relative size-full" data-node-id="22:28341" data-name="Section">
+      <div class="content-stretch flex flex-col items-start max-w-[1440px] pt-[119.409px] px-[84px] relative shrink-0 w-[1440px]" data-node-id="22:28342" data-name="Container">
+        <div class="content-stretch flex items-start relative shrink-0 w-full" data-node-id="22:28343" data-name="Container">
+          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28344" data-name="Heading 2">
+            <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28345">
+              My Story
+            </p>
+          </div>
+          <div class="content-stretch flex flex-col gap-[22px] items-start relative shrink-0 w-[436px]" data-node-id="22:28346" data-name="Container">
+            <div class="[word-break:break-word] font-lato font-normal h-[66px] leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-full" data-node-id="22:28347" data-name="Paragraph">
+              <p class="absolute left-0 top-[0.5px] whitespace-nowrap" data-node-id="22:28348">I’m a </p>
+              <p class="[text-underline-position:from-font] absolute decoration-from-font decoration-solid left-[32.55px] top-[0.5px] underline whitespace-nowrap" data-node-id="22:28349">
+                self-taught product designer
+              </p>
+              <p class="absolute left-0 top-[22.75px] w-[436px]" data-node-id="22:28350">
+                based in Udaipur. I also create design content on Instagram, where I share what I’m learning with 3,600 followers.
+              </p>
+            </div>
+            <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28351" data-name="Paragraph">
+              <p class="[word-break:break-word] font-lato font-normal leading-[0] not-italic relative shrink-0 text-[14px] text-black w-[436px]" data-node-id="22:28352">
+                <span class="leading-[22px]">As a freelance designer, I’ve completed 10+ client projects, including 7+ on </span>
+                <a class="[text-underline-position:from-font] cursor-pointer decoration-from-font decoration-solid leading-[22px] underline" href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank">
+                  <span class="[text-underline-position:from-font] decoration-from-font decoration-solid underline" href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank">
+                    Upwork
+                  </span>
+                </a>
+                <span class="leading-[22px]">.</span>
+              </p>
+            </div>
+          </div>
+          <div class="content-stretch flex flex-[1_0_0] items-start justify-end min-w-px relative" data-node-id="22:28353" data-name="Container:align">
+            <div class="bg-[#d9d9d9] h-[176px] overflow-clip relative rounded-[14px] shrink-0 w-[308px]" data-node-id="22:28354" data-name="Container">
+              <div class="absolute h-[176px] left-0 top-0 w-[308px]" data-node-id="22:28355" data-name="Soni Patel — Portrait">
+                <img alt="" class="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src="assets/figma/imgSoniPatelPortrait.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-col items-start pt-[44px] relative shrink-0" data-node-id="22:28356" data-name="Container:margin">
+          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:28357" data-name="Container"></div>
+        </div>
+        <div class="content-stretch flex h-[128px] items-start pt-[44px] relative shrink-0 w-[1272px]" data-node-id="22:28358" data-name="Container">
+          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28359" data-name="Heading 3">
+            <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28360">
+              Experience
+            </p>
+          </div>
+          <div class="content-stretch flex flex-[986_0_0] items-start justify-between min-w-px relative" data-node-id="22:28361" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[175px]" data-node-id="22:28362" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28363" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[59.805px]" data-node-id="22:28364" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28365" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28366">
+                      Freelance
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[118.313px]" data-node-id="22:28367" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28368" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28369">
+                      UI/UX Designer
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28370" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28371">
+                  (10+ projects completed)
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[195px]" data-node-id="22:28372" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28373" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[195px]" data-node-id="22:28374" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28375" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28376">
+                      Pixclay Design Agency
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[118.313px]" data-node-id="22:28377" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28378" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28379">
+                      UI/UX Design
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[118.313px]" data-node-id="22:28380" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28381">
+                  (Gurgaon)
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0" data-node-id="22:28382" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="22:28383" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[143.656px]" data-node-id="22:28384" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28385" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28386">
+                      Connex Better
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[143.656px]" data-node-id="22:28387" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28388">
+                    UI/UX Design Intern
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[143.656px]" data-node-id="22:28389" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28390">
+                  (First internship)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-col items-start pt-[44px] relative shrink-0" data-node-id="22:28401" data-name="Container:margin">
+          <div class="bg-[#d9d9d9] h-px relative shrink-0 w-[1272px]" data-node-id="22:28402" data-name="Container"></div>
+        </div>
+        <div class="content-stretch flex items-start pt-[44px] relative shrink-0 w-[1272px]" data-node-id="22:28403" data-name="Container">
+          <div class="content-stretch flex flex-col h-[24px] items-start overflow-clip relative shrink-0 w-[286px]" data-node-id="22:28404" data-name="Heading 3">
+            <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-balance text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:28405">Education & Learning</p>
+          </div>
+          <div class="content-stretch flex flex-[986_0_0] items-start justify-between min-w-px relative" data-node-id="22:28406" data-name="Container">
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[222px]" data-node-id="22:28407" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:28408" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28409" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28410" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28411">
+                      Self-Taught UI/UX Designer
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28412" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28413">
+                    Independent Learning
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[44px] items-start overflow-clip relative shrink-0 w-[191px]" data-node-id="22:28414" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[191px]" data-node-id="22:28415">
+                  Built my design skills through hands-on projects.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[191px]" data-node-id="22:28416" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[170px]" data-node-id="22:28417" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[148.898px]" data-node-id="22:28418" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28419" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28420">
+                      Google UX Design Certificate
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28421" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28422">
+                    Google
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[44px] items-start overflow-clip relative shrink-0 w-[191px]" data-node-id="22:28423" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black w-[191px]" data-node-id="22:28424">
+                  Completed the Google UX Design course.
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-[191px]" data-node-id="22:28425" data-name="Container">
+              <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[170px]" data-node-id="22:28426" data-name="Container">
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[148.898px]" data-node-id="22:28427" data-name="Paragraph">
+                  <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:28428" data-name="Text">
+                    <p class="[word-break:break-word] font-lato font-bold leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28429">
+                      UI/UX Design Bootcamp
+                    </p>
+                  </div>
+                </div>
+                <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-full" data-node-id="22:28430" data-name="Paragraph">
+                  <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[14px] whitespace-nowrap" data-node-id="22:28431">
+                    Baagdi Private Limited
+                  </p>
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col h-[22px] items-start overflow-clip relative shrink-0 w-[191px]" data-node-id="22:28432" data-name="Paragraph">
+                <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-black whitespace-nowrap" data-node-id="22:28433">
+                  Completed a 6-month bootcamp covering the full UI/UX design process.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- 6. FOOTER (Figma 22:28434) -->
+        <footer class="w-full bg-black text-white flex flex-col items-center relative overflow-hidden" id="contact" data-nav-section="contact" data-cursor-invert="true">
+      <div class="bg-black content-stretch flex flex-col items-start relative size-full" data-node-id="22:28434" data-name="Footer">
+        <!-- Top row: Heading & Links -->
+        <div class="content-stretch flex items-start justify-between max-w-[1440px] px-[84px] py-[56.851px] relative shrink-0 w-full max-lg:flex-col max-lg:justify-start max-lg:gap-[44px] max-lg:px-[24px] max-lg:py-[54px]" data-node-id="22:28435" data-name="Container">
+          
+          <!-- Animated Heading 2 with dynamic rotating verb loop -->
+          <h2 class="relative w-[631px] min-w-0 overflow-hidden font-lato text-[40px] leading-[48px] font-bold tracking-[-0.8px] max-lg:w-full max-lg:max-w-[319px] max-lg:text-[28px] max-lg:leading-[34px]" data-node-id="22:28436" data-name="Heading 2">
+            <span class="block">
+              <span class="text-[#f5f5f6]">Let’s</span>
+              <span id="verb-rotator" class="rotating-verb-wrap relative inline-block h-[48px] max-lg:h-[34px] overflow-hidden align-bottom whitespace-nowrap transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" style="min-width: 107px;">
+                <span id="rotating-verb" class="rotating-verb inline-block font-lato font-bold text-[#f5f5f6]">create</span>
+              </span>
+              <span class="text-[#9d9d9d]">something great together.</span>
+            </span>
+          </h2>
+
+          <!-- Contact Email & Social Links -->
+          <div class="content-stretch flex flex-col gap-[34px] items-start pt-[8px] relative shrink-0 w-[419px] max-lg:pt-0 max-lg:w-full" data-node-id="22:28470" data-name="Container">
+            
+            <!-- Copy Email Button -->
+            <button type="button" id="copy-email-btn" data-cursor-label="Copy to clipboard" aria-label="Copy email charleshonigdesign@gmail.com" class="group flex w-fit cursor-pointer items-center gap-[8px] text-[14px] font-bold text-[#f5f5f6] hover:text-white transition-colors duration-200 outline-none" data-node-id="22:28471" data-name="Button - Copy email charleshonigdesign@gmail.com">
+              <span id="email-address-text" class="font-lato leading-[21px]">charleshonigdesign@gmail.com</span>
+              <span id="copy-icon-wrap" class="relative inline-flex items-center justify-center size-[20px] transition-transform duration-200 group-hover:-translate-y-0.5">
+                <svg id="copy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy size-[18px]" aria-hidden="true">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                </svg>
+                <svg id="check-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-[18px] absolute inset-0 m-auto hidden" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+              </span>
+            </button>
+
+            <!-- Links: Resume, LinkedIn, Letterboxd -->
+            <div class="content-stretch flex gap-[64px] items-center relative shrink-0 w-full max-lg:flex-col max-lg:items-start max-lg:gap-[24px]" data-node-id="22:28477" data-name="Container">
+              <a href="#about" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200" data-node-id="22:28478" data-name="Link">
+                <span class="font-lato leading-[21px]">Resume</span>
+                <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="assets/figma/imgIcon1.svg">
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200" data-node-id="22:28483" data-name="Link">
+                <span class="font-lato leading-[21px]">LinkedIn</span>
+                <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="assets/figma/imgIcon1.svg">
+              </a>
+              <a href="https://letterboxd.com" target="_blank" rel="noopener noreferrer" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200" data-node-id="22:28488" data-name="Link">
+                <span class="font-lato leading-[21px]">Letterboxd</span>
+                <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="assets/figma/imgIcon1.svg">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8-Bit Retro Bike Runner Game (Figma 22:28493 + Charles Honig Game Engine) -->
+        <div class="runner-outer-wrap relative mx-auto -mt-[29px] w-full max-w-[1440px] overflow-hidden px-[84px] max-lg:-mt-[19px] max-lg:px-[24px]" data-node-id="22:28493" data-name="Container:margin">
+          <div id="bike-runner" class="runner-track relative h-[116px] w-full touch-manipulation overflow-hidden select-none cursor-pointer" role="region" aria-label="Interactive Chicago Skyline Bike Runner Arcade Game">
+            
+            <!-- Procedural Chicago Skyline -->
+            <div class="runner-skyline absolute left-0 will-change-transform bg-[#555555]" style="bottom: 12px;"></div>
+
+            <!-- Desktop prompt: [Space] to ride -->
+            <p class="runner-prompt pointer-events-none absolute inset-x-0 top-[24px] flex items-center justify-center gap-[8px] text-[12px] leading-[20px] whitespace-nowrap text-white max-lg:hidden transition-opacity duration-300">
+              <kbd class="inline-flex items-center justify-center border font-sans font-bold uppercase rounded-[4px] px-[4px] py-[3px] text-[10px] leading-none border-white/40 bg-black text-white">Space</kbd>
+              <span class="runner-prompt-text font-lato">to ride</span>
+            </p>
+
+            <!-- Procedural Road Surface -->
+            <div class="runner-road absolute bottom-0 left-0 will-change-transform" style="height: 12px;">
+              <div class="runner-road-grey absolute inset-0 bg-[#9d9d9d]"></div>
+              <div class="runner-road-ink absolute inset-0 bg-[#f5f5f6]"></div>
+            </div>
+
+            <!-- Landmark flag -->
+            <div class="runner-landmark absolute left-0 will-change-transform" hidden style="bottom: 12px;">
+              <svg shape-rendering="crispEdges" aria-hidden="true" width="16" height="26" viewBox="0 0 8 13" class="fill-[#9d9d9d] block max-w-none">
+                <path d="M0 0h8v1h-8zM0 1h7v1h-7zM0 2h6v1h-6zM0 3h7v1h-7zM0 4h8v1h-8zM0 5h1v8h-1z"></path>
+              </svg>
+            </div>
+
+            <!-- Obstacles pool (20 dynamic slots) -->
+            <div class="runner-obstacles-wrap"></div>
+
+            <!-- Left and Right Vignette Gradients -->
+            <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 w-[24px] bg-gradient-to-r from-black to-transparent"></div>
+            <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 w-[24px] bg-gradient-to-l from-black to-transparent"></div>
+
+            <!-- 5x3 Retro Pixel Score & Hi-Score Counter -->
+            <div class="runner-score-outer absolute top-[2px] left-0 flex h-[20px] items-center text-[12px] leading-[20px] whitespace-nowrap overflow-hidden transition-[width] duration-300 ease-out max-lg:top-[8px]" style="width: 0px;">
+              <div class="runner-score-inner flex w-[max-content] items-center gap-[12px] pr-[12px] transition-transform duration-300 ease-out" style="transform: translateY(110%);">
+                <span class="runner-score flex">
+                  <svg shape-rendering="crispEdges" aria-hidden="true" width="38" height="10" viewBox="0 0 19 5" class="fill-[#f5f5f6] max-w-none">
+                    <path></path>
+                  </svg>
+                  <span class="sr-only">00000</span>
+                </span>
+                <span class="runner-hiscore flex" hidden>
+                  <svg shape-rendering="crispEdges" aria-hidden="true" class="fill-[#9d9d9d] max-w-none">
+                    <path></path>
+                  </svg>
+                  <span class="sr-only"></span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Mobile Tap Prompt -->
+            <p class="runner-prompt-mobile pointer-events-none absolute top-[2px] left-0 text-white text-[12px] leading-[20px] lg:hidden transition-opacity duration-300 max-lg:top-[8px]">Tap to ride</p>
+
+            <!-- Cyclist Pixel Sprite -->
+            <div class="runner-cyclist absolute left-[24px] will-change-transform" style="bottom: 12px;">
+              <svg shape-rendering="crispEdges" aria-hidden="true" width="36" height="36" viewBox="0 0 18 18" class="max-w-none">
+                <path data-part="band" class="fill-black"></path>
+                <path data-part="grey" class="fill-[#9d9d9d]"></path>
+                <path data-part="ink" class="fill-[#f5f5f6]"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 7. "ASK CHARLES / ASK AI" DIALOG DRAWER (Figma 22:30513) -->
+  <div class="ai-backdrop" id="aiBackdrop" aria-hidden="true"></div>
+  <aside class="ai-drawer-panel" id="aiDrawer" role="dialog" aria-modal="true" aria-label="Ask AI Assistant">
+    <div class="w-[424px] max-w-full bg-white rounded-[24px] shadow-2xl overflow-hidden border border-black/10">
+      <div class="bg-white content-stretch flex flex-col items-start relative size-full" data-node-id="22:30513" data-name="Dialog - Ask Charles">
+      <div class="content-stretch flex items-center justify-between px-[24px] py-[34px] relative shrink-0 w-full" data-node-id="22:30514" data-name="Container">
+        <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="22:30515" data-name="Container">
+          <div class="relative shrink-0 size-[22px]" data-node-id="22:30516" data-name="Icon">
+            <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon.svg"></img>
+          </div>
+          <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30521" data-name="Text">
+            <p class="[word-break:break-word] font-lato font-bold leading-[16px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30522">
+              ChuckBot
+            </p>
+          </div>
+        </div>
+        <div class="content-stretch flex gap-[14px] items-center relative shrink-0" data-node-id="22:30523" data-name="Container">
+          <div class="content-stretch flex flex-col items-start justify-center relative rounded-[4px] shrink-0" data-node-id="22:30524" data-name="Button - Start a new conversation">
+            <div class="relative shrink-0 size-[20px]" data-node-id="22:30525" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon1.svg">
+            </div>
+          </div>
+          <div class="content-stretch flex flex-col items-start justify-center relative rounded-[4px] shrink-0" data-node-id="22:30528" data-name="Button - Close">
+            <div class="relative shrink-0 size-[22px]" data-node-id="22:30529" data-name="Icon">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon2.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-stretch flex flex-[516.5_0_0] flex-col items-start min-h-px overflow-clip pb-[14px] px-[24px] relative w-[424px]" data-node-id="22:30532" data-name="Container">
+        <div class="content-stretch flex flex-col gap-[24px] h-[502.5px] items-start pt-[10px] relative shrink-0 w-full" data-node-id="22:30533" data-name="Container">
+          <div class="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="22:30534" data-name="Heading 2">
+            <p class="[word-break:break-word] font-lato font-bold leading-[24px] not-italic relative shrink-0 text-[20px] text-black tracking-[-0.4px] whitespace-nowrap" data-node-id="22:30535">
+              Ask about my work, career, or interests.
+            </p>
+          </div>
+          <div class="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="22:30536" data-name="Container">
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30537" data-name="Button">
+              <div class="relative shrink-0 size-[20px]" data-node-id="22:30538" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30541" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[24px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30542">
+                  What’s your favorite project?
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30543" data-name="Button">
+              <div class="relative shrink-0 size-[20px]" data-node-id="22:30544" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30547" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[24px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30548">
+                  Can I see your resume?
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30549" data-name="Button">
+              <div class="relative shrink-0 size-[20px]" data-node-id="22:30550" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30553" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[24px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30554">
+                  Can you tell me about yourself?
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30555" data-name="Button">
+              <div class="relative shrink-0 size-[20px]" data-node-id="22:30556" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30559" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[24px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30560">
+                  How do you use AI in your workflow?
+                </p>
+              </div>
+            </div>
+            <div class="content-stretch flex gap-[8px] items-center p-[10px] relative rounded-[10px] shrink-0 w-[376px]" data-node-id="22:30561" data-name="Button">
+              <div class="relative shrink-0 size-[20px]" data-node-id="22:30562" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon3.svg">
+              </div>
+              <div class="content-stretch flex flex-col items-start relative shrink-0" data-node-id="22:30565" data-name="Text">
+                <p class="[word-break:break-word] font-lato font-normal leading-[24px] not-italic relative shrink-0 text-[16px] text-black whitespace-nowrap" data-node-id="22:30566">
+                  How do I contact you?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-stretch flex flex-col items-start pb-[24px] px-[24px] relative shrink-0 w-full" data-node-id="22:30567" data-name="Form">
+        <div class="bg-[#f5f5f6] content-stretch flex flex-col h-[99px] items-start justify-between min-h-[99px] p-[14px] relative rounded-[14px] shrink-0 w-[376px]" data-node-id="22:30568" data-name="Container">
+          <div class="content-stretch flex flex-col h-[22px] items-start max-h-[88px] overflow-clip relative shrink-0 w-full" data-node-id="22:30569" data-name="Text Area - Ask anything about Charles">
+            <p class="[word-break:break-word] font-lato font-normal leading-[22px] not-italic relative shrink-0 text-[#9d9d9d] text-[16px] w-full" data-node-id="22:30570">
+              Ask anything about Charles...
+            </p>
+          </div>
+          <div class="content-stretch flex items-end justify-between relative shrink-0 w-full" data-node-id="22:30571" data-name="Container">
+            <div class="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="22:30572" data-name="Container">
+              <div class="content-stretch flex flex-col items-start justify-center relative rounded-[4px] shrink-0" data-node-id="22:30573" data-name="Button - Suggested prompts">
+                <div class="relative shrink-0 size-[16px]" data-node-id="22:30574" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon4.svg">
+                </div>
+              </div>
+              <div class="content-stretch flex flex-col items-start justify-center relative rounded-[4px] shrink-0" data-node-id="22:30583" data-name="Button - Explore case studies">
+                <div class="relative shrink-0 size-[16px]" data-node-id="22:30584" data-name="Icon">
+                  <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon5.svg">
+                </div>
+              </div>
+            </div>
+            <div class="bg-black content-stretch flex items-center justify-center opacity-40 relative rounded-[999px] shrink-0 size-[32px]" data-node-id="22:30586" data-name="Button - Send">
+              <div class="relative shrink-0 size-[22px]" data-node-id="22:30587" data-name="Icon">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="assets/figma/imgIcon6.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-col h-[21px] items-center pt-[8px] relative shrink-0 w-[376px]" data-node-id="22:30590" data-name="Paragraph">
+          <p class="[word-break:break-word] font-lato font-normal leading-[normal] not-italic relative shrink-0 text-[#9d9d9d] text-[11px] text-center whitespace-nowrap" data-node-id="22:30591">
+            AI can get things wrong. The case studies have the full story.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </aside>
+
+  <script src="js/footer-runner.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#f5f5f6]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProNex ArchAI — Architecture SaaS Platform — Sonu Patel</title>
+  <meta name="description" content="Role-based architecture SaaS platform uniting design reviews, drawing approvals, and team coordination.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+            'lato': ['Lato', 'sans-serif']
+          },
+          colors: {
+            bg: '#f5f5f6',
+            fg: '#0d0d0d',
+            'fg-muted': '#9d9d9d',
+            panel: '#eaeaeb',
+            surface: '#ffffff'
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <style>
+    /* Charles Honig Animation & Case Study Styles */
+    .title-clip {
+      display: block;
+      overflow: hidden;
+    }
+    .title-reveal {
+      display: block;
+      transform: translateY(110%);
+      will-change: transform;
+    }
+    .hero-fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      will-change: transform, opacity;
+    }
+    .hero-video-box {
+      opacity: 0;
+      transform: translateY(48px);
+      will-change: transform, opacity;
+    }
+    
+    /* Sticky Sidebar Navigation */
+    .toc-marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 18px;
+      background-color: #0d0d0d;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .toc-item.active {
+      color: #0d0d0d !important;
+      font-weight: 700;
+      transform: translateX(10px);
+    }
+    .toc-item {
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
+    }
+
+    /* Video Player Interactive Sheen */
+    .video-container:hover .video-sheen {
+      opacity: 1;
+    }
+    .video-sheen {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08), inset 0 2px 8px rgba(0,0,0,0.05);
+      transition: opacity 0.3s ease;
+    }
+
+    /* Lightbox Modal */
+    #image-lightbox {
+      transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #image-lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #image-lightbox.active #lightbox-img {
+      transform: scale(1);
+    }
+    #lightbox-img {
+      transform: scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
+</head>
+<body class="bg-[#f5f5f6] text-[#0d0d0d] font-lato min-h-screen overflow-x-clip antialiased selection:bg-black selection:text-white">
+  
+  <!-- Custom Cursor & Contextual Label -->
+  <div class="custom-cursor" aria-hidden="true"></div>
+  <div class="cursor-label" aria-hidden="true"></div>
+
+  <!-- Primary Header Band -->
+  <header data-site-header="true" class="pointer-events-none fixed inset-x-0 top-0 z-50">
+    <div data-header-band="true" class="relative py-[28px] max-lg:py-[20px] bg-[#f5f5f6]/90 backdrop-blur-md border-b border-black/5">
+      <nav aria-label="Primary" class="pointer-events-auto relative mx-auto flex w-full max-w-[1440px] items-center justify-between px-[84px] max-lg:px-[24px]">
+        <a href="../index.html" class="group flex items-center gap-[8px] text-[15px] font-bold text-black hover:opacity-75 transition-opacity" data-cursor-label="Back Home">
+          <span class="inline-flex items-center justify-center size-6 rounded-full bg-white border border-black/10 shadow-xs transition-transform duration-200 group-hover:-translate-x-0.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+          </span>
+          <span>Sonu Patel</span>
+        </a>
+        <div class="flex items-center gap-[24px]">
+          <span class="text-[12px] font-bold uppercase tracking-wider text-[#9d9d9d] max-lg:hidden">Architecture SaaS Platform</span>
+          <a href="../index.html#contact" class="px-[16px] py-[6px] rounded-full border border-black text-[13px] font-bold text-black hover:bg-black hover:text-white transition-all">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Left Sticky Navigation Sidebar (Exact Charles Honig Pattern) -->
+  <aside id="case-sidebar" class="fixed top-[150px] left-8 xl:left-[max(24px,calc((100vw-1440px)/2+40px))] z-40 hidden lg:flex flex-col gap-[28px] w-[180px] select-none">
+    
+    <!-- Back Button -->
+    <a href="../index.html#work" data-cursor-label="Back to Work" class="group flex items-center gap-[8px] text-[#9d9d9d] hover:text-black text-[14px] font-semibold transition-colors duration-200 outline-none">
+      <span class="inline-flex size-[20px] items-center justify-center transition-transform duration-200 group-hover:-translate-x-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+      </span>
+      <span>Back</span>
+    </a>
+
+    <!-- Case Study Length Toggle -->
+    <div role="group" aria-label="Case study length" class="flex items-center bg-black/5 p-0.5 rounded-full w-fit">
+      <button type="button" id="btn-len-full" class="px-[12px] py-[4px] rounded-full text-[12px] font-bold bg-white text-black shadow-xs transition-all">Full</button>
+      <button type="button" id="btn-len-tldr" class="px-[12px] py-[4px] rounded-full text-[12px] font-semibold text-[#9d9d9d] hover:text-black transition-all">TL;DR</button>
+    </div>
+
+    <!-- Table of Contents Menu with Glide Marker -->
+    <nav aria-label="Case study sections" class="relative flex flex-col items-start gap-[8px] pl-3 border-l border-black/10">
+      <span id="toc-marker" class="toc-marker" aria-hidden="true"></span>
+      <a href="#overview" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="overview">Overview</a>
+      <a href="#problem" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="problem">Problem</a>
+      <a href="#responsibilities" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="responsibilities">Roles</a>
+      <a href="#research" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="research">Research</a>
+      <a href="#dashboard" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="dashboard">Dashboard</a>
+      <a href="#process" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="process">Progress Report</a>
+      <a href="#decisions" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="decisions">Decisions</a>
+      <a href="#payments" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="payments">Payments</a>
+      <a href="#design-system" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="design-system">Design System</a>
+      <a href="#handoff" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="handoff">Handoff</a>
+      <a href="#reflection" class="toc-item text-[13px] leading-[18px] text-[#9d9d9d] hover:text-black transition-colors" data-target="reflection">Outcomes</a>
+    </nav>
+  </aside>
+
+  <!-- Main Case Study Canvas -->
+  <main class="w-full max-w-[1440px] mx-auto px-[84px] pt-[132px] pb-[96px] max-lg:px-[24px] max-lg:pt-[100px] lg:pl-[280px]">
+    <div class="max-w-[1074px] mx-auto flex flex-col gap-[72px] max-lg:gap-[54px]">
+
+      <!-- ======================================================================
+           HEADER / INTRO SECTION (Overview)
+           ====================================================================== -->
+      <section id="overview" class="scroll-mt-[130px] flex flex-col gap-[28px]">
+        <div class="flex flex-col gap-[12px]">
+          <span class="text-[12px] md:text-[13px] font-bold uppercase tracking-[0.14em] text-[#9d9d9d]">ARCHITECTURE & DESIGN / B2B SAAS / 2024</span>
+          
+          <!-- Masked Title Reveal -->
+          <h1 class="text-[44px] md:text-[68px] font-bold tracking-tight leading-[1.08] text-black">
+            <span class="title-clip">
+              <span class="title-reveal">ProNex ArchAI</span>
+            </span>
+          </h1>
+          
+          <div class="hero-fade-up">
+            <p class="text-[22px] md:text-[28px] font-bold text-black/90 leading-[1.25]">One shared workspace. A clear next step for every role.</p>
+          </div>
+        </div>
+
+        <div class="hero-fade-up">
+          <p class="text-[17px] md:text-[19px] text-[#555] leading-[1.65] max-w-[940px]">
+            From first design review to client sign-off, construction decisions rely on shared drawings, approvals, and site updates. ProNex ArchAI gives each role a single place to track what is moving and what is waiting.
+          </p>
+        </div>
+
+        <!-- 4-Column Metadata Grid -->
+        <div class="hero-fade-up grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-t border-b border-black/10">
+          <div class="flex flex-col gap-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#9d9d9d]">My Role</span>
+            <span class="text-[15px] font-bold text-black">Lead Product Designer</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#9d9d9d]">Timeline</span>
+            <span class="text-[15px] font-bold text-black">10 Weeks, Q3–Q4 2024</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#9d9d9d]">Tool Stack</span>
+            <span class="text-[15px] font-bold text-black">Figma, FigJam, GSAP</span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#9d9d9d]">Impact</span>
+            <span class="text-[15px] font-bold text-black">Single-hub workspace</span>
+          </div>
+        </div>
+
+        <!-- HERO SHOWCASE VIDEO (Provided Prototype Demo Video) -->
+        <div class="hero-video-box mt-4">
+          <div class="video-container group relative aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-[20px] md:rounded-[24px] bg-black shadow-2xl border border-black/10" data-cursor="grow" data-cursor-label="Play / Pause" id="video-wrapper">
+            <video id="prototype-video" src="../assets/videos/Arch-AI-Prototype.mp4" autoplay loop muted playsinline preload="auto" class="absolute inset-0 size-full object-cover"></video>
+            <div class="video-sheen"></div>
+            
+            <!-- Video Control Overlay Badge -->
+            <div id="video-status-indicator" class="pointer-events-none absolute bottom-5 right-5 flex items-center gap-2 rounded-full bg-black/60 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-md opacity-0 transition-opacity duration-300">
+              <span id="video-status-icon">▶</span>
+              <span id="video-status-text">Playing</span>
+            </div>
+          </div>
+          <p class="mt-3 text-center text-[12px] text-[#9d9d9d]">ArchAI Interactive Prototype Demo — Click video to pause / resume</p>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 01: THE PROBLEM (Signature Dark Box)
+           ====================================================================== -->
+      <section id="problem" class="scroll-mt-[130px] rounded-[24px] md:rounded-[28px] bg-[#14171f] text-white p-8 md:p-14 shadow-2xl reveal-section" data-cursor-label="The Problem">
+        <span class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#f4a261] block mb-3">01 / THE PROBLEM</span>
+        <h2 class="text-[30px] md:text-[44px] font-bold text-white tracking-tight leading-[1.18] mb-4">When work changes hands, the next action should not get lost.</h2>
+        <p class="text-[16px] md:text-[18px] text-white/80 leading-[1.65] max-w-[900px] mb-8">Architecture projects rely on frequent handoffs. The challenge was to clarify what each person needs to do while protecting access to drawings, project files, and payments.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-8">
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[34px] font-bold leading-none">4</span>
+            <span class="text-[13px] font-semibold text-[#555] mt-2">User roles</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[34px] font-bold leading-none">18</span>
+            <span class="text-[13px] font-semibold text-[#555] mt-2">Drawing revision stages</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[34px] font-bold leading-none">2</span>
+            <span class="text-[13px] font-semibold text-[#555] mt-2">Interfaces (Web & App)</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[34px] font-bold leading-none">1</span>
+            <span class="text-[13px] font-semibold text-[#555] mt-2">Unified system</span>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 text-[13px] font-medium text-white/70">
+          MY APPROACH / Translate A&F Design’s requirements into role permissions, task flows, and a shared web and mobile prototype.
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 02: RESPONSIBILITIES (Four Roles)
+           ====================================================================== -->
+      <section id="responsibilities" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">02 / THE USER NEED</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">One project. Four different responsibilities.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">Admins and staff run studio operations. Client Leaders and Client Viewers follow progress with different access levels. The interface needs to support those differences without creating four separate products.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-2">
+          <div class="p-6 md:p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col justify-start hover:border-black/30 transition-all">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#888] mb-2">Studio Team</span>
+            <h4 class="text-[20px] font-bold text-black mb-2">Admin & Staff</h4>
+            <p class="text-[14px] text-[#555] leading-[1.65]">Studio staff handle daily document uploads, revision reviews, and time tracking. Need unambiguous status tags and fast batch operations.</p>
+          </div>
+          <div class="p-6 md:p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col justify-start hover:border-black/30 transition-all">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#888] mb-2">Client Team</span>
+            <h4 class="text-[20px] font-bold text-black mb-2">Client Leader & Viewer</h4>
+            <p class="text-[14px] text-[#555] leading-[1.65]">External clients review milestones, approve drawings, and authorize payment releases. Require restricted, clean views without operational clutter.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 03: USER RESEARCH (Sticky Notes Diagram)
+           ====================================================================== -->
+      <section id="research" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">03 / USER RESEARCH</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Start with the handoff, not the dashboard.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">I reviewed the brief and existing workflows to map when people act, wait for approval, or hand work to another role. This established the structure for the task flows.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_sticky_notes.png" alt="Handoff Mapping & Research Questions" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 04: DASHBOARD (Make pending work easier to recognise)
+           ====================================================================== -->
+      <section id="dashboard" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">04 / DASHBOARD ARCHITECTURE</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Make pending work easier to recognise.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">I reviewed dashboard hierarchy, repeated navigation, and inconsistent labels around drawing reviews, attendance, and payments. The design focus became clearer destinations and more explicit states.</p>
+        </div>
+
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_demo_dashboard.png" alt="ProNex ArchAI Dashboard UI" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 06: PROGRESS REPORT (Sketch to Wireframe to UI)
+           ====================================================================== -->
+      <section id="process" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">06 / ITERATIVE PROCESS</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Turn project progress into a readable hierarchy.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">The La Pristine Progress Report moves from layout sketch to wireframe to final UI. The sequence shows how the information structure develops before the visual treatment.</p>
+        </div>
+
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_progress_report_process.png" alt="Progress Report Design Process (Sketch to UI)" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 07: INTERACTION DECISIONS (Request vs Confirmation)
+           ====================================================================== -->
+      <section id="decisions" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">07 / INTERACTION DECISIONS</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">A request is not the same as a confirmation.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">The booking and drawing-revision flows separate submitting a request from receiving a decision. Clear status and next-step messaging are intended to reduce uncertainty during handoffs.</p>
+        </div>
+
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_workflow_comparison.png" alt="Workflow Decisions — Request vs Confirmation" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 09: PAYMENTS (Keep project fees and payment status together)
+           ====================================================================== -->
+      <section id="payments" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">09 / FINANCE & OPERATIONS</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Keep project fees and payment status together.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">The Payments workspace brings fees and records into one view. Each record exposes its status, date, and payment method so admins can inspect the context before acting.</p>
+        </div>
+
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_payments_screen.png" alt="Payments & Fees Workspace" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 11: DESIGN SYSTEM (Consistency is part of the workflow)
+           ====================================================================== -->
+      <section id="design-system" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">11 / SYSTEM FOUNDATION</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Consistency is part of the workflow.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">Reusable project cards, tabs, drawing rows, status labels, and dialogs keep common actions consistent. Shared patterns help the experience scale across roles and platforms.</p>
+        </div>
+
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="../assets/figma/archai_components_workflow.png" alt="Shared UI Component Library & Architecture Tokens" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 13: DESIGN TO DEV HANDOFF
+           ====================================================================== -->
+      <section id="handoff" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">13 / DESIGN TO DEVELOPMENT</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Carry the design decisions into implementation.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">I used Figma MCP to bring the ArchAI screens and components into the development workflow and build the app. The handoff connects the interface design to the product being implemented.</p>
+        </div>
+
+        <div class="w-full p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col items-center justify-center">
+          <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-center">
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-[28px]">🎨</span>
+              <span class="text-[13px] font-bold">Figma Specs</span>
+            </div>
+            <span class="text-[#9d9d9d] text-[20px]">→</span>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-[28px]">⚡</span>
+              <span class="text-[13px] font-bold">Design Tokens</span>
+            </div>
+            <span class="text-[#9d9d9d] text-[20px]">→</span>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-[28px]">📦</span>
+              <span class="text-[13px] font-bold">GitHub Repository</span>
+            </div>
+            <span class="text-[#9d9d9d] text-[20px]">→</span>
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-[28px]">🚀</span>
+              <span class="text-[13px] font-bold">Production Code</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           CHAPTER 14: OUTCOMES & REFLECTION
+           ====================================================================== -->
+      <section id="reflection" class="scroll-mt-[130px] flex flex-col gap-6 reveal-section">
+        <div>
+          <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">14 / OUTCOME & REFLECTION</span>
+          <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">The workflow is designed. Its effectiveness is the next test.</h2>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">The work covers four role-based flows, desktop design, and a mobile prototype. These are delivered design outputs—not evidence of faster approvals or fewer errors. The next step is to test whether people can identify the latest drawing, complete a review, and recognise a confirmed meeting.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-2">
+          <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm flex flex-col justify-between">
+            <span class="text-[30px] font-bold text-black">4 Roles</span>
+            <span class="text-[13px] font-semibold text-[#666] mt-1">Admin, Staff, Leader, Viewer</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm flex flex-col justify-between">
+            <span class="text-[30px] font-bold text-black">Web</span>
+            <span class="text-[13px] font-semibold text-[#666] mt-1">Desktop operations dashboard</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm flex flex-col justify-between">
+            <span class="text-[30px] font-bold text-black">Mobile</span>
+            <span class="text-[13px] font-semibold text-[#666] mt-1">Interactive review prototype</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm flex flex-col justify-between">
+            <span class="text-[30px] font-bold text-black">100%</span>
+            <span class="text-[13px] font-semibold text-[#666] mt-1">Tokenized system components</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           MORE OF MY WORK (NEXT CASE STUDIES)
+           ====================================================================== -->
+      <section class="scroll-mt-[130px] pt-8 border-t border-black/10 reveal-section">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-[#9d9d9d] block mb-1">Portfolio</span>
+            <h3 class="text-[30px] font-bold text-black tracking-tight">More of My Work</h3>
+          </div>
+          <a href="../index.html#work" class="text-[14px] font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity">View All ↗</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <a href="finaxa.html" class="p-6 md:p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col justify-between hover:border-black hover:shadow-xl transition-all group" data-cursor-label="View Finaxa">
+            <div>
+              <span class="text-[11px] font-bold text-[#9d9d9d] uppercase tracking-wider block mb-2">Next Case Study</span>
+              <h4 class="text-[22px] font-bold text-black group-hover:text-black/80 transition-colors mb-2">Finaxa ↗</h4>
+              <p class="text-[14px] text-[#666] leading-[1.5]">Everyday banking across web and mobile platforms.</p>
+            </div>
+            <span class="text-[13px] font-bold text-black mt-6 underline underline-offset-4">Explore Case Study →</span>
+          </a>
+          <a href="settle.html" class="p-6 md:p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col justify-between hover:border-black hover:shadow-xl transition-all group" data-cursor-label="View Settle">
+            <div>
+              <span class="text-[11px] font-bold text-[#9d9d9d] uppercase tracking-wider block mb-2">Next Case Study</span>
+              <h4 class="text-[22px] font-bold text-black group-hover:text-black/80 transition-colors mb-2">Settle ↗</h4>
+              <p class="text-[14px] text-[#666] leading-[1.5]">A gentler daily reset practice and wellness routines.</p>
+            </div>
+            <span class="text-[13px] font-bold text-black mt-6 underline underline-offset-4">Explore Case Study →</span>
+          </a>
+          <a href="clickio.html" class="p-6 md:p-8 rounded-[20px] bg-white border border-black/10 shadow-sm flex flex-col justify-between hover:border-black hover:shadow-xl transition-all group" data-cursor-label="View Clickio">
+            <div>
+              <span class="text-[11px] font-bold text-[#9d9d9d] uppercase tracking-wider block mb-2">Next Case Study</span>
+              <h4 class="text-[22px] font-bold text-black group-hover:text-black/80 transition-colors mb-2">Clickio ↗</h4>
+              <p class="text-[14px] text-[#666] leading-[1.5]">Search visibility and traffic monitoring platform.</p>
+            </div>
+            <span class="text-[13px] font-bold text-black mt-6 underline underline-offset-4">Explore Case Study →</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER (Charles Honig Rotating Verb & Retro Bike Runner)
+       ========================================================================== -->
+  <footer class="w-full bg-black text-white flex flex-col items-center relative overflow-hidden" id="contact" data-nav-section="contact" data-cursor-invert="true">
+    <div class="bg-black content-stretch flex flex-col items-start relative size-full">
+      <!-- Top row: Heading & Links -->
+      <div class="content-stretch flex items-start justify-between max-w-[1440px] px-[84px] py-[56.851px] relative shrink-0 w-full max-lg:flex-col max-lg:justify-start max-lg:gap-[44px] max-lg:px-[24px] max-lg:py-[54px]">
+        
+        <!-- Animated Heading 2 with dynamic rotating verb loop -->
+        <h2 class="relative w-[631px] min-w-0 overflow-hidden font-lato text-[40px] leading-[48px] font-bold tracking-[-0.8px] max-lg:w-full max-lg:max-w-[319px] max-lg:text-[28px] max-lg:leading-[34px]">
+          <span class="block">
+            <span class="text-[#f5f5f6]">Let’s</span>
+            <span id="verb-rotator" class="rotating-verb-wrap relative inline-block h-[48px] max-lg:h-[34px] overflow-hidden align-bottom whitespace-nowrap transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" style="min-width: 107px;">
+              <span id="rotating-verb" class="rotating-verb inline-block font-lato font-bold text-[#f5f5f6]">create</span>
+            </span>
+            <span class="text-[#9d9d9d]">something great together.</span>
+          </span>
+        </h2>
+
+        <!-- Contact Email & Social Links -->
+        <div class="content-stretch flex flex-col gap-[34px] items-start pt-[8px] relative shrink-0 w-[419px] max-lg:pt-0 max-lg:w-full">
+          <button type="button" id="copy-email-btn" data-cursor-label="Copy to clipboard" aria-label="Copy email charleshonigdesign@gmail.com" class="group flex w-fit cursor-pointer items-center gap-[8px] text-[14px] font-bold text-[#f5f5f6] hover:text-white transition-colors duration-200 outline-none">
+            <span id="email-address-text" class="font-lato leading-[21px]">charleshonigdesign@gmail.com</span>
+            <span id="copy-icon-wrap" class="relative inline-flex items-center justify-center size-[20px] transition-transform duration-200 group-hover:-translate-y-0.5">
+              <svg id="copy-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy size-[18px]"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+              <svg id="check-icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check size-[18px] absolute inset-0 m-auto hidden"><path d="M20 6 9 17l-5-5"></path></svg>
+            </span>
+          </button>
+
+          <div class="content-stretch flex gap-[64px] items-center relative shrink-0 w-full max-lg:flex-col max-lg:items-start max-lg:gap-[24px]">
+            <a href="../index.html#about" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200">
+              <span class="font-lato leading-[21px]">Resume</span>
+              <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="../assets/figma/imgIcon1.svg">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200">
+              <span class="font-lato leading-[21px]">LinkedIn</span>
+              <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="../assets/figma/imgIcon1.svg">
+            </a>
+            <a href="https://letterboxd.com" target="_blank" rel="noopener noreferrer" class="group flex gap-[8px] items-center text-[#f5f5f6] text-[14px] font-bold hover:text-white transition-colors duration-200">
+              <span class="font-lato leading-[21px]">Letterboxd</span>
+              <img alt="" class="size-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" src="../assets/figma/imgIcon1.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8-Bit Retro Bike Runner Arcade Game -->
+      <div class="runner-outer-wrap relative mx-auto -mt-[29px] w-full max-w-[1440px] overflow-hidden px-[84px] max-lg:-mt-[19px] max-lg:px-[24px]">
+        <div id="bike-runner" class="runner-track relative h-[116px] w-full touch-manipulation overflow-hidden select-none cursor-pointer" role="region" aria-label="Interactive Chicago Skyline Bike Runner Arcade Game">
+          <div class="runner-skyline absolute left-0 will-change-transform bg-[#555555]" style="bottom: 12px;"></div>
+          <p class="runner-prompt pointer-events-none absolute inset-x-0 top-[24px] flex items-center justify-center gap-[8px] text-[12px] leading-[20px] whitespace-nowrap text-white max-lg:hidden transition-opacity duration-300">
+            <kbd class="inline-flex items-center justify-center border font-sans font-bold uppercase rounded-[4px] px-[4px] py-[3px] text-[10px] leading-none border-white/40 bg-black text-white">Space</kbd>
+            <span class="runner-prompt-text font-lato">to ride</span>
+          </p>
+          <div class="runner-road absolute bottom-0 left-0 will-change-transform" style="height: 12px;">
+            <div class="runner-road-grey absolute inset-0 bg-[#9d9d9d]"></div>
+            <div class="runner-road-ink absolute inset-0 bg-[#f5f5f6]"></div>
+          </div>
+          <div class="runner-landmark absolute left-0 will-change-transform" hidden style="bottom: 12px;">
+            <svg shape-rendering="crispEdges" aria-hidden="true" width="16" height="26" viewBox="0 0 8 13" class="fill-[#9d9d9d] block max-w-none"><path d="M0 0h8v1h-8zM0 1h7v1h-7zM0 2h6v1h-6zM0 3h7v1h-7zM0 4h8v1h-8zM0 5h1v8h-1z"></path></svg>
+          </div>
+          <div class="runner-obstacles-wrap"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 w-[24px] bg-gradient-to-r from-black to-transparent"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 w-[24px] bg-gradient-to-l from-black to-transparent"></div>
+          <div class="runner-score-outer absolute top-[2px] left-0 flex h-[20px] items-center text-[12px] leading-[20px] whitespace-nowrap overflow-hidden transition-[width] duration-300 ease-out max-lg:top-[8px]" style="width: 0px;">
+            <div class="runner-score-inner flex w-[max-content] items-center gap-[12px] pr-[12px] transition-transform duration-300 ease-out" style="transform: translateY(110%);">
+              <span class="runner-score flex"><svg shape-rendering="crispEdges" aria-hidden="true" width="38" height="10" viewBox="0 0 19 5" class="fill-[#f5f5f6] max-w-none"><path></path></svg><span class="sr-only">00000</span></span>
+              <span class="runner-hiscore flex" hidden><svg shape-rendering="crispEdges" aria-hidden="true" class="fill-[#9d9d9d] max-w-none"><path></path></svg><span class="sr-only"></span></span>
+            </div>
+          </div>
+          <p class="runner-prompt-mobile pointer-events-none absolute top-[2px] left-0 text-white text-[12px] leading-[20px] lg:hidden transition-opacity duration-300 max-lg:top-[8px]">Tap to ride</p>
+          <div class="runner-cyclist absolute left-[24px] will-change-transform" style="bottom: 12px;">
+            <svg shape-rendering="crispEdges" aria-hidden="true" width="36" height="36" viewBox="0 0 18 18" class="max-w-none">
+              <path data-part="band" class="fill-black"></path>
+              <path data-part="grey" class="fill-[#9d9d9d]"></path>
+              <path data-part="ink" class="fill-[#f5f5f6]"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Zooming Visual Assets -->
+  <div id="image-lightbox" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4 md:p-12">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white text-[28px] font-bold p-3 hover:opacity-75 cursor-pointer">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged Visual" class="max-w-full max-h-[90vh] object-contain rounded-[14px] shadow-2xl">
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/footer-runner.js"></script>
+  <script src="../js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof window.initFooterRunner === 'function') { window.initFooterRunner(); }
+      // 1. Hero Entrance Animations (Exact Charles Honig Pattern)
+      if (window.gsap) {
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        
+        tl.to('.title-reveal', {
+          y: '0%',
+          duration: 0.85,
+          delay: 0.1
+        })
+        .to('.hero-fade-up', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12
+        }, '-=0.5')
+        .to('.hero-video-box', {
+          opacity: 1,
+          y: 0,
+          duration: 0.9
+        }, '-=0.5');
+
+        // Scroll reveals for sections
+        if (window.ScrollTrigger) {
+          gsap.utils.toArray('.reveal-section').forEach(sec => {
+            gsap.fromTo(sec, 
+              { opacity: 0.1, y: 36 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: sec,
+                  start: 'top 85%',
+                  toggleActions: 'play none none none'
+                }
+              }
+            );
+          });
+        }
+      }
+
+      // 2. Video Click to Play/Pause
+      const video = document.getElementById('prototype-video');
+      const videoWrap = document.getElementById('video-wrapper');
+      const statusBadge = document.getElementById('video-status-indicator');
+      const statusIcon = document.getElementById('video-status-icon');
+      const statusText = document.getElementById('video-status-text');
+      let statusTimeout = null;
+
+      if (video && videoWrap) {
+        videoWrap.addEventListener('click', () => {
+          if (video.paused) {
+            video.play();
+            statusIcon.textContent = '▶';
+            statusText.textContent = 'Playing';
+          } else {
+            video.pause();
+            statusIcon.textContent = '❚❚';
+            statusText.textContent = 'Paused';
+          }
+          if (statusBadge) {
+            statusBadge.style.opacity = '1';
+            clearTimeout(statusTimeout);
+            statusTimeout = setTimeout(() => {
+              statusBadge.style.opacity = '0';
+            }, 1200);
+          }
+        });
+      }
+
+      // 3. Table of Contents Scrollspy & Glide Marker
+      const tocItems = document.querySelectorAll('.toc-item');
+      const marker = document.getElementById('toc-marker');
+      const sections = Array.from(tocItems).map(item => document.getElementById(item.getAttribute('data-target'))).filter(Boolean);
+
+      const updateToc = () => {
+        let currentSection = sections[0];
+        const scrollY = window.scrollY + 200;
+
+        for (const sec of sections) {
+          if (sec.offsetTop <= scrollY) {
+            currentSection = sec;
+          }
+        }
+
+        if (currentSection) {
+          const currentId = currentSection.getAttribute('id');
+          tocItems.forEach(item => {
+            if (item.getAttribute('data-target') === currentId) {
+              item.classList.add('active');
+              if (marker) {
+                marker.style.transform = `translateY(${item.offsetTop}px)`;
+                marker.style.height = `${item.offsetHeight}px`;
+              }
+            } else {
+              item.classList.remove('active');
+            }
+          });
+        }
+      };
+
+      window.addEventListener('scroll', updateToc, { passive: true });
+      updateToc();
+
+      // 4. Lightbox Click to Zoom
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('.zoomable-media img').forEach(img => {
+        img.addEventListener('click', () => {
+          if (!lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
+        });
+      });
+
+      if (lightbox) {
+        const closeBox = () => lightbox.classList.remove('active');
+        if (lightboxClose) lightboxClose.addEventListener('click', closeBox);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeBox();
+        });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeBox();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

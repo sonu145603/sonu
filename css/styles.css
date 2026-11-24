@@ -1,0 +1,529 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Fallback aliases for Figma export font names */
+@font-face {
+  font-family: 'Lato:Bold';
+  src: local('Lato Bold'), local('Lato-Bold'), url('https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXiWtFCc.woff2') format('woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Lato:SemiBold';
+  src: local('Lato Bold'), local('Lato-Bold'), url('https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXiWtFCc.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Lato:Regular';
+  src: local('Lato Regular'), local('Lato-Regular'), url('https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter:Semi_Bold';
+  src: local('Inter SemiBold'), url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff2') format('woff2');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Inter:Medium';
+  src: local('Inter Medium'), url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hjp-Ek-_EeA.woff2') format('woff2');
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SONI PATEL PORTFOLIO - PIXEL-PERFECT FIGMA STYLES & CHARLES HONIG ANIMATIONS
+   Figma Source: li1IIIgBshpzWiL1TAgVrk (Node 22:23109)
+   Reference: charleshonig.design
+   ========================================================================== */
+
+:root {
+  --bg-figma: #f5f5f6;
+  --bg-dark: #000000;
+  --text-main: #000000;
+  --text-muted: #9d9d9d;
+  --accent-magenta: #b51b68;
+  --accent-green: #486553;
+
+  /* Charles Honig Animation Tokens */
+  --duration-instant: 80ms;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+  --duration-slower: 680ms;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-emphasis: cubic-bezier(0.2, 0, 0, 1);
+
+  --cursor-ink: #000000;
+  --agent-panel-w: 0px;
+}
+
+/* Dark Mode Tokens */
+[data-theme="dark"] {
+  --bg-figma: #0d0d0d;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --cursor-ink: #ffffff;
+}
+
+[data-theme="dark"] body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .bg-\[\#f5f5f6\] {
+  background-color: #0d0d0d !important;
+}
+
+[data-theme="dark"] .text-black {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .border-black {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ==========================================================================
+   RESET & LAYOUT
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-figma);
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+html.agent-open body {
+  overflow: hidden;
+  padding-right: var(--agent-panel-w);
+}
+
+html, body {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-lato,
+.font-inter {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button, span, div, input, textarea {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* ==========================================================================
+   CUSTOM CURSOR & CONTEXTUAL LABEL
+   ========================================================================== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--cursor-ink);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--cursor-ink) 22%, transparent);
+  transition: width var(--duration-base) var(--ease-out),
+              height var(--duration-base) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.custom-cursor[data-active="yes"] {
+  opacity: 1;
+}
+
+.custom-cursor[data-hover="yes"] {
+  width: 38px;
+  height: 38px;
+  background-color: color-mix(in srgb, var(--cursor-ink) 10%, transparent);
+  box-shadow: 0 4px 18px color-mix(in srgb, var(--cursor-ink) 30%, transparent);
+}
+
+.custom-cursor[data-invert="yes"] {
+  --cursor-ink: #ffffff;
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transform: translate(16px, 16px);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.cursor-label[data-active="yes"] {
+  opacity: 1;
+}
+
+/* Touch devices */
+@media (hover: none) or (pointer: coarse) {
+  .custom-cursor,
+  .cursor-label {
+    display: none !important;
+  }
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+}
+
+/* ==========================================================================
+   NAVIGATION & SHORTCUT HOVERS
+   ========================================================================== */
+.site-nav-btn {
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-spring), opacity var(--duration-fast) var(--ease-out);
+}
+
+.site-nav-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.site-nav-btn:hover [data-name="Kbd"] {
+  transform: scale(1.08);
+  border-color: #000;
+}
+
+/* ==========================================================================
+   ROTATING VERB IN FOOTER (Exact Charles Honig Implementation)
+   ========================================================================== */
+.rotating-verb-wrap {
+  display: inline-block;
+  position: relative;
+  height: 48px;
+  overflow: hidden;
+  vertical-align: top;
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.rotating-verb {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #f5f5f6;
+  white-space: nowrap;
+  letter-spacing: -0.8px;
+  transition: transform 500ms var(--ease-out), opacity 500ms var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.rotating-verb.slide-up-in {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.rotating-verb.slide-up-out {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.rotating-verb.slide-up-initial {
+  transform: translateY(110%);
+  opacity: 0;
+}
+
+/* ==========================================================================
+   PROJECT CARDS & HOVER STATES
+   ========================================================================== */
+[data-name="Link"] {
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-spring), box-shadow var(--duration-base) var(--ease-out);
+}
+
+[data-name="Link"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Project images subtle zoom on card hover */
+.reveal-section {
+  transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal-section.gsap-reveal {
+  will-change: opacity, transform;
+}
+
+/* ==========================================================================
+   "ASK AI" DRAWER (Figma 22:30513 Dialog)
+   ========================================================================== */
+.ai-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.ai-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ai-drawer-panel {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 99999;
+  transform: translateX(calc(100% + 40px));
+  transition: transform var(--duration-slow) var(--ease-emphasis);
+  max-height: calc(100vh - 48px);
+}
+
+.ai-drawer-panel.active {
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .custom-cursor,
+  .cursor-label {
+    display: none !important;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+}
+
+
+/* ==========================================================================
+   HERO BENTO WALL (Charles Honig Reference Implementation)
+   ========================================================================== */
+:root {
+  --card: #ededed;
+  --secondary: #ffffff;
+  --card-glass-border: rgba(255, 255, 255, 0.95);
+  --card-glass-fill: rgba(255, 255, 255, 0.85);
+  --card-glass-blur: 8px;
+}
+
+.hero-wall-container {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 1272px;
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 1200px;
+}
+
+.hero-wall {
+  --u: calc(100cqw / 1272);
+  display: grid;
+  aspect-ratio: 1272 / 408;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: calc(24 * var(--u));
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+@supports not (container-type: inline-size) {
+  .hero-wall {
+    --u: calc(min(1272px, 100vw - 48px) / 1272);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-wall {
+    --u: calc((100cqw - 28px) / 3 / 192);
+    aspect-ratio: auto !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 190px);
+  }
+  .hero-wall > [data-wide-only] {
+    display: none !important;
+  }
+}
+
+.hero-tile-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+.bg-card {
+  background-color: #ededed !important;
+}
+.bg-secondary {
+  background-color: #ffffff !important;
+}
+.size-full {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero-tile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  background-color: #ededed !important;
+  border-radius: calc(10 * var(--u));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.hero-tile:active,
+.hero-tile.is-dragging {
+  cursor: grabbing !important;
+  z-index: 60 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+.hero-wall .hero-glass {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 calc(10 * var(--u)) calc(30 * var(--u)) 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.hero-wall .hero-glass-inner {
+  position: absolute;
+  overflow: hidden;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 calc(20 * var(--u)) 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.hero-wall .hero-glass-inner[data-soft] {
+  box-shadow: 0 0 calc(10 * var(--u)) 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.hero-wall .hero-glass-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 calc(40 * var(--u)) 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+.hero-wall .shadow-card-inset {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), inset 0 2px 4px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+/* ==========================================================================
+   Charles Honig Style Footer & Retro 8-Bit Chicago Bike Runner Game
+   ========================================================================== */
+
+.runner-track {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  position: relative;
+}
+
+.runner-obstacle[data-kind] {
+  display: block !important;
+}
+
+.runner-skyline {
+  background-color: #555555;
+}
+
+.runner-road-grey {
+  background-color: #9d9d9d;
+}
+
+.runner-road-ink {
+  background-color: #f5f5f6;
+}
+
+.rotating-verb-wrap {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: bottom;
+  height: 48px;
+  line-height: 48px;
+}
+
+@media (max-width: 1024px) {
+  .rotating-verb-wrap {
+    height: 34px;
+    line-height: 34px;
+  }
+}
+
+.slide-up-initial {
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-in {
+  transform: translateY(0%);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-up-out {
+  transform: translateY(-110%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
