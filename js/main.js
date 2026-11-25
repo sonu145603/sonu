@@ -569,7 +569,7 @@
     const emailText = document.getElementById('email-address-text');
     const copySvg = document.getElementById('copy-icon-svg');
     const checkSvg = document.getElementById('check-icon-svg');
-    const emailToCopy = emailText ? emailText.textContent.trim() : 'charleshonigdesign@gmail.com';
+    const emailToCopy = emailText ? emailText.textContent.trim() : 'uiuxsoni@gmail.com';
     let timeoutId = null;
 
     copyBtn.addEventListener('click', async (e) => {
