@@ -541,23 +541,20 @@
      ========================================================================== */
   const initProjectCardClicks = () => {
     const isWorkDir = window.location.pathname.includes('/work/');
-    const prefix = isWorkDir ? '' : 'work/';
 
-    const projectVisualLinks = [
-      { selector: '[data-node-id="22:27944"], [data-node-id="22:27945"], [data-node-id="22:27916"]', url: `${prefix}finaxa.html`, label: 'Open Finaxa' },
-      { selector: '[data-node-id="22:28031"], [data-node-id="22:28033"], [data-node-id="22:28003"]', url: `${prefix}pronex-archai.html`, label: 'Open ArchAI' },
-      { selector: '[data-node-id="22:28103"], [data-node-id="22:28133"], [data-node-id="22:28075"]', url: `${prefix}settle.html`, label: 'Open Settle' },
-      { selector: '[data-node-id="22:28212"], [data-node-id="22:28213"], [data-node-id="22:28184"]', url: `${prefix}clickio.html`, label: 'Open Clickio' },
-    ];
+    document.querySelectorAll('[data-project-url]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        // If clicked on an interactive link or button inside, allow its native behavior
+        if (e.target.closest('a, button')) return;
 
-    projectVisualLinks.forEach(p => {
-      document.querySelectorAll(p.selector).forEach(el => {
-        el.style.cursor = 'pointer';
-        el.setAttribute('data-cursor-label', p.label);
-        el.addEventListener('click', (e) => {
-          if (e.target.closest('button, a')) return;
-          window.location.href = p.url;
-        });
+        let targetUrl = card.getAttribute('data-project-url');
+        if (targetUrl) {
+          if (isWorkDir && targetUrl.startsWith('work/')) {
+            targetUrl = targetUrl.replace('work/', '');
+          }
+          window.location.href = targetUrl;
+        }
       });
     });
   };
