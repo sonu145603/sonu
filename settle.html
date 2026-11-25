@@ -28,6 +28,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="./css/styles.css">
   <style>
+    /* Table of Contents exact screenshot style */
+    .toc-nav-link {
+      position: relative;
+      display: block;
+      padding-left: 10px;
+      font-size: 13px;
+      line-height: 22px;
+      color: #9d9d9d;
+      transition: all 0.2s ease;
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+    }
+    .toc-nav-link:hover {
+      color: #000000;
+    }
+    .toc-nav-link.active {
+      color: #000000 !important;
+      font-weight: 700;
+      border-left: 2px solid #000000 !important;
+    }
+
     /* Lightbox Modal */
     #image-lightbox {
       transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -49,127 +70,149 @@
   <div class="custom-cursor" aria-hidden="true"></div>
   <div class="cursor-label" aria-hidden="true"></div>
 
-  <!-- Left Sticky Sidebar Table of Contents (Exact Figma Node 22:14462) -->
-  <aside class="fixed left-6 top-32 z-50 hidden xl:flex flex-col gap-3 w-[150px] bg-white/70 backdrop-blur-md p-4 rounded-[18px] border border-black/5 shadow-sm">
-    <div class="flex items-center justify-between pb-2 border-b border-black/10">
-      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[12px] font-lato font-bold text-black hover:opacity-70 transition-opacity" data-cursor-label="Back Home">
+  <!-- Global Header (Exact Charles Honig / Portfolio Pattern with Ask AI) -->
+  <header class="w-full sticky top-0 z-[200] bg-[#f5f5f6]/95 backdrop-blur-md border-b border-black/5 py-[16px] px-6 md:px-[84px]">
+    <div class="max-w-[1440px] mx-auto w-full flex items-center justify-between">
+      
+      <!-- Left Nav Links: Home, Work, Play, About, Theme Toggle -->
+      <div class="flex items-center gap-[16px] xl:gap-[26px]">
+        <a href="./index.html" class="flex gap-[8px] items-center cursor-pointer hover:opacity-75 transition-opacity" data-cursor-label="Home">
+          <div class="bg-white border border-black flex h-[18px] items-center justify-center px-[4px] py-[3px] rounded-[4px] w-[16px]">
+            <p class="font-lato font-bold leading-[10px] text-[10px] text-black text-center uppercase">h</p>
+          </div>
+          <p class="font-lato font-bold leading-[16px] text-[15px] text-black">Home</p>
+        </a>
+        
+        <a href="./index.html#work" class="flex gap-[8px] items-center cursor-pointer hover:opacity-75 transition-opacity" data-cursor-label="Work">
+          <div class="bg-white border border-black flex h-[18px] items-center justify-center px-[4px] py-[3px] rounded-[4px] w-[16px]">
+            <p class="font-lato font-bold leading-[10px] text-[10px] text-black text-center uppercase">w</p>
+          </div>
+          <p class="font-lato font-bold leading-[16px] text-[15px] text-black">Work</p>
+        </a>
+        
+        <a href="./index.html#play" class="flex gap-[8px] items-center cursor-pointer hover:opacity-75 transition-opacity" data-cursor-label="Play">
+          <div class="bg-white border border-black flex h-[18px] items-center justify-center px-[4px] py-[3px] rounded-[4px] w-[16px]">
+            <p class="font-lato font-bold leading-[10px] text-[10px] text-black text-center uppercase">p</p>
+          </div>
+          <p class="font-lato font-bold leading-[16px] text-[15px] text-black">Play</p>
+        </a>
+        
+        <a href="./index.html#about" class="flex gap-[8px] items-center cursor-pointer hover:opacity-75 transition-opacity" data-cursor-label="About">
+          <div class="bg-white border border-black flex h-[18px] items-center justify-center px-[4px] py-[3px] rounded-[4px] w-[16px]">
+            <p class="font-lato font-bold leading-[10px] text-[10px] text-black text-center uppercase">a</p>
+          </div>
+          <p class="font-lato font-bold leading-[16px] text-[15px] text-black">About</p>
+        </a>
+
+        <!-- Theme Switch Toggle -->
+        <div class="bg-white border border-black h-[20px] rounded-[999px] w-[34px] relative cursor-pointer flex items-center px-[2px]" title="Toggle theme">
+          <div class="size-[12px] rounded-full bg-black"></div>
+        </div>
+      </div>
+
+      <!-- Center Circle Indicator (Matching Screenshot) -->
+      <div class="size-[22px] rounded-full border border-black/30 flex items-center justify-center">
+        <div class="size-[8px] rounded-full border border-black/20"></div>
+      </div>
+
+      <!-- Right Header Actions: Contact + Ask AI Button -->
+      <div class="flex items-center gap-[16px] xl:gap-[24px]">
+        <a href="./index.html#contact" class="flex gap-[8px] items-center hover:opacity-75 transition-opacity" data-cursor-label="Contact">
+          <div class="size-[20px] rounded-full border border-black flex items-center justify-center text-[12px]">
+            <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <p class="font-lato font-bold text-[15px] text-black">Contact</p>
+        </a>
+
+        <div class="content-stretch flex flex-col h-[22px] items-start relative shrink-0 w-[107.375px]" data-name="Button - Ask Charles, an AI guide to this portfolio:margin">
+          <div class="absolute bg-white border border-black border-solid content-stretch flex gap-[8px] h-[38px] items-center left-0 px-[16px] py-[8px] rounded-[26px] top-[-8px] w-[107.375px] cursor-pointer hover:bg-black group transition-all" data-name="Button - Ask Charles, an AI guide to this portfolio" data-cursor-label="Ask AI">
+            <div class="content-stretch flex items-start relative shrink-0">
+              <div class="relative shrink-0 size-[20px]">
+                <img alt="" class="absolute block inset-0 max-w-none size-full" src="./assets/figma/imgIcon.svg">
+              </div>
+            </div>
+            <div class="content-stretch flex flex-col items-center relative shrink-0">
+              <p class="font-lato font-bold leading-[16px] text-[15px] text-black group-hover:text-white transition-colors text-center whitespace-nowrap">Ask AI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Canvas Container (Sidebar + Content) -->
+  <div class="w-full max-w-[1440px] mx-auto min-h-screen px-6 md:px-12 xl:px-[84px] pt-[48px] pb-[96px] relative flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-[64px]">
+    
+    <!-- Left Sticky Sidebar Table of Contents (Exact Screenshot Node) -->
+    <aside class="hidden lg:flex flex-col items-start gap-4 sticky top-[108px] w-[140px] shrink-0 select-none">
+      <!-- Back Link -->
+      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[14px] font-lato text-[#777] hover:text-black transition-colors mb-2" data-cursor-label="Back Home">
         <span>←</span>
         <span>Back</span>
       </a>
-      <div class="flex gap-1 text-[10px] font-lato font-semibold bg-black/5 p-0.5 rounded-[999px]">
-        <span class="px-1.5 py-0.5 rounded-[999px] bg-white shadow-xs text-black">Full</span>
-        <span class="px-1.5 py-0.5 text-[#888]">TL;DR</span>
-      </div>
-    </div>
-    <nav class="flex flex-col gap-0.5 max-h-[70vh] overflow-y-auto pr-1">
-      <a href="#intro" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="intro">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Overview</span>
-      </a>
-      <a href="#ch1" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch1">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Problem</span>
-      </a>
-      <a href="#ch2" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch2">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>User Need</span>
-      </a>
-      <a href="#ch3" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch3">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Structure</span>
-      </a>
-      <a href="#ch4" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch4">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Journey</span>
-      </a>
-      <a href="#ch5" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch5">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Exploration</span>
-      </a>
-      <a href="#ch6" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch6">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Solution</span>
-      </a>
-      <a href="#ch7" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch7">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Session</span>
-      </a>
-      <a href="#ch8" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch8">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Branding</span>
-      </a>
-      <a href="#ch9" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch9">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Handoff</span>
-      </a>
-      <a href="#ch10" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch10">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Practice</span>
-      </a>
-      <a href="#ch11" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch11">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>First Reset</span>
-      </a>
-      <a href="#ch12" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch12">
-        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-        <span>Outcomes</span>
-      </a>
-    </nav>
-  </aside>
 
-  <div class="w-full max-w-[1440px] mx-auto min-h-screen flex flex-col items-center relative">
-    
-    <!-- Top Header (Figma Exact) -->
-    <header class="w-full sticky top-0 z-[200] bg-[#f5f5f6]/95 backdrop-blur-md transition-all duration-300 border-b border-black/5 px-6 md:px-[84px] py-[20px]">
-      <div class="flex items-center justify-between max-w-[1272px] mx-auto w-full">
-        <a href="./index.html" class="inline-flex items-center gap-[8px] px-[16px] py-[8px] rounded-[20px] bg-white border border-black text-[14px] font-lato font-semibold hover:bg-black hover:text-white transition-all shadow-sm" data-cursor-label="Back Home">
-          <span>←</span>
-          <span>Home</span>
-        </a>
-        <div class="text-[12px] md:text-[13px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d] truncate max-w-[450px]">
-          PRODUCT DESIGN / MOBILE WELLNESS
-        </div>
+      <!-- Full / TL;DR Pill Toggle -->
+      <div class="flex items-center bg-black/5 p-0.5 rounded-[999px] text-[11px] font-lato font-semibold mb-4">
+        <span class="px-2 py-0.5 rounded-[999px] bg-white shadow-xs text-black">Full</span>
+        <span class="px-2 py-0.5 text-[#888]">TL;DR</span>
       </div>
-    </header>
 
-    <!-- Case Study Main Canvas (1074px Figma Spec) -->
-    <main class="w-full max-w-[1272px] px-6 md:px-[84px] pt-[48px] pb-[96px] flex flex-col items-center">
+      <!-- Chapter TOC Links (Exact Screenshot Titles & Order) -->
+      <nav class="flex flex-col gap-1 w-full border-l border-black/10">
+        <a href="#intro" class="toc-nav-link" data-section="intro">Overview</a>
+        <a href="#ch1" class="toc-nav-link" data-section="ch1">Impact</a>
+        <a href="#ch2" class="toc-nav-link" data-section="ch2">Users</a>
+        <a href="#ch3" class="toc-nav-link" data-section="ch3">Feature Map</a>
+        <a href="#ch4" class="toc-nav-link" data-section="ch4">Process</a>
+        <a href="#ch5" class="toc-nav-link" data-section="ch5">Iterations</a>
+        <a href="#ch6" class="toc-nav-link" data-section="ch6">Experiences</a>
+        <a href="#ch7" class="toc-nav-link" data-section="ch7">Interactions</a>
+        <a href="#ch8" class="toc-nav-link" data-section="ch8">Branding</a>
+        <a href="#ch9" class="toc-nav-link" data-section="ch9">Handoff</a>
+        <a href="#ch10" class="toc-nav-link" data-section="ch10">Daily Practice</a>
+        <a href="#ch11" class="toc-nav-link" data-section="ch11">First Reset</a>
+        <a href="#ch12" class="toc-nav-link" data-section="ch12">Validation</a>
+      </nav>
+    </aside>
+
+    <!-- Main Case Study Content Area -->
+    <main class="flex-1 w-full max-w-[1040px] flex flex-col items-start">
       
-      <!-- Project Intro Section -->
-      <section id="intro" class="w-full max-w-[1074px] flex flex-col items-start mb-[48px]">
-        <div class="text-[12px] md:text-[13px] font-lato font-bold uppercase tracking-[0.08em] text-[#3c6656] mb-3">PRODUCT DESIGN / MOBILE WELLNESS / 2026</div>
-        <h1 class="text-[44px] md:text-[68px] font-lato font-bold tracking-tight leading-[1.08] text-black mb-4">Settle</h1>
-        <p class="text-[22px] md:text-[28px] font-lato text-black/85 max-w-[960px] leading-[1.3] mb-5">Less deciding.<br />More room for a daily reset.</p>
-        <p class="text-[16px] md:text-[18px] font-lato text-[#555] max-w-[920px] leading-[1.65] mb-8">The challenge was to make the first exercise easy to find and start, then offer a simple way to reflect and return. I designed for both a quick reset and a longer-term practice with real-time breathing visual cues and habit loops.</p>
+      <!-- Project Intro Section (Exact Screenshot Typography & Content) -->
+      <section id="intro" class="w-full flex flex-col items-start mb-[48px]">
+        <div class="text-[12px] md:text-[13px] font-lato font-bold uppercase tracking-[0.08em] text-[#2b697a] mb-3">PRODUCT DESIGN / MOBILE WELLNESS</div>
+        <h1 class="text-[48px] md:text-[68px] font-lato font-bold tracking-tight leading-[1.06] text-black mb-4">Settle</h1>
+        <p class="text-[24px] md:text-[32px] font-lato font-bold text-black max-w-[960px] leading-[1.25] mb-4">Less deciding.<br />More room for a daily reset.</p>
+        <p class="text-[15px] md:text-[16px] font-lato text-[#444] max-w-[880px] leading-[1.65] mb-8">When someone feels overwhelmed, choosing how to begin should not add to the effort. I designed Settle’s onboarding, guided exercises, and progress flows around a simple journey: check in, take a short reset, and reflect.</p>
 
-        <!-- 4-Column Metadata Grid -->
-        <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-6 py-7 border-t border-b border-black/10">
-          <div class="flex flex-col gap-1">
-            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">My Role</span>
-            <span class="text-[15px] font-lato font-semibold text-black">Product Designer</span>
+        <!-- 4-Column Metadata Grid (Teal/Slate Headers Matching Screenshot) -->
+        <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-t border-b border-black/10">
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#2b697a]">MY ROLE</span>
+            <span class="text-[14px] md:text-[15px] font-lato font-semibold text-black">UI/UX Designer</span>
           </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Platforms</span>
-            <span class="text-[15px] font-lato font-semibold text-black">Mobile app</span>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#2b697a]">PLATFORM</span>
+            <span class="text-[14px] md:text-[15px] font-lato font-semibold text-black">Mobile app</span>
           </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Scope</span>
-            <span class="text-[15px] font-lato font-semibold text-black">Onboarding, exercises & progress</span>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#2b697a]">SCOPE</span>
+            <span class="text-[14px] md:text-[15px] font-lato font-semibold text-black">Onboarding, exercises, progress</span>
           </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Timeline</span>
-            <span class="text-[15px] font-lato font-semibold text-black">30-day reset · Infinite use planned</span>
+          <div class="flex flex-col gap-1.5">
+            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#2b697a]">EVIDENCE</span>
+            <span class="text-[14px] md:text-[15px] font-lato font-semibold text-black">Design work · Validation planned</span>
           </div>
         </div>
       </section>
 
-      <!-- Hero Visual Showcase -->
-      <div class="zoomable-media group relative w-full max-w-[1074px] cursor-pointer overflow-hidden rounded-[24px] border border-black/10 bg-white p-3 shadow-xl hover:shadow-2xl transition-all mb-14" data-cursor="grow" data-cursor-label="Zoom Asset">
+      <!-- Hero Visual Showcase (Exact 10-Screen Collage in Soft Light Frame) -->
+      <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[24px] border border-black/10 bg-[#efeff0] p-3 md:p-4 shadow-sm hover:shadow-xl transition-all mb-14" data-cursor="grow" data-cursor-label="Zoom Asset">
         <img src="./assets/figma/settle_hero_collage.png" alt="Settle Mobile Wellness App Overview Showcase" class="w-full h-auto object-contain rounded-[18px]">
       </div>
 
-      <!-- Chapter 01: The Problem (Signature Dark Navy Card) -->
-      <section id="ch1" class="w-full max-w-[1074px] rounded-[28px] bg-[#102a3d] text-white p-8 md:p-14 shadow-2xl mb-14 reveal-section" data-cursor-label="The Problem">
+      <!-- Chapter 01: The Problem (Signature Dark Navy Card / Impact) -->
+      <section id="ch1" class="w-full rounded-[28px] bg-[#102a3d] text-white p-8 md:p-14 shadow-2xl mb-14 reveal-section" data-cursor-label="The Problem">
         <span class="text-[12px] font-lato font-bold uppercase tracking-[0.14em] text-[#73a9bf] block mb-3">01 / THE PROBLEM</span>
         <h2 class="text-[30px] md:text-[44px] font-lato font-bold text-white tracking-tight leading-[1.18] mb-4">How do you make starting feel smaller?</h2>
         <p class="text-[16px] md:text-[18px] font-lato text-white/80 leading-[1.65] max-w-[900px] mb-8">The challenge was to make the first exercise easy to find and start, then offer a simple way to reflect and return. I designed for both a quick reset and a longer-term practice.</p>
@@ -198,8 +241,8 @@
         </div>
       </section>
 
-      <!-- Chapter 02: The User Need -->
-      <section id="ch2" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 02: The User Need / Users -->
+      <section id="ch2" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">02 / THE USER NEED</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">One experience, two moments to open it.</h2>
@@ -211,8 +254,8 @@
         </div>
       </section>
 
-      <!-- Chapter 03: Product Structure -->
-      <section id="ch3" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 03: Product Structure / Feature Map -->
+      <section id="ch3" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">03 / PRODUCT STRUCTURE</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Organise around the practice, not the catalogue.</h2>
@@ -224,8 +267,8 @@
         </div>
       </section>
 
-      <!-- Chapter 04: The Core Journey -->
-      <section id="ch4" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 04: The Core Journey / Process -->
+      <section id="ch4" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">04 / THE CORE JOURNEY</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">A first reset before a lasting habit.</h2>
@@ -237,8 +280,8 @@
         </div>
       </section>
 
-      <!-- Chapter 05: Exploration & Trade-off -->
-      <section id="ch5" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 05: Exploration & Trade-off / Iterations -->
+      <section id="ch5" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">05 / EXPLORATION & TRADE-OFF</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Offer a starting point without removing choice.</h2>
@@ -250,8 +293,8 @@
         </div>
       </section>
 
-      <!-- Chapter 06: The Solution -->
-      <section id="ch6" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 06: The Solution / Experiences -->
+      <section id="ch6" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">06 / THE SOLUTION</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">A calm path through the daily practice.</h2>
@@ -262,8 +305,8 @@
         </div>
       </section>
 
-      <!-- Chapter 07: During the Session -->
-      <section id="ch7" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 07: During the Session / Interactions -->
+      <section id="ch7" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">07 / DURING THE SESSION</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Guide the exercise. Leave room to reflect.</h2>
@@ -275,8 +318,8 @@
         </div>
       </section>
 
-      <!-- Chapter 08: Brand & Store Design -->
-      <section id="ch8" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 08: Brand & Store Design / Branding -->
+      <section id="ch8" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">08 / BRAND & STORE DESIGN</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Carry the same promise from store to product.</h2>
@@ -288,8 +331,8 @@
         </div>
       </section>
 
-      <!-- Chapter 09: Design Handoff -->
-      <section id="ch9" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 09: Design Handoff / Handoff -->
+      <section id="ch9" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">09 / DESIGN HANDOFF</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Specify the experience between the screens.</h2>
@@ -301,8 +344,8 @@
         </div>
       </section>
 
-      <!-- Chapter 10: Returning to Practice -->
-      <section id="ch10" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 10: Returning to Practice / Daily Practice -->
+      <section id="ch10" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">10 / RETURNING TO PRACTICE</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Support repetition without a single prescribed path.</h2>
@@ -314,8 +357,8 @@
         </div>
       </section>
 
-      <!-- Chapter 11: The Activation Moment -->
-      <section id="ch11" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 11: The Activation Moment / First Reset -->
+      <section id="ch11" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">11 / THE ACTIVATION MOMENT</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Make the first reset feel complete.</h2>
@@ -327,8 +370,8 @@
         </div>
       </section>
 
-      <!-- Chapter 12: Reflection & Outcomes -->
-      <section id="ch12" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+      <!-- Chapter 12: Reflection & Outcomes / Validation -->
+      <section id="ch12" class="w-full py-[56px] border-b border-black/10 reveal-section">
         <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">12 / REFLECTION & OUTCOMES</span>
           <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Designed for a habit. Not yet proven to build one.</h2>
@@ -341,7 +384,7 @@
       </section>
 
       <!-- More of My Work Section -->
-      <section id="more-work" class="w-full max-w-[1074px] pt-12 pb-16 reveal-section">
+      <section id="more-work" class="w-full pt-12 pb-16 reveal-section">
         <h3 class="text-[20px] font-bold text-black font-lato mb-6">More of My Work</h3>
         <div class="flex flex-col divide-y divide-[#e5e5e5] border-y border-[#e5e5e5] w-full">
           <a href="https://gujfly.vercel.app/" target="_blank" rel="noopener noreferrer" class="group py-4 sm:py-5 flex items-center justify-between transition-all duration-200" data-cursor-label="Open Gujfly">
@@ -409,31 +452,31 @@
       </section>
 
     </main>
-
-    <!-- Global Footer with Charles Honig Dynamic Rotating Verb -->
-    <footer class="w-full bg-black text-white flex flex-col items-center py-[72px] px-6 md:px-[84px]">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between w-full max-w-[1272px] gap-[36px]">
-        <div>
-          <div class="flex items-center gap-[8px] text-[32px] md:text-[42px] font-lato font-bold mb-[12px]">
-            <span>Let’s</span>
-            <div class="rotating-verb-wrap overflow-hidden relative inline-block text-white">
-              <p class="rotating-verb slide-up-in">create</p>
-            </div>
-            <span>something great.</span>
-          </div>
-          <p class="text-[#9d9d9d] text-[16px] font-lato">Designed with purpose & polish by Soni Patel.</p>
-        </div>
-        <div class="flex flex-wrap gap-[16px]">
-          <a href="./index.html#work" class="px-[24px] py-[12px] rounded-[999px] bg-white text-black font-lato font-semibold hover:opacity-90 transition-opacity" data-cursor-label="View Projects">Explore Work ↗</a>
-          <a href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank" class="px-[24px] py-[12px] rounded-[999px] border border-white text-white font-lato font-semibold hover:bg-white hover:text-black transition-colors" data-cursor-label="Upwork Profile">Work With Me</a>
-        </div>
-      </div>
-      <div class="w-full max-w-[1272px] mt-[48px] pt-[24px] border-t border-white/10 flex flex-col sm:flex-row justify-between text-[#888] text-[13px] font-lato">
-        <p>© 2026 Soni Patel. All rights reserved.</p>
-        <p class="hover:text-white cursor-pointer transition-colors">Space to ride ↗</p>
-      </div>
-    </footer>
   </div>
+
+  <!-- Global Footer with Charles Honig Dynamic Rotating Verb -->
+  <footer class="w-full bg-black text-white flex flex-col items-center py-[72px] px-6 md:px-[84px]">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between w-full max-w-[1272px] gap-[36px]">
+      <div>
+        <div class="flex items-center gap-[8px] text-[32px] md:text-[42px] font-lato font-bold mb-[12px]">
+          <span>Let’s</span>
+          <div class="rotating-verb-wrap overflow-hidden relative inline-block text-white">
+            <p class="rotating-verb slide-up-in">create</p>
+          </div>
+          <span>something great.</span>
+        </div>
+        <p class="text-[#9d9d9d] text-[16px] font-lato">Designed with purpose & polish by Soni Patel.</p>
+      </div>
+      <div class="flex flex-wrap gap-[16px]">
+        <a href="./index.html#work" class="px-[24px] py-[12px] rounded-[999px] bg-white text-black font-lato font-semibold hover:opacity-90 transition-opacity" data-cursor-label="View Projects">Explore Work ↗</a>
+        <a href="https://www.upwork.com/freelancers/~012804dcb5ea47e0f1" target="_blank" class="px-[24px] py-[12px] rounded-[999px] border border-white text-white font-lato font-semibold hover:bg-white hover:text-black transition-colors" data-cursor-label="Upwork Profile">Work With Me</a>
+      </div>
+    </div>
+    <div class="w-full max-w-[1272px] mt-[48px] pt-[24px] border-t border-white/10 flex flex-col sm:flex-row justify-between text-[#888] text-[13px] font-lato">
+      <p>© 2026 Soni Patel. All rights reserved.</p>
+      <p class="hover:text-white cursor-pointer transition-colors">Space to ride ↗</p>
+    </div>
+  </footer>
 
   <!-- Lightbox Modal for Zooming Visual Assets -->
   <div id="image-lightbox" class="fixed inset-0 z-[250] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4 md:p-12">
@@ -441,40 +484,70 @@
     <img id="lightbox-img" src="" alt="Enlarged Visual" class="max-w-full max-h-[90vh] object-contain rounded-[14px] shadow-2xl">
   </div>
 
+  <!-- ASK AI DIALOG DRAWER (Matching Global Figma 22:30513 Dialog) -->
+  <div class="ai-backdrop" id="aiBackdrop" aria-hidden="true"></div>
+  <aside class="ai-drawer-panel" id="aiDrawer" role="dialog" aria-modal="true" aria-label="Ask AI Assistant">
+    <div class="w-[424px] max-w-full bg-white rounded-[24px] shadow-2xl overflow-hidden border border-black/10">
+      <div class="bg-white content-stretch flex flex-col items-start relative size-full" data-node-id="22:30513" data-name="Dialog - Ask Charles">
+        <div class="content-stretch flex items-center justify-between px-[24px] py-[34px] relative shrink-0 w-full">
+          <div class="content-stretch flex gap-[8px] items-center relative shrink-0">
+            <div class="relative shrink-0 size-[22px]">
+              <img alt="" class="absolute block inset-0 max-w-none size-full" src="./assets/figma/imgIcon.svg">
+            </div>
+            <div class="content-stretch flex flex-col items-start relative shrink-0">
+              <p class="font-lato font-bold leading-[16px] text-[16px] text-black whitespace-nowrap">ChuckBot</p>
+            </div>
+          </div>
+          <div class="content-stretch flex gap-[14px] items-center relative shrink-0">
+            <div class="relative shrink-0 size-[22px] cursor-pointer hover:opacity-70 transition-opacity" id="ai-drawer-close">
+              <img alt="Close" class="absolute block inset-0 max-w-none size-full" src="./assets/figma/imgIcon2.svg">
+            </div>
+          </div>
+        </div>
+        <div class="content-stretch flex flex-col items-start pb-[20px] px-[24px] relative w-full">
+          <p class="font-lato font-bold leading-[24px] text-[20px] text-black mb-4">Ask about my work, career, or interests.</p>
+          <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-[8px] items-center p-[10px] rounded-[10px] bg-[#f5f5f6] hover:bg-black/5 cursor-pointer transition-colors">
+              <img alt="" class="size-[18px]" src="./assets/figma/imgIcon3.svg">
+              <p class="font-lato text-[15px] text-black">What’s your favorite project?</p>
+            </div>
+            <div class="flex gap-[8px] items-center p-[10px] rounded-[10px] bg-[#f5f5f6] hover:bg-black/5 cursor-pointer transition-colors">
+              <img alt="" class="size-[18px]" src="./assets/figma/imgIcon3.svg">
+              <p class="font-lato text-[15px] text-black">How do I contact you?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <script src="./js/main.js"></script>
   <script>
     // Scrollspy for Left Sidebar Table of Contents
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section[id], div[id="intro"]');
-      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('section[id]');
+      const tocLinks = document.querySelectorAll('.toc-nav-link');
       if (sections.length && tocLinks.length) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const id = entry.target.getAttribute('id');
-              tocLinks.forEach(link => {
-                const dot = link.querySelector('.toc-dot');
-                if (link.getAttribute('data-section') === id) {
-                  link.classList.remove('text-[#777]');
-                  link.classList.add('text-black', 'font-bold');
-                  if (dot) {
-                    dot.classList.remove('bg-black/20');
-                    dot.classList.add('bg-black', 'scale-125');
-                  }
-                } else {
-                  link.classList.remove('text-black', 'font-bold');
-                  link.classList.add('text-[#777]');
-                  if (dot) {
-                    dot.classList.remove('bg-black', 'scale-125');
-                    dot.classList.add('bg-black/20');
-                  }
-                }
-              });
+        const updateActiveToc = () => {
+          const scrollPos = window.scrollY + 200;
+          let currentId = 'intro';
+          sections.forEach(sec => {
+            if (sec.offsetTop <= scrollPos) {
+              currentId = sec.getAttribute('id');
             }
           });
-        }, { rootMargin: '-20% 0px -70% 0px' });
 
-        sections.forEach(s => observer.observe(s));
+          tocLinks.forEach(link => {
+            if (link.getAttribute('data-section') === currentId) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        };
+
+        window.addEventListener('scroll', updateActiveToc, { passive: true });
+        updateActiveToc();
       }
 
       // Lightbox Click to Zoom
@@ -499,6 +572,18 @@
         });
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') closeBox();
+        });
+      }
+
+      // Drawer close listener fallback
+      const aiCloseBtn = document.getElementById('ai-drawer-close');
+      const aiDrawer = document.getElementById('aiDrawer');
+      const aiBackdrop = document.getElementById('aiBackdrop');
+      if (aiCloseBtn && aiDrawer && aiBackdrop) {
+        aiCloseBtn.addEventListener('click', () => {
+          aiDrawer.classList.remove('active');
+          aiBackdrop.classList.remove('active');
+          document.body.style.overflow = '';
         });
       }
     });
