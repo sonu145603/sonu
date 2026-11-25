@@ -416,11 +416,46 @@
         <div>
           <span class="text-[12px] font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">11 / SYSTEM FOUNDATION</span>
           <h2 class="text-[28px] md:text-[38px] font-bold text-black tracking-tight leading-[1.2] mb-3">Consistency is part of the workflow.</h2>
-          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">Reusable project cards, tabs, drawing rows, status labels, and dialogs keep common actions consistent. Shared patterns help the experience scale across roles and platforms.</p>
+          <p class="text-[16px] md:text-[18px] text-[#555] leading-[1.65] max-w-[920px]">Reusable project cards, tabs, drawing rows, status labels, and dialogs keep common actions consistent. Shared tokens and a centralized component library help the experience scale across roles and platforms.</p>
         </div>
 
-        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
-          <img src="./assets/figma/archai_components_workflow.png" alt="Shared UI Component Library & Architecture Tokens" class="w-full h-auto object-contain rounded-[14px]">
+        <!-- Scrollable Design System Showcase Gallery -->
+        <div class="w-full rounded-[24px] overflow-hidden bg-[#e9e9eb] border border-black/5 p-4 sm:p-6">
+          <div class="flex items-center justify-between mb-3 px-1">
+            <span class="text-[12px] font-medium text-[#777] flex items-center gap-1.5">
+              <svg class="size-4 shrink-0 text-[#888]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8L22 12L18 16"/>
+                <path d="M6 8L2 12L6 16"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+              </svg>
+              <span>Scroll horizontally to explore tokens, components & Figma canvas</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <button type="button" id="archai-ds-scroll-prev" aria-label="Scroll left" class="size-8 rounded-full bg-white border border-black/10 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all shadow-xs cursor-pointer">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" id="archai-ds-scroll-next" aria-label="Scroll right" class="size-8 rounded-full bg-white border border-black/10 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all shadow-xs cursor-pointer">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="archai-design-system-track" class="w-full overflow-x-auto pb-2 flex gap-5 sm:gap-6 scroll-smooth snap-x snap-mandatory scrollbar-none select-none cursor-grab active:cursor-grabbing">
+            <!-- Card 1: Foundations & Colors -->
+            <div class="shrink-0 snap-start w-[92%] sm:w-[740px] md:w-[840px] rounded-[18px] overflow-hidden shadow-md bg-white border border-black/5 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Foundations">
+              <img src="./assets/figma/archai_foundations_card.png" alt="ArchAI Design System Foundations, Colors & Typography Scale" class="w-full h-auto object-contain block" />
+            </div>
+
+            <!-- Card 2: Component Library & States -->
+            <div class="shrink-0 snap-start w-[92%] sm:w-[740px] md:w-[840px] rounded-[18px] overflow-hidden shadow-md bg-white border border-black/5 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Components">
+              <img src="./assets/figma/archai_components_card.png" alt="ArchAI Portal Component Library, Buttons & Status Badges" class="w-full h-auto object-contain block" />
+            </div>
+
+            <!-- Card 3: Figma Workspace Architecture -->
+            <div class="shrink-0 snap-start w-[92%] sm:w-[740px] md:w-[840px] rounded-[18px] overflow-hidden shadow-md bg-[#1e1e1e] border border-black/5 zoomable-media cursor-zoom-in" data-cursor-label="Zoom Figma Canvas">
+              <img src="./assets/figma/archai_figma_system_card.png" alt="ArchAI Figma File Structure & Component Artboards" class="w-full h-auto object-contain block" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -817,6 +852,44 @@
         });
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') closeBox();
+        });
+      }
+
+      // 5. Design System Horizontal Scroll Track (Prev / Next Buttons & Drag)
+      const archaiDsTrack = document.getElementById('archai-design-system-track');
+      const archaiDsPrev = document.getElementById('archai-ds-scroll-prev');
+      const archaiDsNext = document.getElementById('archai-ds-scroll-next');
+
+      if (archaiDsTrack) {
+        if (archaiDsPrev) {
+          archaiDsPrev.addEventListener('click', () => {
+            archaiDsTrack.scrollBy({ left: -500, behavior: 'smooth' });
+          });
+        }
+        if (archaiDsNext) {
+          archaiDsNext.addEventListener('click', () => {
+            archaiDsTrack.scrollBy({ left: 500, behavior: 'smooth' });
+          });
+        }
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        archaiDsTrack.addEventListener('mousedown', (e) => {
+          isDown = true;
+          archaiDsTrack.classList.add('active');
+          startX = e.pageX - archaiDsTrack.offsetLeft;
+          scrollLeft = archaiDsTrack.scrollLeft;
+        });
+        archaiDsTrack.addEventListener('mouseleave', () => { isDown = false; });
+        archaiDsTrack.addEventListener('mouseup', () => { isDown = false; });
+        archaiDsTrack.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - archaiDsTrack.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          archaiDsTrack.scrollLeft = scrollLeft - walk;
         });
       }
     });
