@@ -695,6 +695,96 @@
   window.initDesignEvolutionAnimation = initDesignEvolutionAnimation;
 
   /* ==========================================================================
+     10. ARCHAI ITERATIVE PROCESS ANIMATION (Step-by-step 3-screen entrance)
+     ========================================================================== */
+  const initArchAiProcessAnimation = () => {
+    const stage = document.querySelector('.archai-process-stage');
+    if (!stage || !window.gsap) return;
+
+    const card1 = stage.querySelector('.evo-card-1');
+    const card2 = stage.querySelector('.evo-card-2');
+    const card3 = stage.querySelector('.evo-card-3');
+
+    const pill1 = stage.querySelector('.evo-pill-1');
+    const pill2 = stage.querySelector('.evo-pill-2');
+    const pill3 = stage.querySelector('.evo-pill-3');
+
+    const replayBtn = stage.querySelector('.evolution-replay-btn');
+    const zoomBtn = stage.querySelector('.evolution-zoom-btn');
+
+    let tl = null;
+
+    const playSequence = () => {
+      if (tl) tl.kill();
+
+      const w = stage.offsetWidth || 924;
+      const su = w / 924;
+      // Start positions: Card 2 and 3 start stacked on the left at Card 1's position (left: 36)
+      const off2 = (36 - 330) * su;
+      const off3 = (36 - 624) * su;
+
+      // Reset initial values
+      window.gsap.set(card1, { opacity: 0, scale: 0.88, x: 0 });
+      window.gsap.set(card2, { opacity: 0, scale: 0.88, x: off2 });
+      window.gsap.set(card3, { opacity: 0, scale: 0.88, x: off3 });
+
+      window.gsap.set([pill1, pill2, pill3], { opacity: 0, y: 16, scale: 0.85 });
+
+      tl = window.gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // Step 1: Progress Report Sketch appears on left
+      tl.to(card1, { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(1.3)' })
+        .to(pill1, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.25')
+
+      // Step 2: Desktop Wireframe smoothly slides out from behind Card 1 to middle
+        .to(card2, { opacity: 1, scale: 1, x: 0, duration: 0.75, ease: 'power3.out' }, '+=0.1')
+        .to(pill2, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'back.out(1.5)' }, '-=0.25')
+
+      // Step 3: Final Desktop UI smoothly slides out from behind to the right
+        .to(card3, { opacity: 1, scale: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '+=0.1')
+        .to(pill3, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'back.out(1.8)' }, '-=0.25');
+    };
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.create({
+        trigger: stage,
+        start: 'top 75%',
+        onEnter: () => playSequence(),
+        once: true
+      });
+    } else {
+      playSequence();
+    }
+
+    stage.addEventListener('click', (e) => {
+      // Don't replay if zoom button was clicked
+      if (e.target.closest('.evolution-zoom-btn')) return;
+      playSequence();
+    });
+
+    if (replayBtn) {
+      replayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playSequence();
+      });
+    }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = zoomBtn.getAttribute('data-zoom-src');
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightbox && lightboxImg && src) {
+          lightboxImg.src = src;
+          lightbox.classList.add('active');
+        }
+      });
+    }
+  };
+  window.initArchAiProcessAnimation = initArchAiProcessAnimation;
+
+  /* ==========================================================================
      RESPONSIVE PROJECT GALLERIES AUTO-SCALER
      ========================================================================== */
   const initGalleryScalers = () => {
@@ -737,6 +827,7 @@
     initProjectCardClicks();
     initFooterEmailCopy();
     initDesignEvolutionAnimation();
+    initArchAiProcessAnimation();
     initGalleryScalers();
     if (typeof window.initFooterRunner === "function") {
       window.initFooterRunner();
