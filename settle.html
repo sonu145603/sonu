@@ -27,6 +27,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="./css/styles.css">
+  <style>
+    /* Lightbox Modal */
+    #image-lightbox {
+      transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #image-lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #image-lightbox.active #lightbox-img {
+      transform: scale(1);
+    }
+    #lightbox-img {
+      transform: scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
 </head>
 <body class="bg-[#f5f5f6] text-black font-lato min-h-screen overflow-x-hidden antialiased">
   <div class="custom-cursor" aria-hidden="true"></div>
@@ -45,59 +62,58 @@
       </div>
     </div>
     <nav class="flex flex-col gap-0.5 max-h-[70vh] overflow-y-auto pr-1">
-      
-        <a href="#intro" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="intro">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Overview</span>
-        </a>
-        <a href="#ch1" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch1">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Impact</span>
-        </a>
-        <a href="#ch2" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch2">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Users</span>
-        </a>
-        <a href="#ch3" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch3">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Feature Map</span>
-        </a>
-        <a href="#ch4" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch4">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Process</span>
-        </a>
-        <a href="#ch5" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch5">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Iterations</span>
-        </a>
-        <a href="#ch6" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch6">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Experiences</span>
-        </a>
-        <a href="#ch7" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch7">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Interactions</span>
-        </a>
-        <a href="#ch8" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch8">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Branding</span>
-        </a>
-        <a href="#ch9" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch9">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Handoff</span>
-        </a>
-        <a href="#ch10" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch10">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Daily Practice</span>
-        </a>
-        <a href="#ch11" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch11">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>First Reset</span>
-        </a>
-        <a href="#ch12" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch12">
-          <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
-          <span>Validation</span>
-        </a>
+      <a href="#intro" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="intro">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Overview</span>
+      </a>
+      <a href="#ch1" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch1">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Problem</span>
+      </a>
+      <a href="#ch2" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch2">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>User Need</span>
+      </a>
+      <a href="#ch3" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch3">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Structure</span>
+      </a>
+      <a href="#ch4" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch4">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Journey</span>
+      </a>
+      <a href="#ch5" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch5">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Exploration</span>
+      </a>
+      <a href="#ch6" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch6">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Solution</span>
+      </a>
+      <a href="#ch7" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch7">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Session</span>
+      </a>
+      <a href="#ch8" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch8">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Branding</span>
+      </a>
+      <a href="#ch9" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch9">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Handoff</span>
+      </a>
+      <a href="#ch10" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch10">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Practice</span>
+      </a>
+      <a href="#ch11" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch11">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>First Reset</span>
+      </a>
+      <a href="#ch12" class="toc-link text-[12px] font-lato text-[#777] hover:text-black py-1 px-2 rounded-[6px] transition-colors flex items-center gap-2" data-section="ch12">
+        <span class="w-1.5 h-1.5 rounded-full bg-black/20 toc-dot transition-all"></span>
+        <span>Outcomes</span>
+      </a>
     </nav>
   </aside>
 
@@ -121,9 +137,9 @@
       
       <!-- Project Intro Section -->
       <section id="intro" class="w-full max-w-[1074px] flex flex-col items-start mb-[48px]">
-        <div class="text-[12px] md:text-[13px] font-lato font-bold uppercase tracking-[0.08em] text-[#9d9d9d] mb-3">PRODUCT DESIGN / MOBILE WELLNESS</div>
+        <div class="text-[12px] md:text-[13px] font-lato font-bold uppercase tracking-[0.08em] text-[#3c6656] mb-3">PRODUCT DESIGN / MOBILE WELLNESS / 2026</div>
         <h1 class="text-[44px] md:text-[68px] font-lato font-bold tracking-tight leading-[1.08] text-black mb-4">Settle</h1>
-        <p class="text-[22px] md:text-[28px] font-lato text-black/85 max-w-[960px] leading-[1.3] mb-5">Less deciding. More room for a daily reset.</p>
+        <p class="text-[22px] md:text-[28px] font-lato text-black/85 max-w-[960px] leading-[1.3] mb-5">Less deciding.<br />More room for a daily reset.</p>
         <p class="text-[16px] md:text-[18px] font-lato text-[#555] max-w-[920px] leading-[1.65] mb-8">The challenge was to make the first exercise easy to find and start, then offer a simple way to reflect and return. I designed for both a quick reset and a longer-term practice with real-time breathing visual cues and habit loops.</p>
 
         <!-- 4-Column Metadata Grid -->
@@ -134,48 +150,47 @@
           </div>
           <div class="flex flex-col gap-1">
             <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Platforms</span>
-            <span class="text-[15px] font-lato font-semibold text-black">Android / Play Store</span>
+            <span class="text-[15px] font-lato font-semibold text-black">Mobile app</span>
           </div>
           <div class="flex flex-col gap-1">
             <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Scope</span>
-            <span class="text-[15px] font-lato font-semibold text-black">End-to-end mobile UX/UI & brand</span>
+            <span class="text-[15px] font-lato font-semibold text-black">Onboarding, exercises & progress</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Status</span>
-            <span class="text-[15px] font-lato font-semibold text-black">Published / 2026</span>
+            <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#9d9d9d]">Timeline</span>
+            <span class="text-[15px] font-lato font-semibold text-black">30-day reset · Infinite use planned</span>
           </div>
         </div>
       </section>
 
       <!-- Hero Visual Showcase -->
-      <div class="w-full max-w-[1074px] rounded-[24px] overflow-hidden shadow-2xl border border-black/10 bg-white p-2.5 mb-12 hover:shadow-3xl transition-shadow" data-cursor-label="Hero Showcase">
-        <img src="./assets/figma/settle_solution_screens.png" alt="Settle Preview" class="w-full h-auto object-cover rounded-[18px]">
+      <div class="zoomable-media group relative w-full max-w-[1074px] cursor-pointer overflow-hidden rounded-[24px] border border-black/10 bg-white p-3 shadow-xl hover:shadow-2xl transition-all mb-14" data-cursor="grow" data-cursor-label="Zoom Asset">
+        <img src="./assets/figma/settle_hero_collage.png" alt="Settle Mobile Wellness App Overview Showcase" class="w-full h-auto object-contain rounded-[18px]">
       </div>
 
-      <!-- Chapter 01: The Problem (Signature Dark Card) -->
-      <section id="ch1" class="w-full max-w-[1074px] rounded-[28px] bg-[#14171f] text-white p-8 md:p-14 shadow-2xl mb-12 reveal-section" data-cursor-label="The Problem">
-        <span class="text-[12px] font-lato font-bold uppercase tracking-[0.14em] text-[#f4a261] block mb-3">01 / THE PROBLEM</span>
+      <!-- Chapter 01: The Problem (Signature Dark Navy Card) -->
+      <section id="ch1" class="w-full max-w-[1074px] rounded-[28px] bg-[#102a3d] text-white p-8 md:p-14 shadow-2xl mb-14 reveal-section" data-cursor-label="The Problem">
+        <span class="text-[12px] font-lato font-bold uppercase tracking-[0.14em] text-[#73a9bf] block mb-3">01 / THE PROBLEM</span>
         <h2 class="text-[30px] md:text-[44px] font-lato font-bold text-white tracking-tight leading-[1.18] mb-4">How do you make starting feel smaller?</h2>
         <p class="text-[16px] md:text-[18px] font-lato text-white/80 leading-[1.65] max-w-[900px] mb-8">The challenge was to make the first exercise easy to find and start, then offer a simple way to reflect and return. I designed for both a quick reset and a longer-term practice.</p>
         
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-8">
-          
-            <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
-              <span class="text-[16px] font-lato font-bold leading-tight mb-2">Check in</span>
-              <span class="text-[12px] font-lato text-[#666] leading-relaxed">Personalized onboarding</span>
-            </div>
-            <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
-              <span class="text-[16px] font-lato font-bold leading-tight mb-2">Practice</span>
-              <span class="text-[12px] font-lato text-[#666] leading-relaxed">Audio, video & breathwork</span>
-            </div>
-            <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
-              <span class="text-[16px] font-lato font-bold leading-tight mb-2">Reflect</span>
-              <span class="text-[12px] font-lato text-[#666] leading-relaxed">Streaks & exercise history</span>
-            </div>
-            <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
-              <span class="text-[16px] font-lato font-bold leading-tight mb-2">Return</span>
-              <span class="text-[12px] font-lato text-[#666] leading-relaxed">Optional daily reminders</span>
-            </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[16px] font-lato font-bold leading-tight mb-2">Check in</span>
+            <span class="text-[12px] font-lato text-[#666] leading-relaxed">Personalized onboarding</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[16px] font-lato font-bold leading-tight mb-2">Practice</span>
+            <span class="text-[12px] font-lato text-[#666] leading-relaxed">Audio, video & breathwork</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[16px] font-lato font-bold leading-tight mb-2">Reflect</span>
+            <span class="text-[12px] font-lato text-[#666] leading-relaxed">Streaks & exercise history</span>
+          </div>
+          <div class="p-5 rounded-[16px] bg-white text-black flex flex-col justify-between shadow-sm">
+            <span class="text-[16px] font-lato font-bold leading-tight mb-2">Return</span>
+            <span class="text-[12px] font-lato text-[#666] leading-relaxed">Optional daily reminders</span>
+          </div>
         </div>
 
         <div class="pt-6 border-t border-white/10 text-[13px] font-lato font-medium text-white/70">
@@ -183,150 +198,147 @@
         </div>
       </section>
 
-      <!-- Chapter 02: User Need & Personas -->
-      <section id="ch2" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="User Need">
-        <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">02 / THE USER NEED</span>
-        <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Support the quick task and the bigger picture.</h2>
-        <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-8">Different users come to the experience with different intents. The interface needs to support immediate actions without fragmenting the larger journey.</p>
+      <!-- Chapter 02: The User Need -->
+      <section id="ch2" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
+          <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">02 / THE USER NEED</span>
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">One experience, two moments to open it.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">The app serves two main states of mind: finding immediate calm during a busy day, and building a deliberate daily habit over time. The experience needs to support both without getting in the way.</p>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-          
-        <div class="p-6 md:p-8 rounded-[20px] bg-[#f0eff1] border border-black/5 flex flex-col justify-start shadow-sm hover:border-black/20 transition-all">
-          <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#888] mb-2">User Type 1</span>
-          <h4 class="text-[20px] font-lato font-bold text-black mb-3">The Quick Reset Seeker</h4>
-          <p class="text-[14px] font-lato text-[#555] leading-[1.65]">Needs an instant 3-minute grounding exercise during high-stress workday moments without navigating menus.</p>
-        </div>
-        <div class="p-6 md:p-8 rounded-[20px] bg-[#f0eff1] border border-black/5 flex flex-col justify-start shadow-sm hover:border-black/20 transition-all">
-          <span class="text-[11px] font-lato font-bold uppercase tracking-wider text-[#888] mb-2">User Type 2</span>
-          <h4 class="text-[20px] font-lato font-bold text-black mb-3">The Habit Builder</h4>
-          <p class="text-[14px] font-lato text-[#555] leading-[1.65]">Builds a daily morning and evening wellness routine with streak tracking and progressive audio/breathwork sessions.</p>
-        </div>
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch2_user_need.png" alt="Settle User Need & Personas" class="w-full h-auto object-contain rounded-[14px]">
         </div>
       </section>
 
-      <!-- Remaining Story Chapters (Chapters 03–12) -->
-      <div class="w-full flex flex-col items-center">
-        
-        <!-- Chapter 3 -->
-        <section id="ch3" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="03 / PRODUCT STRUCTURE">
+      <!-- Chapter 03: Product Structure -->
+      <section id="ch3" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">03 / PRODUCT STRUCTURE</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Organise around the practice, not the catalogue.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">I grouped the experience into four connected moments: check in, find an exercise, practice, and review progress. This provides a clear path through the feature set.</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/settle_product_structure.png" alt="Product Structure — Practice Over Catalogue" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 4 -->
-        <section id="ch4" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="04 / THE CORE JOURNEY">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Organise around the practice, not the catalogue.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">I grouped the experience into four connected moments: check in, find an exercise, practice, and review progress. This provides a clear path through the feature set.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch3_sticky_notes.png" alt="Product Structure Affinity Mapping" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 04: The Core Journey -->
+      <section id="ch4" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">04 / THE CORE JOURNEY</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">A first reset before a lasting habit.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">The journey moves from a short onboarding check-in to one guided exercise, then reflection and progress. The design intent is to make the first session understandable before asking users to build a routine.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 w-full">
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Onboarding check-in</p>
-                    </div>
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Post-exercise reflection</p>
-                    </div></div>
-          
-        </section>
-        <!-- Chapter 5 -->
-        <section id="ch5" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="05 / EXPLORATION & TRADE-OFF">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">A first reset before a lasting habit.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">The journey moves from a short onboarding check-in to one guided exercise, then reflection and progress. The design intent is to make the first session understandable before asking users to build a routine.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch4_journey_screens.png" alt="The Core Journey Screens" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 05: Exploration & Trade-off -->
+      <section id="ch5" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">05 / EXPLORATION & TRADE-OFF</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Offer a starting point without removing choice.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">I compared browsing-led, quick-reset, and daily-practice concepts. The final Home combines suggested sessions with favorites and a streak summary: a starting point for newcomers, with continuity for returning users.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 w-full">
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Home Exercises Progress Profile</p>
-                    </div></div>
-          
-        </section>
-        <!-- Chapter 6 -->
-        <section id="ch6" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="06 / THE SOLUTION">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Offer a starting point without removing choice.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">I compared browsing-led, quick-reset, and daily-practice concepts. The final Home combines suggested sessions with favorites and a streak summary: a starting point for newcomers, with continuity for returning users.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch5_onboarding_flow.png" alt="Exploration & Trade-Off Flow" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 06: The Solution -->
+      <section id="ch6" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">06 / THE SOLUTION</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">A calm path through the daily practice.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">Personalized Home</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/settle_guided_reset.png" alt="Guided Reset & Real-Time Breathwork Interactions" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 7 -->
-        <section id="ch7" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="07 / DURING THE SESSION">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">A calm path through the daily practice.</h2>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch6_solution_mockup.png" alt="Personalized Home & Guided Daily Practice" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 07: During the Session -->
+      <section id="ch7" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">07 / DURING THE SESSION</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Guide the exercise. Leave room to reflect.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">Short guided exercises and the 30-day course support different levels of commitment. A reflection after practice gives the session a deliberate ending instead of sending users straight into more content.</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/settle_brand_store_design.png" alt="Brand & Store Design System" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 8 -->
-        <section id="ch8" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="08 / THE VISUAL EXPERIENCE">
-          <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">08 / THE VISUAL EXPERIENCE</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Carry the same promise from store to session.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">Settle’s blue palette and Inter typography connect the app with the Play Store artwork. The listing uses real app previews and short headlines to explain the daily reset experience.</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/imgSettlePlayStoreArtwork1.png" alt="Play Store Listing & Promo Artwork" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 9 -->
-        <section id="ch9" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="09 / DESIGN HANDOFF">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Guide the exercise. Leave room to reflect.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">Short guided exercises and the 30-day course support different levels of commitment. A reflection after practice gives the session a deliberate ending instead of sending users straight into more content.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch7_during_session.png" alt="Session Breathwork & Reflection Screens" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 08: Brand & Store Design -->
+      <section id="ch8" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
+          <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">08 / BRAND & STORE DESIGN</span>
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Carry the same promise from store to product.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">Settle’s blue palette and Inter typography connect the app with the Play Store artwork. The listing uses real app previews and short headlines to explain the daily reset experience.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch8_brand_design_system.png" alt="Brand & Store Design System" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 09: Design Handoff -->
+      <section id="ch9" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">09 / DESIGN HANDOFF</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Specify the experience between the screens.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">The handoff separates onboarding, exercises, progress, and account flows. Alternate states and animation notes explain how key interactions should behave, not just how the final screens look.</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/settle_design_handoff.png" alt="Design Handoff & State Specifications" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 10 -->
-        <section id="ch10" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="10 / RETURNING TO PRACTICE">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Specify the experience between the screens.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">The handoff separates onboarding, exercises, progress, and account flows. Alternate states and animation notes explain how key interactions should behave, not just how the final screens look.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch9_design_handoff_table.png" alt="Design Handoff Specifications" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 10: Returning to Practice -->
+      <section id="ch10" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">10 / RETURNING TO PRACTICE</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Support repetition without a single prescribed path.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">Favorites make exercises easy to find again. Optional reminders, shareable milestones, and guided courses offer different ways to continue practicing. The next test is whether this feels supportive rather than demanding.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 w-full">
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Personalized home</p>
-                    </div></div>
-          
-        </section>
-        <!-- Chapter 11 -->
-        <section id="ch11" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="11 / THE ACTIVATION MOMENT">
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Support repetition without a single prescribed path.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">Favorites make exercises easy to find again. Optional reminders, shareable milestones, and guided courses offer different ways to continue practicing. The next test is whether this feels supportive rather than demanding.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch10_returning_practice.png" alt="Returning to Practice & Habit Streaks" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 11: The Activation Moment -->
+      <section id="ch11" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
           <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">11 / THE ACTIVATION MOMENT</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Make the first reset feel complete.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">One guided exercise gives new users a clear place to begin. A brief post-session prompt then asks what they noticed, connecting the action to reflection.</p>
-          
-          
-            <div class="w-full my-8 rounded-[20px] overflow-hidden border border-black/10 shadow-lg bg-white p-2 hover:shadow-2xl transition-all" data-cursor-label="Zoom Asset">
-              <img src="./assets/figma/settle_first_reset.png" alt="Activation Moment — First Completed Reset" class="w-full h-auto object-contain rounded-[14px]">
-            </div>
-        </section>
-        <!-- Chapter 12 -->
-        <section id="ch12" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section" data-cursor-label="12 / REFLECTION & NEXT TEST">
-          <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">12 / REFLECTION & NEXT TEST</span>
-          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-4">Designed for a habit. Not yet proven to build one.</h2>
-          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px] mb-6">The work defines the onboarding, guided sessions, and progress experience. A usability study should test whether people can start a reset and return to it; habit or wellness impact has not been established here.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 w-full">
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Ridiculous overkill for neurotic transit nerds. I </p>
-                    </div>
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">First-session task</p>
-                    </div>
-                    <div class="p-5 rounded-[16px] bg-white border border-black/10 shadow-sm">
-                      <p class="text-[14px] font-lato text-[#444] leading-relaxed">Exercise Discovery</p>
-                    </div></div>
-          
-        </section>
-      </div>
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Make the first reset feel complete.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">One guided exercise gives new users a clear place to begin. A brief post-session prompt then asks what they noticed, connecting the action to reflection.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch11_first_reset_card.png" alt="The Activation Moment — First Reset Card" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
+
+      <!-- Chapter 12: Reflection & Outcomes -->
+      <section id="ch12" class="w-full max-w-[1074px] py-[56px] border-b border-black/10 reveal-section">
+        <div class="mb-6">
+          <span class="text-[12px] font-lato font-bold uppercase tracking-[0.12em] text-[#9d9d9d] block mb-2">12 / REFLECTION & OUTCOMES</span>
+          <h2 class="text-[28px] md:text-[38px] font-lato font-bold text-black tracking-tight leading-[1.2] mb-3">Designed for a habit. Not yet proven to build one.</h2>
+          <p class="text-[16px] md:text-[18px] font-lato text-[#555] leading-[1.65] max-w-[920px]">The work defines the onboarding, guided sessions, and progress experience. A usability study should test whether people can start a reset and return to it; habit or wellness impact has not been established here.</p>
+        </div>
+        
+        <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[20px] border border-black/10 bg-white p-3 shadow-md hover:shadow-xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset">
+          <img src="./assets/figma/settle_ch12_validation_cards.png" alt="Validation Study Tasks & Outcomes" class="w-full h-auto object-contain rounded-[14px]">
+        </div>
+      </section>
 
       <!-- More of My Work Section -->
       <section id="more-work" class="w-full max-w-[1074px] pt-12 pb-16 reveal-section">
@@ -418,9 +430,15 @@
       </div>
       <div class="w-full max-w-[1272px] mt-[48px] pt-[24px] border-t border-white/10 flex flex-col sm:flex-row justify-between text-[#888] text-[13px] font-lato">
         <p>© 2026 Soni Patel. All rights reserved.</p>
-        <p class="hover:text-white cursor-pointer transition-colors" data-node-id="22:28497">Space to ride ↗</p>
+        <p class="hover:text-white cursor-pointer transition-colors">Space to ride ↗</p>
       </div>
     </footer>
+  </div>
+
+  <!-- Lightbox Modal for Zooming Visual Assets -->
+  <div id="image-lightbox" class="fixed inset-0 z-[250] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4 md:p-12">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white text-[28px] font-bold p-3 hover:opacity-75 cursor-pointer">&times;</button>
+    <img id="lightbox-img" src="" alt="Enlarged Visual" class="max-w-full max-h-[90vh] object-contain rounded-[14px] shadow-2xl">
   </div>
 
   <script src="./js/main.js"></script>
@@ -429,35 +447,60 @@
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('section[id], div[id="intro"]');
       const tocLinks = document.querySelectorAll('.toc-link');
-      if (!sections.length || !tocLinks.length) return;
+      if (sections.length && tocLinks.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              tocLinks.forEach(link => {
+                const dot = link.querySelector('.toc-dot');
+                if (link.getAttribute('data-section') === id) {
+                  link.classList.remove('text-[#777]');
+                  link.classList.add('text-black', 'font-bold');
+                  if (dot) {
+                    dot.classList.remove('bg-black/20');
+                    dot.classList.add('bg-black', 'scale-125');
+                  }
+                } else {
+                  link.classList.remove('text-black', 'font-bold');
+                  link.classList.add('text-[#777]');
+                  if (dot) {
+                    dot.classList.remove('bg-black', 'scale-125');
+                    dot.classList.add('bg-black/20');
+                  }
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-20% 0px -70% 0px' });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            tocLinks.forEach(link => {
-              const dot = link.querySelector('.toc-dot');
-              if (link.getAttribute('data-section') === id) {
-                link.classList.remove('text-[#777]');
-                link.classList.add('text-black', 'font-bold');
-                if (dot) {
-                  dot.classList.remove('bg-black/20');
-                  dot.classList.add('bg-black', 'scale-125');
-                }
-              } else {
-                link.classList.remove('text-black', 'font-bold');
-                link.classList.add('text-[#777]');
-                if (dot) {
-                  dot.classList.remove('bg-black', 'scale-125');
-                  dot.classList.add('bg-black/20');
-                }
-              }
-            });
-          }
+        sections.forEach(s => observer.observe(s));
+      }
+
+      // Lightbox Click to Zoom
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      document.querySelectorAll('.zoomable-media img').forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!lightbox || !lightboxImg) return;
+          lightboxImg.src = img.src;
+          lightbox.classList.add('active');
         });
-      }, { rootMargin: '-20% 0px -70% 0px' });
+      });
 
-      sections.forEach(s => observer.observe(s));
+      if (lightbox) {
+        const closeBox = () => lightbox.classList.remove('active');
+        if (lightboxClose) lightboxClose.addEventListener('click', closeBox);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeBox();
+        });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeBox();
+        });
+      }
     });
   </script>
 </body>
