@@ -64,6 +64,68 @@
       transform: scale(0.95);
       transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
+    /* Hero Showcase Loop (Exact Charles Honig / Settle continuous animation) */
+    .hero-loop-container {
+      container-type: inline-size;
+      --su: calc(100cqw / 1272);
+      position: relative;
+      aspect-ratio: 1272 / 684;
+      width: 100%;
+      overflow: hidden;
+      background-color: #efeff0;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      user-select: none;
+    }
+    @media (max-width: 768px) {
+      .hero-loop-container {
+        border-radius: 14px;
+      }
+    }
+    .hero-loop-strip {
+      position: absolute;
+      width: calc(var(--su) * 206);
+      height: calc(var(--su) * 2410);
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      will-change: transform;
+    }
+    .hero-loop-strip-up {
+      animation-name: hero-loop-up;
+    }
+    .hero-loop-strip-down {
+      animation-name: hero-loop-down;
+    }
+    .hero-loop-card {
+      position: absolute;
+      width: calc(var(--su) * 206);
+      height: calc(var(--su) * 448);
+      left: 0;
+      overflow: hidden;
+      border-radius: calc(var(--su) * 14);
+      background-color: #0c1520;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-loop-container:hover .hero-loop-strip {
+      animation-play-state: paused;
+    }
+    @keyframes hero-loop-up {
+      to {
+        transform: translateY(calc(var(--su) * -964));
+      }
+    }
+    @keyframes hero-loop-down {
+      to {
+        transform: translateY(calc(var(--su) * 964));
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-loop-strip {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-[#f5f5f6] text-black font-lato min-h-screen overflow-x-hidden antialiased">
@@ -206,9 +268,108 @@
         </div>
       </section>
 
-      <!-- Hero Visual Showcase (Exact 10-Screen Collage in Soft Light Frame) -->
-      <div class="zoomable-media group relative w-full cursor-pointer overflow-hidden rounded-[24px] border border-black/10 bg-[#efeff0] p-3 md:p-4 shadow-sm hover:shadow-xl transition-all mb-14" data-cursor="grow" data-cursor-label="Zoom Asset">
-        <img src="./assets/figma/settle_hero_collage.png" alt="Settle Mobile Wellness App Overview Showcase" class="w-full h-auto object-contain rounded-[18px]">
+      <!-- Hero Visual Showcase (Continuous Autoscrolling 5-Column Phone Loop + Click to Zoom) -->
+      <div class="zoomable-media hero-loop-container group mb-14 cursor-pointer shadow-sm hover:shadow-2xl transition-all" data-cursor="grow" data-cursor-label="Zoom Asset" data-zoom-src="./assets/figma/settle_hero_collage_2x.png">
+        
+        <!-- Subtle gradient overlays at top & bottom for smooth seamless fade -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-[10%] z-20 bg-gradient-to-b from-[#efeff0] to-transparent"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[10%] z-20 bg-gradient-to-t from-[#efeff0] to-transparent"></div>
+        
+        <!-- Column 0 (Up) -->
+        <div class="hero-loop-strip hero-loop-strip-up" style="left: calc(var(--su) * 53); top: calc(var(--su) * -680); animation-duration: 68s;">
+          <div class="hero-loop-card" style="top: calc(var(--su) * 0);">
+            <img src="./assets/figma/settle_screens/post_exercise_reflection_2x.png" alt="Settle Reflection" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 482);">
+            <img src="./assets/figma/settle_screens/guided_breathwork_2x.png" alt="Settle Breathwork" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 964);">
+            <img src="./assets/figma/settle_screens/post_exercise_reflection_2x.png" alt="Settle Reflection" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1446);">
+            <img src="./assets/figma/settle_screens/guided_breathwork_2x.png" alt="Settle Breathwork" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1928);">
+            <img src="./assets/figma/settle_screens/post_exercise_reflection_2x.png" alt="Settle Reflection" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Column 1 (Down) -->
+        <div class="hero-loop-strip hero-loop-strip-down" style="left: calc(var(--su) * 293); top: calc(var(--su) * -1008); animation-duration: 62s;">
+          <div class="hero-loop-card" style="top: calc(var(--su) * 0);">
+            <img src="./assets/figma/settle_screens/streaks_calendar_2x.png" alt="Settle Streaks Calendar" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 482);">
+            <img src="./assets/figma/settle_screens/personalized_home_2x.png" alt="Settle Personalized Home" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 964);">
+            <img src="./assets/figma/settle_screens/streaks_calendar_2x.png" alt="Settle Streaks Calendar" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1446);">
+            <img src="./assets/figma/settle_screens/personalized_home_2x.png" alt="Settle Personalized Home" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1928);">
+            <img src="./assets/figma/settle_screens/streaks_calendar_2x.png" alt="Settle Streaks Calendar" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Column 2 (Up) -->
+        <div class="hero-loop-strip hero-loop-strip-up" style="left: calc(var(--su) * 533); top: calc(var(--su) * -680); animation-duration: 52s;">
+          <div class="hero-loop-card" style="top: calc(var(--su) * 0);">
+            <img src="./assets/figma/settle_screens/progress_dysregulated_2x.png" alt="Settle Progress Score" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 482);">
+            <img src="./assets/figma/settle_screens/onboarding_checkin_2x.png" alt="Settle Onboarding Checkin" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 964);">
+            <img src="./assets/figma/settle_screens/progress_dysregulated_2x.png" alt="Settle Progress Score" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1446);">
+            <img src="./assets/figma/settle_screens/onboarding_checkin_2x.png" alt="Settle Onboarding Checkin" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1928);">
+            <img src="./assets/figma/settle_screens/progress_dysregulated_2x.png" alt="Settle Progress Score" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Column 3 (Down) -->
+        <div class="hero-loop-strip hero-loop-strip-down" style="left: calc(var(--su) * 773); top: calc(var(--su) * -1008); animation-duration: 56s;">
+          <div class="hero-loop-card" style="top: calc(var(--su) * 0);">
+            <img src="./assets/figma/settle_screens/guided_course_2x.png" alt="Settle Guided Reset" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 482);">
+            <img src="./assets/figma/settle_screens/exercise_details_2x.png" alt="Settle Exercise Details" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 964);">
+            <img src="./assets/figma/settle_screens/guided_course_2x.png" alt="Settle Guided Reset" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1446);">
+            <img src="./assets/figma/settle_screens/exercise_details_2x.png" alt="Settle Exercise Details" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1928);">
+            <img src="./assets/figma/settle_screens/guided_course_2x.png" alt="Settle Guided Reset" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Column 4 (Up) -->
+        <div class="hero-loop-strip hero-loop-strip-up" style="left: calc(var(--su) * 1013); top: calc(var(--su) * -680); animation-duration: 60s;">
+          <div class="hero-loop-card" style="top: calc(var(--su) * 0);">
+            <img src="./assets/figma/settle_screens/first_exercise_2x.png" alt="Settle Daily Exercises" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 482);">
+            <img src="./assets/figma/settle_screens/guided_breathwork_2x.png" alt="Settle Breathwork" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 964);">
+            <img src="./assets/figma/settle_screens/first_exercise_2x.png" alt="Settle Daily Exercises" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1446);">
+            <img src="./assets/figma/settle_screens/guided_breathwork_2x.png" alt="Settle Breathwork" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+          <div class="hero-loop-card" style="top: calc(var(--su) * 1928);">
+            <img src="./assets/figma/settle_screens/first_exercise_2x.png" alt="Settle Daily Exercises" class="pointer-events-none object-cover object-top w-full h-full" loading="lazy">
+          </div>
+        </div>
+
       </div>
 
       <!-- Chapter 01: The Problem (Signature Dark Navy Card / Impact) -->
@@ -577,12 +738,15 @@
       const lightboxImg = document.getElementById('lightbox-img');
       const lightboxClose = document.getElementById('lightbox-close');
 
-      document.querySelectorAll('.zoomable-media img').forEach(img => {
-        img.addEventListener('click', (e) => {
-          e.stopPropagation();
+      document.querySelectorAll('.zoomable-media').forEach(media => {
+        media.addEventListener('click', (e) => {
           if (!lightbox || !lightboxImg) return;
-          lightboxImg.src = img.src;
-          lightbox.classList.add('active');
+          const targetImg = e.target.closest('img');
+          const zoomSrc = media.getAttribute('data-zoom-src') || (targetImg ? targetImg.src : null);
+          if (zoomSrc) {
+            lightboxImg.src = zoomSrc;
+            lightbox.classList.add('active');
+          }
         });
       });
 
